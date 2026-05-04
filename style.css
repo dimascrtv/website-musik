@@ -1283,7 +1283,7 @@ html, body {
 /* CARD */
 .pricing-card {
   width: 370px; /* 🔥 sesuai figma */
-  height: 753px;
+  min-height: 753px; /* ✅ ganti ini */
   border-radius: 34px;
 
   background: transparent; /* kosongkan */
@@ -1299,6 +1299,10 @@ html, body {
   position: relative;
   flex-direction: column; /* 🔥 INI KUNCI */
   z-index: 1;
+}
+
+.pricing-card {
+  padding-bottom: 60px; /* 🔥 sebelumnya 52px → tambah jadi lebih lega */
 }
 
 .pricing-card::after {
