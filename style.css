@@ -1,0 +1,2271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: white; /* ← INI KUNCINYA */
+  overflow-x: hidden;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.global-container {
+  max-width: 1144px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* HERO */
+.hero {
+  width: 100%;
+  height: 1474px;
+
+  background: url('IMAGE/background header jasa musik aransemen.jpg') no-repeat center center;
+  background-size: cover;
+
+  color: white;
+  position: relative;
+  overflow: visible;
+  z-index: 0; /* 🔥 penting banget */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+    rgba(26, 26, 26, 1) 0%,     /* kiri solid */
+    rgba(6, 78, 59, 0.46) 100%  /* kanan transparan */
+  );
+
+  z-index: 1;
+}
+
+/* NAVBAR */
+.navbar {
+  position: relative; /* 🔥 WAJIB */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  z-index: 999; /* 🔥 GAS POL, jangan nanggung */ 
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 76px;
+}
+
+.menu a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* HOVER MENU */
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 50%;
+  height: 1px;
+  background: white;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* LOGO */
+.logo {
+  width: 129px;
+  height: 54px;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  margin-top: 223px;
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 73px;
+  line-height: 75px;
+  font-weight: 500;
+}
+
+.hero-content p {
+  margin-top: 50px;
+  font-size: 17px;
+  line-height: 30px;
+  max-width: 600px;
+}
+
+/* CTA */
+.cta {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* BUTTON WRAP */
+.btn-wrap {
+  position: relative;
+  width: 311px;
+  height: 65px;
+}
+
+/* OUTLINE CIRCLE */
+.btn-wrap::before {
+  content: "";
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  border: 1px solid white;
+  border-radius: 50%;
+  left: 32px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+
+/* BUTTON */
+.btn-primary {
+  width: 311px;
+  height: 65px;
+  background: #CF7325;
+  border-radius: 50px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: all 0.35s ease, background 0.3s ease;
+}
+
+/* CIRCLE PUTIH */
+.btn-primary .circle {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 53px;
+  height: 53px;
+  background: #EDE7E3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease;
+}
+
+/* TEXT */
+.btn-primary .text {
+  margin-left: 40px;
+}
+
+/* SVG */
+.circle svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.5s ease;
+}
+
+/* HOVER BUTTON */
+.btn-wrap:hover .btn-primary {
+  background: #E07B2D;
+  box-shadow: 0 0 18px rgba(207, 115, 37, 0.35);
+}
+
+.btn-wrap:hover .btn-primary .circle {
+  box-shadow: 
+    0 6px 16px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.25);
+  transform: translateY(-50%) scale(0.95);
+}
+
+.btn-wrap:hover::before {
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0.9;
+}
+
+.cta-btn-wrap:hover .cta-circle svg {
+  transform: rotate(360deg);
+}
+
+/* PORTFOLIO */
+.portfolio {
+  margin-left: 52px;
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+}
+
+/* HOVER PORTFOLIO */
+.portfolio::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50%;
+  height: 1px;
+  background: white;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.portfolio:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* GUIDE LINE BASE */
+.guide-line {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0; /* ← turunin */
+}
+
+/* HORIZONTAL LINE */
+.guide-line.horizontal {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+
+  width: 200vw;
+  height: 1px;
+
+  transform: translate(-50%, -50%);
+
+  animation: dashMoveHorizontal 6s linear infinite;
+
+  background: repeating-linear-gradient(
+    to right,
+    rgba(255,255,255,0.5) 0px,
+    rgba(255,255,255,0.5) 17px,
+    transparent 17px,
+    transparent 34px
+  );
+}
+
+
+
+/* VERTICAL LINE */
+.guide-line.vertical {
+  top: 0;
+  height: 100%;
+  right: calc((100% - 1144px)/2);
+  width: 1px;
+  animation: dashMoveVertical 6s linear infinite;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.5) 0px,
+    rgba(255,255,255,0.5) 17px,
+    transparent 17px,
+    transparent 34px
+  );
+}
+
+/* ANIMASI DASH */
+@keyframes dashMoveHorizontal {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 34px 0; /* 17 dash + 17 gap */
+  }
+}
+
+@keyframes dashMoveVertical {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 34px;
+  }
+}
+
+
+/* SECTION SERVICES */
+.services {
+  position: relative;
+  margin-top: -350px;
+  z-index: 2; /* 🔥 TAMBAH */
+}
+
+/* BACKGROUND PUTIH DI TENGAH CARD */
+.services::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0; /* ← penting */
+  bottom: 0;
+
+  height: 60%; /* lebih aman dari fixed px */
+  background: #ffffff;
+
+  z-index: -1;
+}
+
+
+
+/* TITLE */
+.services-title {
+  font-size: 40px;
+  line-height: 65px;
+  font-weight: 500; /* Poppins Medium */
+  color: white;
+  margin-bottom: 40px;
+}
+
+
+
+/* CARD */
+.card {
+  flex: 1;
+  aspect-ratio: 351 / 520;
+
+  background: #2A2A2A;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  border: none;
+  outline: 1px solid rgba(255,255,255,0.6);
+}
+
+.card {
+  will-change: transform;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+}
+
+.card-arrow .circle {
+  width: 60px;
+  height: 60px;
+
+  border: 2px solid white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  transition: all 0.4s ease;
+}
+
+/* SVG PANAH */
+.card-arrow svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.4s ease;
+}
+
+.card-arrow svg path {
+  stroke: white;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+
+  transition: all 0.4s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 78, 59, 0.36) 0%,   /* atas */
+    rgba(6, 78, 59, 0.48) 43%,  /* tengah */
+    rgba(26, 26, 26, 1) 87%     /* bawah */
+  );
+
+  z-index: 1; /* di atas gambar */
+  pointer-events: none;
+}
+
+.card:hover .card-arrow .circle {
+  background: white;       /* jadi solid */
+  border-color: white;
+  transform: scale(1.08);
+}
+
+.card:hover .card-arrow svg path {
+  stroke: #30504C;         /* panah jadi hijau */
+}
+
+/* BACKGROUND PER CARD */
+.card-1 {
+  background: url('IMAGE/card aransemen musik dan orkestrasi.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.card-2 {
+  background: url('IMAGE/card penulisan partitur dan notasi.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.card-3 {
+  background: url('IMAGE/card mixing dan mastering.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.card-4 {
+  background: url('IMAGE/card studio rekaman.jpg') no-repeat center;
+  background-size: cover;
+}
+
+/* OUTER FULL WIDTH */
+.cards-outer {
+  width: 100%;
+  overflow: visible;
+}
+
+.services-container {
+  max-width: 1144px;
+  margin: 0 auto;
+}
+
+.cards {
+  display: flex;
+  gap: 13px;
+
+  width: calc(100vw - ((100vw - 1144px) / 2)); 
+  margin-left: calc((100vw - 1144px) / 2);
+
+  justify-content: space-between;
+}
+
+.card {
+  transition: 
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-18px);
+
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.4),
+    0 0 25px rgba(255,255,255,0.25);
+}
+
+
+
+/* CONTENT DALAM CARD */
+.card-content {
+  z-index: 3;
+  padding-left: 36px;
+  padding-bottom: 42px; /* tambah dikit biar lega bawah */
+}
+
+/* TITLE DALAM CARD */
+.card-content h3 {
+  font-size: 26px;
+  line-height: 34px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 14px;
+  max-width: 260px;
+}
+
+/* LINK */
+.card-content a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5); /* ← 50% transparan */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px; /* ← jarak text ke panah diperbesar */
+}
+
+.card-content a .arrow {
+  opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   AUDIO PREVIEW (KANAN HERO)
+========================= */
+
+.audio-preview {
+  position: absolute;
+  right: calc((100% - 1144px)/2);
+
+  
+  top: 340px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10; 
+}
+
+/* CARD */
+.audio-card {
+  width: 293px;
+  height: 111px;
+  border-radius: 18px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  padding: 16px;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* TITLE */
+.audio-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* CONTROLS */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* PLAY BUTTON */
+.play-btn {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ICON PLAY */
+.icon.play {
+  width: 0;
+  height: 0;
+  border-left: 12px solid white;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+/* ICON STOP */
+.icon.stop {
+  width: 10px;
+  height: 10px;
+  background: white;
+}
+
+
+
+/* DURATION */
+.duration {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* BUTTON SELENGKAPNYA */
+.btn-more {
+  width: 166px;
+  height: 43px;
+  border-radius: 67px;
+
+  background: white;
+  color: #2E4D49;
+
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+
+  align-self: flex-end;
+}
+
+/* HOVER CARD */
+.audio-card:hover {
+  border: 1px solid rgba(255,255,255,0.9);
+}
+
+/* =========================
+   WAVEFORM REAL BAR STYLE
+========================= */
+
+.waveform {
+  position: relative;
+  width: 142px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* BAR STATIC (BACKGROUND) */
+
+
+
+
+@keyframes waveMove {
+  from { background-position: 0 0; }
+  to { background-position: 12px 0; }
+}
+
+.hero-title span {
+  display: block;
+}
+
+
+.waveform {
+  display: flex;
+  gap: 4px;
+  width: 142px;
+  height: 32px;
+  align-items: center;
+}
+
+.wave-bar {
+  width: 3px;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transition: background 0.2s ease;
+}
+
+.wave-bar.active {
+  background: #ffffff;
+}
+
+
+
+
+
+
+
+/* =========================
+   NEW SERVICES (ISOLATED)
+========================= */
+
+
+/* ===== NEW SERVICES ===== */
+.new-services {
+  padding-top: 180px;   /* ⬅️ dari 120 → 180 biar lebih lega */
+  padding-bottom: 180px; /* ⬅️ bawah juga disamain biar balance */
+
+  max-width: 1144px;   /* 🔥 SAMAKAN DENGAN HEADER */
+  margin: 0 auto;      /* 🔥 INI KUNCI RATA KIRI-KANAN */
+}
+
+.ns-item {
+  display: flex;
+  align-items: flex-start; /* 🔥 INI KUNCI RATA ATAS */
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 240px;
+}
+
+/* LEFT */
+.ns-left {
+  width: 414px;
+}
+
+.ns-title {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 50px;
+  color: #064E3B;
+  margin-bottom: 35px;
+}
+
+.ns-desc {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 30px;
+  color: #064E3B;
+  margin-bottom: 47px;
+}
+
+/* BUTTON (ISOLATED) */
+.ns-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 48px;
+
+  padding: 8px 36px 8px 6px; /* 🔥 atas bawah diperkecil + kiri dipersempit */
+  border-radius: 999px;
+
+  background: transparent;
+    border: 1px solid #064E3B; /* 🔥 GANTI */
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+    color: #064E3B; /* 🔥 GANTI */
+
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+}
+
+/* CIRCLE JADI HIJAU */
+.ns-btn .circle {
+  width: 48px;   /* ⬅️ dari 42 → 48 */
+  height: 48px;
+
+  border-radius: 50%;
+  background: #064E3B; /* 🔥 GANTI */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+  flex-shrink: 0; /* ⬅️ biar nggak gepeng */
+  transition: all 0.3s ease;
+}
+/* ICON JADI HIJAU */
+
+
+/* TEXT */
+.ns-btn .text {
+  transform: translateX(-8px); /* ⬅️ geser dikit ke kiri */
+  white-space: nowrap;
+}
+
+.ns-btn:hover {
+  background: transparent;
+  transform: none;
+}
+
+.ns-item:last-child {
+  margin-bottom: 0; /* 🔥 kecilin dari 140 → jadi lebih rapat ke portfolio */
+}
+
+.ns-btn:hover {
+  box-shadow: 
+    0 0 0 1px rgba(6, 78, 59, 0.4),
+    0 0 10px rgba(6, 78, 59, 0.25),
+    0 0 20px rgba(6, 78, 59, 0.15);
+}
+
+.ns-btn .arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #064E3B; /* 🔥 GANTI */
+  flex-shrink: 0;
+}
+
+.ns-btn .arrow svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.5s ease;
+}
+
+.ns-btn:hover .circle svg {
+  transform: rotate(360deg);
+}
+
+/* VISUAL */
+.ns-visual {
+  position: relative;
+  width: 365px;
+  height: 480px;
+}
+
+/* BACKGROUND IMAGE (PNG nanti) */
+.ns-bg-img {
+  position: absolute;
+  width: 345px;
+  height: 480px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 🔥 CENTER PERFECT */
+
+  z-index: 1;
+}
+
+/* MAIN IMAGE */
+.ns-main-img {
+  position: absolute;
+
+  width: 365px;
+  height: 485px; /* 🔥 UBAH KE INI */
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* 🔥 BIAR NGGAK KE-POTONG */
+
+  border-radius: 20px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* SECTION 1 */
+.ns-1 .ns-bg-img {
+  background: url('IMAGE/BG jasa aransemen musik & orkestrasi.png') no-repeat center;
+  background-size: cover;
+  transition: transform 0.2s ease-out; /* 🔥 biar halus */
+  will-change: transform;
+}
+
+.ns-1 .ns-main-img {
+  background: url('IMAGE/GD jasa aransemen musik & orkestrasi.png') no-repeat center;
+  background-size: contain; /* 🔥 GANTI INI */
+}
+
+/* SECTION 2 */
+.ns-2 .ns-bg-img {
+  background: url('IMAGE/BG penulisan partitur & notasi musik.png') no-repeat center;
+  background-size: cover;
+  transition: transform 0.2s ease-out; /* 🔥 biar halus */
+  will-change: transform;
+}
+
+.ns-2 .ns-main-img {
+  background: url('IMAGE/GD vokal rekording.png') no-repeat center;
+  background-size: contain;
+}
+
+/* SECTION 3 */
+.ns-3 .ns-bg-img {
+  background: url('IMAGE/BG jasa mixing mastering.png') no-repeat center;
+  background-size: cover;
+  transition: transform 0.2s ease-out; /* 🔥 biar halus */
+  will-change: transform;
+}
+
+.ns-3 .ns-main-img {
+  background: url('IMAGE/GD jasa aransemen musik & orkestrasi.png') no-repeat center;
+  background-size: contain;
+}
+
+/* SECTION 4 */
+.ns-4 .ns-bg-img {
+  background: url('IMAGE/BG jasa rekording.png') no-repeat center;
+  background-size: cover;
+  transition: transform 0.2s ease-out; /* 🔥 biar halus */
+  will-change: transform;
+}
+
+.ns-4 .ns-main-img {
+  background: url('IMAGE/GD vokal rekording.png') no-repeat center;
+  background-size: contain;
+}
+
+/* RIGHT */
+.ns-right {
+  width: 303px;
+  margin-left: 61px;
+  margin-top: 0; /* 🔥 HAPUS OFFSET */
+
+  will-change: transform, opacity;
+}
+
+.ns-right p {
+  font-family: 'Poppins';
+  font-size: 17px;
+  line-height: 30px;
+  color: #064E3B;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pf-section {
+  background: #F5F8F7;
+  padding: 140px 0 140px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+
+  overflow: hidden; /* 🔥 INI YANG BIKIN KE-CROP */
+}
+
+.pf-container {
+  width: 1144px;        /* 🔥 KUNCI UTAMA */
+  margin: 0 auto;
+}
+
+.pf-title {
+  font-size: 38px;
+  font-weight: 600; /* 🔥 semi bold */
+  color: #304E4B;
+  margin-bottom: 53px;
+}
+
+.pf-grid {
+  display: flex;
+  gap: 48px;
+
+  justify-content: center; /* 🔥 INI KUNCI */
+}
+
+.pf-column {
+  width: 350px;
+}
+
+.pf-item {
+  padding: 10px 0 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pf-item {
+  border-bottom: 1px solid rgba(48, 78, 75, 0.2);
+}
+
+.pf-play:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.pf-column .pf-item:first-child {
+  border-top: 1px solid rgba(48, 78, 75, 0.2);
+}
+
+.pf-left {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.pf-play {
+  width: 16px;
+  height: 16px;
+  background: #304E4B;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+    cursor: pointer;
+}
+
+.pf-song {
+  font-size: 17px;
+  font-weight: 600;
+  color: #304E4B;
+}
+
+.pf-artist {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #304E4B;
+}
+
+.pf-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.pf-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* sesuai Figma */
+
+  height: 100%; /* 🔥 biar center terhadap garis */
+}
+
+.pf-dots span {
+  width: 3px;
+  height: 3px;
+  background: #304E4B;
+  border-radius: 50%;
+}
+
+.pf-dots {
+  position: relative;
+}
+
+
+.pf-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* 3 titik */
+.pf-dots span {
+  width: 3px;
+  height: 3px;
+  background: #304E4B;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* 🔥 ANIMASI SAAT DIKLIK */
+.pf-dots.active span:nth-child(1) {
+  transform: translateY(-4px) scale(1.2);
+}
+
+.pf-dots.active span:nth-child(2) {
+  transform: translateY(4px) scale(1.2);
+}
+
+.pf-dots.active span:nth-child(3) {
+  transform: translateY(-4px) scale(1.2);
+}
+
+
+
+
+.pf-desc {
+  margin-top: 65px;
+  font-size: 17px;
+  line-height: 30px;
+  color: #304E4B;
+
+  max-width: 1144px;      /* 🔥 sesuai Figma */
+  width: 100%;
+
+  text-align: center;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* WRAP */
+.pf-btn-wrap {
+  position: relative;
+  width: 311px;
+  height: 65px;
+
+  margin: 50px auto 0 auto; /* 🔥 lebih lega */
+}
+
+.pf-btn-wrap::before {
+  content: "";
+  position: absolute;
+
+  width: 95px;
+  height: 95px;
+
+  border: 1px solid #304E4B;
+  border-radius: 50%;
+
+  left: 32px;              /* ✅ BALIK KE ASLI */
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  transition: all 0.4s ease;
+}
+
+/* BUTTON */
+.pf-btn-main {
+  width: 311px;
+  height: 65px;
+  background: #304E4B;
+  border-radius: 50px;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+
+  transition: all 0.35s ease;
+}
+
+/* CIRCLE */
+.pf-circle {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 53px;
+  height: 53px;
+  background: #EDE7E3;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.35s ease;
+}
+
+/* TEXT */
+.pf-text-btn {
+  font-size: 17px;
+  font-weight: 500; /* 🔥 sama kayak detail */
+  color: white;
+  margin-left: 40px;
+}
+
+/* SVG */
+.pf-circle svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.5s ease;
+}
+
+/* HOVER (SAMA PERSIS DETAIL) */
+.pf-btn-wrap:hover .pf-btn-main {
+  background: #3B615D;
+  box-shadow: 0 0 18px rgba(48, 78, 75, 0.35);
+}
+
+.pf-btn-wrap:hover .pf-circle {
+  box-shadow: 
+    0 6px 16px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.25);
+
+  transform: translateY(-50%) scale(0.95);
+}
+
+.pf-btn-wrap:hover::before {
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0.9;
+}
+
+.pf-btn-wrap:hover .pf-circle svg {
+  transform: rotate(360deg);
+}
+
+
+.pf-title-wrap {
+  width: fit-content;
+  margin: 0 auto 53px auto; /* center block */
+}
+
+.pf-title-wrap {
+  width: calc(350px * 3 + 48px * 2); /* 3 kolom + gap */
+}
+
+.pf-play.playing {
+  width: 14px;
+  height: 14px;
+  background: #304E4B;
+  clip-path: none; /* 🔥 jadi kotak */
+}
+
+.pricing-section {
+  padding: 120px 0 160px;
+  position: relative;
+  overflow: hidden; /* 🔥 penting */
+
+  background: url('IMAGE/background pricing.jpg') center/cover no-repeat;
+}
+
+.pricing-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(6, 78, 59, 0.46) 0%,   /* bawah */
+    rgba(26, 26, 26, 1) 100%    /* atas */
+  );
+
+  z-index: 1; /* 🔥 penting */
+}
+
+.pricing-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* TITLE */
+.pricing-title {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 38px;
+  color: white;
+}
+
+/* DESC */
+.pricing-desc {
+  margin-top: 40px;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 30px;
+  color: white;
+
+  max-width: 1143px; /* 🔥 KUNCI Figma width */
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CARDS WRAPPER */
+.pricing-cards {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+}
+
+
+
+/* CARD */
+.pricing-card {
+  width: 370px; /* 🔥 sesuai figma */
+  height: 753px;
+  border-radius: 34px;
+
+  background: transparent; /* kosongkan */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: none; 
+
+  padding: 65px 32px 52px; /* 🔥 BALIKIN padding bawah */
+  text-align: left;
+  color: white;
+
+  position: relative;
+  flex-direction: column; /* 🔥 INI KUNCI */
+  z-index: 1;
+}
+
+.pricing-card::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  backdrop-filter: blur(10px);
+  background: rgba(12,12,12,0.02);
+
+  border-radius: 34px;
+  z-index: -1;
+}
+
+
+
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border: 0.5px solid rgba(255,255,255,0.5);
+  border-radius: 34px;
+
+  pointer-events: none;
+}
+
+
+
+
+
+/* ICON */
+.pricing-icon {
+  width: 71px;
+  height: 71px;
+  border-radius: 50%;
+  background: white;
+  margin-bottom: 17px; /* 🔥 jarak ke title */
+}
+
+/* TITLE CARD */
+.pricing-card-title {
+  margin-top: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+/* DESC */
+.pricing-card-desc {
+  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 28px;
+}
+
+/* PRICE */
+.pricing-price {
+  margin-top: 26px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 38px;
+}
+
+/* BUTTON */
+.pricing-btn {
+  margin-top: 30px;
+  width: 316px; /* 🔥 dari 382 → 316 */
+  height: 65px;
+  background: #CF7325;
+  border-radius: 34px;
+  border: none;
+
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 19px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+/* FEATURES */
+.pricing-features {
+  margin-top: 33px; 
+  font-size: 15px;
+  line-height: 30px;
+}
+
+
+
+/* DIVIDER */
+.pricing-divider {
+  margin-top: 35px;
+  width: 314px; /* 🔥 fix */
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+
+.pricing-item {
+  position: relative;
+  padding-left: 20px; /* jarak ke teks */
+}
+
+
+
+/* BULLET LINGKARAN */
+.pricing-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+
+  width: 5px;
+  height: 5px;
+
+  background: white;
+  border-radius: 50%;
+}
+
+/* 1. ICON TURUN (jarak atas diperbesar) */
+
+
+
+
+
+.pricing-price {
+  margin-top: 24px; /* sebelumnya 44px → ini kunci */
+}
+
+/* 3. SPACING BAWAH LEBIH LEGA */
+
+
+/* =========================
+   WHY SECTION (NEW)
+========================= */
+
+.why-section {
+  padding: 100px 0 60px;
+  background: #ffffff;
+}
+
+.why-container {
+  max-width: 1144px; /* sama kayak pf-desc biar konsisten */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ROW */
+.why-row {
+  display: flex;
+  gap: 73px;
+  margin-bottom: 80px;
+}
+
+.why-col {
+  width: 585px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TITLE */
+.why-title {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 50px;
+  color: #3a3a3a;
+}
+
+/* ITEM */
+.why-item {
+  position: relative;
+  border-bottom: 1px solid #000;
+}
+
+.why-item p {
+  width: 520px;
+  font-size: 17px;
+  line-height: 30px;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+/* NUMBER BULAT */
+.why-number {
+  position: absolute;
+  right: -30px;
+  top: 100%;
+  transform: translateY(-50%);
+
+  width: 65px;
+  height: 65px;
+  border: 1px solid #000;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+  font-weight: 500;
+  background: #fff;
+}
+
+/* ALIGN */
+.top-align {
+  align-items: flex-start;
+}
+
+.bottom-align {
+  align-items: flex-end;
+}
+
+.why-title {
+  margin-top: -4px;
+}
+
+/* =========================
+   WHY SECTION COLOR UPDATE
+========================= */
+
+.why-section {
+  color: #324D4B;
+}
+
+/* TITLE */
+.why-title {
+  color: #324D4B;
+}
+
+/* PARAGRAF */
+.why-item p {
+  color: #324D4B;
+}
+
+/* GARIS HORIZONTAL */
+.why-item {
+  border-bottom: 1px solid #324D4B;
+}
+
+/* LINGKARAN + ANGKA */
+.why-number {
+  color: #324D4B;
+  border: 1px solid #324D4B;
+}
+
+
+/* =========================
+   WHY SECTION HOVER (CLEAN)
+========================= */
+
+/* ITEM */
+.why-item {
+  transition: transform 0.35s ease;
+}
+
+/* HOVER → naik halus */
+.why-item:hover {
+  transform: translateY(-5px);
+}
+
+/* TEXT */
+.why-item p {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.why-item:hover p {
+  transform: translateX(4px);
+  opacity: 0.9;
+}
+
+/* LINGKARAN */
+.why-number {
+  transition: all 0.35s ease;
+}
+
+/* HOVER → lingkaran hidup */
+.why-item:hover .why-number {
+  transform: translateY(-50%) scale(1.06);
+
+  box-shadow: 
+    0 6px 16px rgba(50,77,75,0.25),
+    0 2px 6px rgba(50,77,75,0.15);
+} 
+
+
+/* =========================
+   PRICING HOVER EFFECT
+========================= */
+
+/* CARD BASE */
+.pricing-card {
+  transition: 
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border 0.45s ease;
+}
+
+/* HOVER CARD */
+.pricing-card:hover {
+  transform: translateY(-12px) scale(1.01);
+
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.35),
+    0 0 30px rgba(255,255,255,0.08);
+}
+
+/* BORDER GLOW HALUS */
+.pricing-card::before {
+  transition: border 0.4s ease, opacity 0.4s ease;
+}
+
+.pricing-card:hover::before {
+  border: 1px solid rgba(255,255,255,0.8);
+  opacity: 1;
+}
+
+/* =========================
+   BUTTON INTERACTION
+========================= */
+
+.pricing-btn {
+  transition: all 0.35s ease;
+}
+
+/* HOVER BUTTON */
+.pricing-card:hover .pricing-btn {
+  background: #E07B2D;
+
+  box-shadow: 
+    0 10px 25px rgba(207,115,37,0.35),
+    0 0 20px rgba(207,115,37,0.25);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TEXT MICRO INTERACTION
+========================= */
+
+.pricing-card-title,
+.pricing-price {
+  transition: transform 0.35s ease;
+}
+
+.pricing-card:hover .pricing-card-title {
+  transform: translateY(-2px);
+}
+
+.pricing-card:hover .pricing-price {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   FEATURE LIST (HALUS)
+========================= */
+
+.pricing-item {
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover .pricing-item {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   PRICING BUTTON ARROW HOVER
+========================= */
+
+.pricing-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0; /* awalnya tidak ada jarak */
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* TEXT */
+.btn-text {
+  transition: transform 0.35s ease;
+}
+
+/* ARROW */
+.btn-arrow {
+  display: flex;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateX(-8px) scale(0.8);
+
+  margin-left: 0; /* awalnya nempel */
+
+  transition: all 0.35s ease;
+}
+
+/* HOVER */
+.pricing-btn:hover .btn-text {
+  transform: translateX(-4px);
+}
+
+.pricing-btn:hover .btn-arrow {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+
+  margin-left: 10px; /* 🔥 INI KUNCI JARAK */
+}
+
+/* EXTRA FEEL (BIAR LEBIH HIDUP) */
+.pricing-btn:hover {
+  box-shadow: 
+    0 10px 25px rgba(207,115,37,0.35),
+    0 0 20px rgba(207,115,37,0.25);
+}
+
+.btn-arrow svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+
+  transition: transform 0.35s ease;
+}
+
+/* HOVER → sedikit dorong */
+.pricing-btn:hover .btn-arrow svg {
+  transform: translateX(2px);
+}
+
+/* =========================
+   AUDIO HOVER EFFECT (SAFE)
+========================= */
+
+/* CARD HOVER */
+.audio-card {
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease,
+    background 0.35s ease;
+}
+
+.audio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,0.25),
+    0 0 15px rgba(255,255,255,0.15);
+
+  border: 1px solid rgba(255,255,255,0.9);
+}
+
+/* GLASS FEEL LEBIH HIDUP */
+.audio-card:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* =========================
+   PLAY BUTTON INTERACTION
+========================= */
+
+.play-btn {
+  transition: transform 0.25s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ICON LEBIH RESPONSIVE */
+.play-btn:hover .icon.play {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+}
+
+/* =========================
+   WAVEFORM HOVER (SUBTLE)
+========================= */
+
+.waveform .wave-bar {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.audio-card:hover .wave-bar {
+  transform: scaleY(1.2);
+  opacity: 0.9;
+}
+
+/* =========================
+   DURATION (HALUS)
+========================= */
+
+.audio-card:hover .duration {
+  opacity: 0.8;
+}
+
+/* =========================
+   BTN MORE - PREMIUM VERSION
+========================= */
+
+.btn-more {
+  width: 166px;
+  height: 43px;
+  border-radius: 67px;
+
+  background: white;
+  color: #2E4D49;
+
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+
+  align-self: flex-end;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 
+    background 0.35s ease,
+    border 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.25s ease;
+}
+
+/* TEXT BASE */
+.btn-more span {
+  position: absolute;
+
+  transition: 
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease;
+
+  will-change: transform, opacity;
+}
+
+/* FRONT TEXT */
+.btn-text-front {
+  color: #2E4D49;
+  font-weight: 500;
+
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* BACK TEXT */
+.btn-text-back {
+  color: white;
+  font-weight: 700;
+
+  transform: translateY(8px);
+  opacity: 0;
+}
+
+/* =========================
+   HOVER MASUK
+========================= */
+
+.btn-more:hover {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.8);
+
+  box-shadow: 
+    0 0 10px rgba(255,255,255,0.35),  /* edge lebih kelihatan */
+    0 0 22px rgba(255,255,255,0.25),  /* tengah naik */
+    0 0 45px rgba(255,255,255,0.15);  /* outer lebih luas */
+
+  transform: translateY(-2px);
+}
+
+/* TRANSISI TEKS */
+.btn-more:hover .btn-text-front {
+  transform: translateY(-6px);
+  opacity: 0;
+}
+
+.btn-more:hover .btn-text-back {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* =========================
+   HOVER KELUAR (LEBIH HALUS)
+========================= */
+
+.btn-more:not(:hover) .btn-text-front {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.btn-more:not(:hover) .btn-text-back {
+  transform: translateY(8px);
+  opacity: 0;
+}
+
+/* CLICK FEEL */
+.btn-more:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   FAQ SECTION (ISOLATED)
+========================= */
+
+.faq-section {
+  padding: 120px 0 100px;
+  background: #ffffff;
+  padding-bottom: 150px; /* 🔥 samakan dengan atas CTA */
+}
+
+
+
+.faq-container {
+  max-width: 1144px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* TITLE */
+.faq-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  color: #314F4C;
+}
+
+/* ITEM */
+.faq-item {
+  margin-top: 74px;
+  border-bottom: 1px solid rgba(49, 79, 76, 0.3);
+  padding-bottom: 20px;
+}
+
+/* QUESTION ROW */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* TEXT */
+.faq-question span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #314F4C;
+}
+
+/* ICON */
+.faq-icon {
+  font-size: 28px;
+  font-weight: 500;
+  color: #314F4C;
+  transition: transform 0.3s ease;
+}
+
+/* ANSWER */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 28px;
+  color: rgba(49, 79, 76, 0.7);
+
+  transition: all 0.4s ease;
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+/* ACTIVE STATE */
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  margin-top: 20px;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ICON CHANGE */
+.faq-item.active .faq-icon {
+  transform: rotate(45deg); /* jadi X (lebih smooth dari ganti text) */
+}
+
+/* SPACING ANTAR ITEM */
+.faq-item + .faq-item {
+  margin-top: 39px;
+}
+
+/* HOVER EFFECT */
+.faq-question:hover span {
+  transform: translateX(4px);
+  transition: transform 0.3s ease;
+}
+
+
+/* =========================
+   CTA SECTION (ISOLATED)
+========================= */
+
+.cta-section {
+  position: relative;
+  background: url('IMAGE/background-cta.jpg') center/cover no-repeat;
+
+  padding-bottom: 441px;
+  overflow: hidden;
+
+  /* 🔥 TAMBAH INI */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 1) 0%,      /* 🔥 atas */
+    rgba(6, 78, 59, 0.46) 100%   /* 🔥 bawah */
+  );
+
+  z-index: 1;
+}
+
+/* BASE */
+.cta-line {
+  position: absolute;
+  top: 0;
+  bottom: 0; /* 🔥 ini bikin full tinggi */
+  height: 500%; /* 🔥 jangan pakai height:100% */
+  width: 1px;
+
+  pointer-events: none;
+  z-index: 3;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.4) 0px,
+    rgba(255,255,255,0.4) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+/* 🔥 POSISI SESUAI CONTAINER 1144px */
+.cta-line.left {
+  left: calc(50% - 572px);
+  animation: ctaDashUp 2s linear infinite;
+}
+
+.cta-line.right {
+  left: calc(50% + 572px);
+  animation: ctaDashDown 2s linear infinite;
+}
+
+/* ANIMASI */
+@keyframes ctaDashDown {
+  from { background-position: 0 0; }
+  to   { background-position: 0 24px; }
+}
+
+@keyframes ctaDashUp {
+  from { background-position: 0 24px; }
+  to   { background-position: 0 0; }
+}
+
+.cta-container {
+  max-width: 1144px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.cta-title {
+    padding-top: 121px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 73px;
+  line-height: 85px;
+  color: white;
+}
+
+/* ACTIONS */
+.cta-actions {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   BUTTON (CLONE HERO STYLE)
+========================= */
+/* =========================
+   BUTTON (REFINED - MATCH HERO)
+========================= */
+
+.cta-btn-wrap {
+  position: relative;
+  width: 311px;
+  height: 65px;
+}
+
+.cta-btn-wrap::before {
+  content: "";
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  left: 32px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.35s ease;
+}
+
+.cta-btn-primary {
+  width: 100%;
+  height: 100%;
+  background: #CF7325;
+  border-radius: 999px;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding-left: 90px; /* 🔥 tambah supaya balance */
+  padding-right: 40px; /* 🔥 biar text benar2 center */
+
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+
+  transition: all 0.3s ease;
+}
+
+/* ICON BULAT */
+.cta-circle {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 52px;
+  height: 52px;
+  background: #F3EEEA;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.cta-btn-primary {
+  justify-content: center; /* 🔥 center total */
+}
+
+.cta-btn-text {
+  transform: translateX(-10px); /* 🔥 kompensasi icon */
+}
+
+.cta-circle svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+/* TEXT */
+.cta-btn-text {
+  white-space: nowrap;
+}
+
+/* 🔥 FIX BUTTON HERO */
+.btn-wrap:hover .circle svg {
+  transform: rotate(360deg);
+}
+
+/* HOVER (lebih smooth & elegan) */
+.cta-btn-wrap:hover .cta-btn-primary {
+  background: #E07B2D;
+  box-shadow: 0 0 18px rgba(207, 115, 37, 0.35);
+}
+
+.cta-btn-wrap:hover .cta-circle {
+  transform: translateY(-50%) scale(0.95);
+  box-shadow: 
+    0 6px 16px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.25);
+}
+
+.cta-btn-wrap:hover .cta-circle svg {
+  transform: rotate(360deg);
+}
+
+.cta-btn-wrap:hover::before {
+  transform: translate(-50%, -50%) scale(0.92);
+  opacity: 0.8;
+}
+
+/* =========================
+   LINK (REFINED)
+========================= */
+
+.cta-link {
+  margin-left: 52px;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.cta-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 50%;
+  height: 1px;
+  background: white;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.cta-link:hover {
+  opacity: 1;
+}
+
+.cta-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.parallax-section {
+  background-position: center;
+  background-size: cover;
+  will-change: transform;
+}
+
