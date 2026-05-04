@@ -2273,3 +2273,32 @@ html, body {
   will-change: transform;
 }
 
+
+/* =========================
+   TEXT SECTION (FOOTER SEO / CONTENT)
+========================= */
+
+.text-section {
+  background: #ffffff;
+  padding-top: 87px;
+  padding-bottom: 99px;
+}
+
+.text-container {
+  max-width: 1144px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.text-section p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 30px;
+  color: #064E3B;
+
+  text-align: justify; /* 🔥 ini pengganti justify fit figma */
+}
+
+
+
+
