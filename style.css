@@ -1344,7 +1344,19 @@ html, body {
   height: 71px;
   border-radius: 50%;
   background: white;
-  margin-bottom: 17px; /* 🔥 jarak ke title */
+  margin-bottom: 37px; /* 🔥 jarak ke title */
+}
+
+.icon-1 {
+  background-image: url('IMAGE/icon1.png');
+}
+
+.icon-2 {
+  background-image: url('IMAGE/icon2.png');
+}
+
+.icon-3 {
+  background-image: url('IMAGE/icon3.png');
 }
 
 /* TITLE CARD */
