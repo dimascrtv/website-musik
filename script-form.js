@@ -280,18 +280,80 @@ function reorderOptions(box){
 
 document
 .getElementById("instrumentSearch")
-.addEventListener("input", function(){
+.addEventListener("input", function () {
 
-  const keyword = this.value.toLowerCase();
+  const keyword = this.value.toLowerCase().trim();
 
-  document.querySelectorAll(".option").forEach(option => {
+  const bigGroups = document.querySelectorAll(".big-group");
 
-    const text = option.innerText.toLowerCase();
+  bigGroups.forEach(bigGroup => {
 
-    if(text.includes(keyword)){
-      option.style.display = "flex";
-    }else{
-      option.style.display = "none";
+    const instrumentGroups =
+      bigGroup.querySelectorAll(".instrument-group");
+
+    let hasVisibleGroup = false;
+
+    instrumentGroups.forEach(group => {
+
+      const options =
+        group.querySelectorAll(".option");
+
+      let hasVisibleOption = false;
+
+      options.forEach(option => {
+
+        const text =
+          option.innerText.toLowerCase();
+
+        const match =
+          text.includes(keyword);
+
+        if (keyword === "") {
+
+          option.style.display = "flex";
+          hasVisibleOption = true;
+
+        } else {
+
+          if (match) {
+            option.style.display = "flex";
+            hasVisibleOption = true;
+          } else {
+            option.style.display = "none";
+          }
+
+        }
+
+      });
+
+      // tampil/sembunyikan 1 group kecil
+      if (hasVisibleOption || keyword === "") {
+
+        group.style.display = "block";
+        hasVisibleGroup = true;
+
+      } else {
+
+        group.style.display = "none";
+
+      }
+
+    });
+
+    // buka/tutup accordion besar
+    const content =
+      bigGroup.querySelector(".big-content");
+
+    if (hasVisibleGroup || keyword === "") {
+
+      bigGroup.classList.remove("closed");
+      content.style.display = "block";
+
+    } else {
+
+      bigGroup.classList.add("closed");
+      content.style.display = "none";
+
     }
 
   });
