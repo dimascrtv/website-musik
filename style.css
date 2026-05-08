@@ -34,6 +34,13 @@ html {
   position: relative;
   overflow: visible;
   z-index: 0;
+
+  background:
+    url('IMAGE/background header jasa musik aransemen.jpg')
+    no-repeat center center;
+
+  background-size: cover;
+  background-attachment: scroll;
 }
 
 .hero::after {
@@ -41,11 +48,7 @@ html {
   position: absolute;
   inset: 0;
 
-  background:
-    url('IMAGE/background header jasa musik aransemen.jpg')
-    no-repeat center center;
-
-  background-size: cover;
+  background: inherit;
 
   z-index: 0;
 
