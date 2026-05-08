@@ -690,7 +690,7 @@ function generateWA(total){
 
   let message = "";
 
-  message += "Halo Musiknya Dimas,\n\n";
+  message += "Halo Musiknya Dimas,\n";
   message += "Saya ingin melakukan pemesanan arrangement.\n\n";
 
   DATA.forEach(section => {
@@ -703,7 +703,7 @@ function generateWA(total){
 
       if(value && value.length){
 
-        sectionText += `• ${group.name}\n`;
+        sectionText += `${group.name}\n`;
 
         // ARRAY
         if(Array.isArray(value)){
@@ -724,26 +724,22 @@ function generateWA(total){
 
     });
 
+    // kalau section ada isi
     if(sectionText){
 
-      message += "====================\n";
-      message += `${section.title.toUpperCase()}\n`;
-      message += "====================\n\n";
+      message += `*${section.title.toUpperCase()}*\n`;
 
-      message += sectionText;
+      message += `${sectionText}`;
 
     }
 
   });
 
-  message += "====================\n";
-  message += "TOTAL BIAYA\n";
-  message += "====================\n\n";
-
+  message += `TOTAL BIAYA\n`;
   message += `${formatRupiah(total)}`;
 
-  // WAJIB encode
-  const encodedMessage = encodeURIComponent(message);
+  const encodedMessage =
+    encodeURIComponent(message);
 
   const url =
     `https://wa.me/6285737690807?text=${encodedMessage}`;
