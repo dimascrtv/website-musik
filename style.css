@@ -49,14 +49,14 @@ html {
 
   z-index: 0;
 
-  filter: blur(18px);
-  transform: scale(1.06);
+  filter: blur(12px);
+  transform: scale(1.03);
 
-  opacity: 0;
+  opacity: 1;
 
-  animation: heroImageReveal 1.4s ease forwards;
+  animation: heroImageReveal 0.7s ease-out forwards;
 
-  will-change: transform, filter, opacity;
+  will-change: transform, filter;
 }
 
 .hero::before {
@@ -75,19 +75,13 @@ html {
 
 @keyframes heroImageReveal {
   0% {
-    filter: blur(22px);
-    transform: scale(1.08);
-    opacity: 0;
-  }
-
-  40% {
-    opacity: 1;
+    filter: blur(12px);
+    transform: scale(1.03);
   }
 
   100% {
     filter: blur(0px);
     transform: scale(1);
-    opacity: 1;
   }
 }
 
