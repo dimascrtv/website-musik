@@ -4,26 +4,6 @@
   box-sizing: border-box;
 }
 
-.card-link{
-  text-decoration: none;
-  color: inherit;
-}
-
-.card{
-  width: 300px;
-  padding: 20px;
-  border-radius: 16px;
-  background: #1e1e1e;
-  border: 1px solid #333;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.card:hover{
-  transform: translateY(-5px);
-  border-color: #666;
-}
-
 body {
   font-family: 'Poppins', Arial, sans-serif;
   background: white; /* ← INI KUNCINYA */
