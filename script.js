@@ -307,3 +307,14 @@ window.addEventListener('scroll', () => {
     section.style.backgroundPosition = `center calc(50% + ${y}px)`;
   });
 });
+
+
+  document.querySelectorAll('.card-arrow').forEach(item => {
+    item.addEventListener('click', () => {
+      const target = item.getAttribute('data-link');
+
+      document.querySelector(target).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });

@@ -38,10 +38,10 @@
     <!-- NAVBAR -->
     <div class="navbar">
       <div class="menu">
-        <a href="#">Aransemen</a>
-        <a href="#">Partitur</a>
-        <a href="#">Mixing Mastering</a>
-        <a href="#">Recording</a>
+        <a href="#aransemen">Aransemen</a>
+        <a href="#partitur">Partitur</a>
+        <a href="#mixing">Mixing Mastering</a>
+        <a href="#recording">Recording</a>
       </div>
 
 		<div class="logo">
@@ -82,7 +82,7 @@
           </button>
         </div>
 
-        <a href="#" class="portfolio">Lihat Portofolio</a>
+        <a href="#portfolio" class="portfolio">Lihat Portofolio</a>
 
       </div>
     </div>
@@ -127,10 +127,10 @@
   </div>
 
   <!-- BUTTON -->
-  <button class="btn-more">
+  <a href="#portfolio" class="btn-more">
   <span class="btn-text-front">Selengkapnya</span>
   <span class="btn-text-back">Selengkapnya</span>
-  </button>
+  </a>
 
 </div>
 
@@ -156,7 +156,7 @@
     <div class="cards">
 
       <div class="card card-1">
-		  <div class="card-arrow">
+		  <div class="card-arrow" data-link="#aransemen">
 			<span class="circle">
 			  <svg viewBox="0 0 24 24" fill="none">
 				<path d="M4 12H18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
@@ -166,7 +166,7 @@
 		  </div>
         <div class="card-content">
           <h3>Aransemen Musik & Orkestrasi</h3>
-			<a href="#">
+			<a href="#aransemen">
 			  <span class="text">Selengkapnya</span>
 			  <span class="arrow">→</span>
 			</a>
@@ -174,7 +174,7 @@
       </div>
 
       <div class="card card-2">
-		  <div class="card-arrow">
+		  <div class="card-arrow" data-link="#partitur">
 			<span class="circle">
 			  <svg viewBox="0 0 24 24" fill="none">
 				<path d="M4 12H18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
@@ -184,7 +184,7 @@
 		  </div>
         <div class="card-content">
           <h3>Penulisan Partitur & Notasi</h3>
-			<a href="#">
+			<a href="#partitur">
 			  <span class="text">Selengkapnya</span>
 			  <span class="arrow">→</span>
 			</a>
@@ -193,7 +193,7 @@
       </div>
 
       <div class="card card-3">
-		  <div class="card-arrow">
+		  <div class="card-arrow" data-link="#mixing">
 			<span class="circle">
 			  <svg viewBox="0 0 24 24" fill="none">
 				<path d="M4 12H18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
@@ -203,7 +203,7 @@
 		  </div>
         <div class="card-content">
           <h3>Mixing & <br> Mastering</h3>
-			<a href="#">
+			<a href="#mixing">
 			  <span class="text">Selengkapnya</span>
 			  <span class="arrow">→</span>
 			</a>
@@ -212,7 +212,7 @@
       </div>
 
       <div class="card card-4">
-		  <div class="card-arrow">
+		  <div class="card-arrow" data-link="#recording">
 			<span class="circle">
 			  <svg viewBox="0 0 24 24" fill="none">
 				<path d="M4 12H18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
@@ -222,7 +222,7 @@
 		  </div>
         <div class="card-content">
           <h3>Recording (Studio / <br> On Location)</h3>
-			<a href="#">
+			<a href="#recording">
 			  <span class="text">Selengkapnya</span>
 			  <span class="arrow">→</span>
 			</a>
@@ -242,7 +242,7 @@
 <section class="new-services">
 
   <!-- ===== ITEM 1 ===== -->
-      <div class="ns-item ns-1">
+      <div class="ns-item ns-1" id="aransemen">
         
         <!-- LEFT -->
         <div class="ns-left">
@@ -290,7 +290,7 @@
     <!-- ===== DUPLIKASI UNTUK 3 ITEM LAIN ===== -->
     <!-- tinggal ganti text nanti -->
     
-      <div class="ns-item ns-2">
+      <div class="ns-item ns-2" id="partitur">
         <div class="ns-left">
           <h2 class="ns-title">Penulisan Partitur & Notasi Musik</h2>
           <p class="ns-desc">Dapatkan dokumentasi musik yang rapi dan standar industri. Kami melayani pembuatan partitur resmi (sheet music) menggunakan software Sibelius terbaru. </p>
@@ -316,7 +316,7 @@
       </div>
 
 
-      <div class="ns-item ns-3">
+      <div class="ns-item ns-3" id="mixing">
         <div class="ns-left">
           <h2 class="ns-title">Jasa Mixing & Mastering Audio</h2>
           <p class="ns-desc">Bawa kualitas audio Anda ke level dunia. Melalui proses Mixing & Mastering yang detail, kami memastikan suara vokal dan instrumen terdengar jernih, seimbang, dan memiliki power yang tepat.</p>
@@ -342,7 +342,7 @@
       </div>
 
 
-      <div class="ns-item ns-4">
+      <div class="ns-item ns-4" id="recording">
         <div class="ns-left">
           <h2 class="ns-title">Jasa Recording Studio & On-Location</h2>
           <p class="ns-desc">Abadikan performa terbaik Anda dengan kualitas audio premium. Kami menyediakan jasa recording vokal dan instrumen dengan peralatan kelas atas di studio kami. </p>
@@ -375,7 +375,7 @@
 
 
 
-<section class="pf-section">
+<section class="pf-section" id="portfolio">
   <div class="pf-container">
 
       <div class="pf-title-wrap">
