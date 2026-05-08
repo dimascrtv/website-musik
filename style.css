@@ -1415,6 +1415,14 @@ html {
    FIX FEATURED BUTTON HOVER
 ==================================== */
 
+/* =========================
+   PRO ARRANGEMENT SHADOW
+========================= */
+
+.pricing-card-featured {
+  box-shadow: 0 4px 92px rgba(255, 255, 255, 0.15);
+}
+
 .pricing-card-featured:hover .pricing-btn {
   background: #ffffff !important;
   color: #CF7325 !important;
@@ -1435,6 +1443,30 @@ html {
   stroke: #CF7325;
 }
 
+/* =========================
+   FIX HOVER BUTTON PUTIH
+   STARTER + ORCHESTRAL
+========================= */
+
+.pricing-card:not(.pricing-card-featured):hover .pricing-btn {
+  background: white !important;
+  color: #324D4B !important;
+
+  box-shadow:
+    0 6px 16px rgba(255,255,255,0.18),
+    0 0 12px rgba(255,255,255,0.12),
+    0 0 24px rgba(255,255,255,0.08) !important;
+}
+
+/* WARNA PANAH */
+.pricing-card:not(.pricing-card-featured):hover .btn-arrow svg path {
+  stroke: #324D4B !important;
+}
+
+/* DEFAULT PANAH */
+.pricing-card:not(.pricing-card-featured) .btn-arrow svg path {
+  stroke: #324D4B;
+}
 
 .pricing-card::before {
   content: "";
@@ -1476,7 +1508,7 @@ html {
 .pricing-card-title {
   margin-top: 40px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 30px;
   letter-spacing: -1px;
   margin: 0;
@@ -1805,6 +1837,28 @@ html {
   transform: translateX(3px);
 }
 
+/* =========================
+   WHITE BUTTON VERSION
+========================= */
+
+/* STARTER + ORCHESTRAL */
+.pricing-card-starter .pricing-btn,
+.pricing-card-orchestra .pricing-btn {
+  background: white;
+  color: #324D4B;
+}
+
+/* TEXT */
+.pricing-card-starter .pricing-btn .btn-text,
+.pricing-card-orchestra .pricing-btn .btn-text {
+  color: #324D4B;
+}
+
+/* ARROW */
+.pricing-card-starter .pricing-btn .btn-arrow svg path,
+.pricing-card-orchestra .pricing-btn .btn-arrow svg path {
+  stroke: #324D4B;
+}
 
 /* =========================
    PRICING BUTTON ARROW HOVER
