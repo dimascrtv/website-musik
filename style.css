@@ -1440,6 +1440,8 @@ html {
 
 /* BUTTON */
 .pricing-btn {
+
+  text-decoration: none;
   margin-top: 30px;
   width: 316px; /* 🔥 dari 382 → 316 */
   height: 65px;

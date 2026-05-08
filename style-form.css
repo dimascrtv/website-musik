@@ -24,7 +24,7 @@ body{
 
   min-height:100vh;
 
-  padding-top:27px;
+  padding-top:96px;
   padding-bottom:120px;
 
   overflow:hidden;
@@ -138,7 +138,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:flex-end;
-  margin-bottom:70px;
+  margin-bottom:92px;
 }
 
 .hero-left h1{
@@ -303,9 +303,10 @@ body{
   height:47px;
   padding:0 21px;
   border-radius:999px;
-  border:0.5px solid rgba(255,255,255,0.5);
+border:0.5px solid rgba(255,255,255,0.28);
+color:rgba(255,255,255,0.38);
   background:transparent;
-  color:rgba(255,255,255,0.5);
+  
   display:flex;
   align-items:center;
   justify-content:center;
@@ -322,6 +323,9 @@ body{
 .option.active{
   background:#fff;
   color:#4b4b4b;
+    box-shadow:
+    0 0 14px rgba(255,255,255,0.16),
+    0 0 28px rgba(255,255,255,0.08);
 }
 
 .option .remove{
@@ -575,3 +579,24 @@ textarea.custom-input{
   margin-bottom:28px;
 }
 
+/* ========================= */
+/* CLOSE BUTTON RESPONSIVE */
+/* ========================= */
+
+/* Desktop / Laptop */
+@media screen and (min-width: 769px){
+
+  .close-btn{
+    display:none;
+  }
+
+}
+
+/* HP */
+@media screen and (max-width: 768px){
+
+  .close-btn{
+    display:block;
+  }
+
+}
