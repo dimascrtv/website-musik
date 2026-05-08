@@ -53,6 +53,8 @@ html {
   z-index: 1;
 }
 
+
+
 /* NAVBAR */
 .navbar {
   position: relative; /* 🔥 WAJIB */
@@ -259,13 +261,16 @@ html {
 }
 
 /* GUIDE LINE BASE */
+/* GUIDE LINE BASE */
 .guide-line {
+  --line-color: rgba(220, 232, 228, 0.58);
+
   position: absolute;
   pointer-events: none;
-  z-index: 0; /* ← turunin */
+  z-index: 0;
 }
 
-/* HORIZONTAL LINE */
+/* HORIZONTAL */
 .guide-line.horizontal {
   position: absolute;
   top: 50%;
@@ -280,26 +285,26 @@ html {
 
   background: repeating-linear-gradient(
     to right,
-    rgba(255,255,255,0.5) 0px,
-    rgba(255,255,255,0.5) 17px,
+    rgba(215,225,223,0.32) 0px,   /* 🔥 diturunin lagi sedikit */
+    rgba(215,225,223,0.32) 17px,
     transparent 17px,
     transparent 34px
   );
 }
 
-
-
-/* VERTICAL LINE */
+/* VERTICAL */
 .guide-line.vertical {
   top: 0;
   height: 100%;
   right: calc((100% - 1144px)/2);
   width: 1px;
+
   animation: dashMoveVertical 6s linear infinite;
+
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255,255,255,0.5) 0px,
-    rgba(255,255,255,0.5) 17px,
+    var(--line-color) 0px,
+    var(--line-color) 17px,
     transparent 17px,
     transparent 34px
   );
