@@ -172,8 +172,16 @@ function renderAccordion(){
         textarea.placeholder = group.placeholder;
 
         textarea.addEventListener("input", () => {
+
+          textarea.style.height = "auto";
+
+          textarea.style.height =
+            textarea.scrollHeight + "px";
+
           state.selections[group.name] = textarea.value;
+
           updateSummary();
+
         });
 
         wrap.appendChild(textarea);
@@ -185,9 +193,12 @@ function renderAccordion(){
         const box = document.createElement("div");
         box.className = "option-box";
 
-        group.options.forEach(option => {
+        group.options.forEach((option, index) => {
 
           const btn = document.createElement("button");
+
+          btn.dataset.index = index;
+
           btn.className = "option";
 
           btn.innerHTML = `
@@ -242,41 +253,207 @@ function renderAccordion(){
     });
 
     // ACCORDION
+    // ACCORDION
+// ACCORDION
     const header = big.querySelector(".big-header");
 
     header.addEventListener("click", () => {
+
       big.classList.toggle("closed");
 
-      if(big.classList.contains("closed")){
-        content.style.display = "none";
-      }else{
-        content.style.display = "block";
-      }
+      checkAllClosed();
+
     });
 
+    // WAJIB ADA
     accordionContainer.appendChild(big);
 
-  });
+    });
 
+    // WAJIB ADA
 }
 
+
 renderAccordion();
+
+function checkAllClosed(){
+
+  const groups =
+    document.querySelectorAll(".big-group");
+
+  const allClosed =
+    [...groups].every(group =>
+      group.classList.contains("closed")
+    );
+
+  const hero =
+    document.querySelector(".hero-section");
+
+  if(allClosed){
+
+    hero.classList.add("all-closed");
+
+  }else{
+
+    hero.classList.remove("all-closed");
+
+  }
+
+}
 
 /* REORDER ACTIVE */
 
 function reorderOptions(box){
 
-  const active = [...box.querySelectorAll(".option.active")];
-  const inactive = [...box.querySelectorAll(".option:not(.active)")];
+  const items = [...box.querySelectorAll(".option")];
 
-  box.innerHTML = "";
+  // simpan posisi awal
+  const firstPositions = new Map();
 
-  active.forEach(item => box.appendChild(item));
-  inactive.forEach(item => box.appendChild(item));
+  items.forEach(item => {
+    firstPositions.set(item, item.getBoundingClientRect());
+  });
+
+  // urutan asli
+  const originalOrder = [...items].sort((a, b) => {
+    return Number(a.dataset.index) - Number(b.dataset.index);
+  });
+
+  // active di depan
+  const active = originalOrder.filter(item =>
+    item.classList.contains("active")
+  );
+
+  const inactive = originalOrder.filter(item =>
+    !item.classList.contains("active")
+  );
+
+  // render ulang
+  [...active, ...inactive].forEach(item => {
+    box.appendChild(item);
+  });
+
+  // animasi FLIP
+  requestAnimationFrame(() => {
+
+    items.forEach(item => {
+
+      const first = firstPositions.get(item);
+      const last = item.getBoundingClientRect();
+
+      const dx = first.left - last.left;
+      const dy = first.top - last.top;
+
+      if(dx || dy){
+
+        item.animate(
+          [
+            {
+              transform: `translate(${dx}px, ${dy}px)`
+            },
+            {
+              transform: `translate(0,0)`
+            }
+          ],
+          {
+            duration: 420,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+          }
+        );
+
+      }
+
+    });
+
+  });
+
+}
+/* SEARCH */
+
+/* SEARCH FUZZY */
+
+function normalizeText(text){
+
+  return text
+    .toLowerCase()
+    .replace(/ph/g, "f")
+    .replace(/v/g, "f")
+    .replace(/c/g, "k")
+    .replace(/j/g, "y")
+    .replace(/q/g, "k");
 
 }
 
-/* SEARCH */
+function levenshtein(a, b){
+
+  const matrix = [];
+
+  for(let i = 0; i <= b.length; i++){
+    matrix[i] = [i];
+  }
+
+  for(let j = 0; j <= a.length; j++){
+    matrix[0][j] = j;
+  }
+
+  for(let i = 1; i <= b.length; i++){
+
+    for(let j = 1; j <= a.length; j++){
+
+      if(b.charAt(i - 1) === a.charAt(j - 1)){
+
+        matrix[i][j] = matrix[i - 1][j - 1];
+
+      }else{
+
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+
+      }
+
+    }
+
+  }
+
+  return matrix[b.length][a.length];
+
+}
+
+function isFuzzyMatch(text, keyword){
+
+  const a = normalizeText(text);
+  const b = normalizeText(keyword);
+
+  // exact
+  if(a.includes(b)) return true;
+
+  // indonesia -> english
+  const aliases = {
+    gitar: "guitar",
+    terompet: "trumpet",
+    kajon: "cajon",
+    drum: "drum",
+    bass: "bass"
+  };
+
+  if(aliases[b] && a.includes(aliases[b])){
+    return true;
+  }
+
+  const words = a.split(" ");
+
+  return words.some(word => {
+
+    const distance = levenshtein(word, b);
+
+    return distance <= 2;
+
+  });
+
+}
 
 document
 .getElementById("instrumentSearch")
@@ -298,6 +475,9 @@ document
       const options =
         group.querySelectorAll(".option");
 
+      const hasInput =
+        group.querySelector(".custom-input");
+
       let hasVisibleOption = false;
 
       options.forEach(option => {
@@ -306,33 +486,42 @@ document
           option.innerText.toLowerCase();
 
         const match =
-          text.includes(keyword);
+          keyword === ""
+          ? true
+          : isFuzzyMatch(text, keyword);
 
-        if (keyword === "") {
+        if(match){
 
           option.style.display = "flex";
           hasVisibleOption = true;
 
-        } else {
+        }else{
 
-          if (match) {
-            option.style.display = "flex";
-            hasVisibleOption = true;
-          } else {
-            option.style.display = "none";
-          }
+          option.style.display = "none";
 
         }
 
       });
 
-      // tampil/sembunyikan 1 group kecil
-      if (hasVisibleOption || keyword === "") {
+      if(keyword === ""){
 
         group.style.display = "block";
+
         hasVisibleGroup = true;
 
-      } else {
+      }else if(hasInput){
+
+        group.style.display = "block";
+
+        hasVisibleGroup = true;
+
+      }else if(hasVisibleOption){
+
+        group.style.display = "block";
+
+        hasVisibleGroup = true;
+
+      }else{
 
         group.style.display = "none";
 
@@ -340,16 +529,15 @@ document
 
     });
 
-    // buka/tutup accordion besar
     const content =
       bigGroup.querySelector(".big-content");
 
-    if (hasVisibleGroup || keyword === "") {
+    if(hasVisibleGroup || keyword === ""){
 
       bigGroup.classList.remove("closed");
       content.style.display = "block";
 
-    } else {
+    }else{
 
       bigGroup.classList.add("closed");
       content.style.display = "none";
@@ -496,9 +684,14 @@ function formatRupiah(number){
 
 /* WHATSAPP */
 
+/* WHATSAPP */
+
 function generateWA(total){
 
-  let message = `Halo, saya ingin melakukan pemesanan.%0A%0A`;
+  let message = "";
+
+  message += "Halo Musiknya Dimas,\n\n";
+  message += "Saya ingin melakukan pemesanan arrangement.\n\n";
 
   DATA.forEach(section => {
 
@@ -510,31 +703,66 @@ function generateWA(total){
 
       if(value && value.length){
 
-        sectionText += `• ${group.name}: ${
-          Array.isArray(value)
-          ? value.join(", ")
-          : value
-        }%0A`;
+        sectionText += `• ${group.name}\n`;
+
+        // ARRAY
+        if(Array.isArray(value)){
+
+          value.forEach(item => {
+            sectionText += `   - ${item}\n`;
+          });
+
+        }else{
+
+          sectionText += `   - ${value}\n`;
+
+        }
+
+        sectionText += `\n`;
 
       }
 
     });
 
     if(sectionText){
-      message += `*${section.title}*%0A${sectionText}%0A`;
+
+      message += "====================\n";
+      message += `${section.title.toUpperCase()}\n`;
+      message += "====================\n\n";
+
+      message += sectionText;
+
     }
 
   });
 
-  message += `Total: ${formatRupiah(total)}`;
+  message += "====================\n";
+  message += "TOTAL BIAYA\n";
+  message += "====================\n\n";
+
+  message += `${formatRupiah(total)}`;
+
+  // WAJIB encode
+  const encodedMessage = encodeURIComponent(message);
 
   const url =
-  `https://wa.me/6285737690807?text=${message}`;
+    `https://wa.me/6285737690807?text=${encodedMessage}`;
 
-  document
-  .getElementById("waButton")
-  .href = url;
+  document.getElementById("waButton").href = url;
 
 }
 
 updateSummary();
+
+
+window.addEventListener("scroll", () => {
+
+  const hero =
+    document.querySelector(".hero-section");
+
+  const scrollY = window.scrollY;
+
+  hero.style.backgroundPosition =
+    `center ${scrollY * 0.45}px`;
+
+});
