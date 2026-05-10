@@ -632,7 +632,7 @@ function updateSummary(){
 
   // PRICE
 
-  total += totalInstruments * duration * 100000;
+  total += totalInstruments * duration * 50000;
 
   // REVISI
   if(state.selections["Revisi minor"]){
@@ -641,7 +641,7 @@ function updateSummary(){
       state.selections["Revisi minor"][0]
     );
 
-    total += rev * 100000;
+    total += rev * 50000;
 
   }
 
@@ -651,7 +651,7 @@ function updateSummary(){
     state.selections["Mixing"][0] === "Include"
   ){
 
-    total += totalInstruments * duration * 50000;
+    total += totalInstruments * duration * 25000;
 
   }
 
@@ -661,7 +661,7 @@ function updateSummary(){
     state.selections["Mastering"][0] === "Include"
   ){
 
-    total += totalInstruments * duration * 25000;
+    total += totalInstruments * duration * 10000;
 
   }
 
