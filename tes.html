@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Audio Test</title>
+</head>
+<body>
+
+<button id="play">PLAY</button>
+
+<audio id="audio" src="MP3/audio1.mp3"></audio>
+
+<script>
+const btn = document.getElementById("play");
+const audio = document.getElementById("audio");
+
+btn.onclick = async () => {
+  try {
+    await audio.play();
+    alert("Audio jalan");
+  } catch(e) {
+    alert("Gagal: " + e);
+  }
+}
+</script>
+
+</body>
+</html>

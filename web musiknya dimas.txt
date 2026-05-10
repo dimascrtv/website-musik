@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Music Production</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO / HEADER -->
+<section class="hero">
+  <div class="container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="menu">
+        <a href="#">Aransemen</a>
+        <a href="#">Partitur</a>
+        <a href="#">Mixing Mastering</a>
+        <a href="#">Recording</a>
+      </div>
+
+      <div class="logo">
+        LOGO
+      </div>
+    </div>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+      <h1>
+        Jasa Aransemen Musik Profesional & Produksi Lagu Terlengkap di Indonesia
+      </h1>
+
+      <p>
+        Ubah ide musik Anda menjadi karya audio berkualitas industri. 
+        Melayani aransemen band, orkestra, hingga mixing mastering 
+        dengan standar internasional.
+      </p>
+
+      <div class="cta">
+        <button class="btn-primary">
+          <span class="circle">
+            →
+          </span>
+          Konsultasi Sekarang
+        </button>
+
+        <a href="#" class="portfolio">Lihat Portofolio</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

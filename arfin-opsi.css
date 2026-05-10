@@ -1,0 +1,527 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --dark:#0E1319;
+  --blue:#3974DE;
+  --white:#FFFFFF;
+}
+
+html,
+body{
+  width:100%;
+  min-height:100%;
+  background:#F4F4F4;
+  font-family:'Poppins', sans-serif;
+  overflow-x:hidden;
+}
+
+body{
+  padding:
+    24px
+    24px
+    24px;
+}
+
+/* PAGE WRAPPER */
+.page-wrapper{
+  width:100%;
+}
+
+/* =========================
+   TOP HEADER
+========================= */
+.topbar{
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding-inline:72px;
+  margin-bottom:18px;
+}
+
+.brand{
+  font-size:25px;
+  font-weight:600;
+  color:var(--dark);
+  letter-spacing:0.2px;
+}
+
+.more-info{
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  text-decoration:none;
+  color:var(--dark);
+
+  font-size:17px;
+  font-weight:600;
+}
+
+/* =========================
+   HERO CONTAINER
+========================= */
+.hero-container{
+  position:relative;
+
+  width:100%;
+
+  height:calc(100vh - 102px);
+
+  min-height:760px;
+
+  border-radius:36px;
+  overflow:hidden;
+
+  background:#0F1720;
+}
+
+/* VIDEO */
+.bg-video{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+/* OVERLAY */
+.overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.38) 40%,
+    rgba(0,0,0,0.62) 100%
+  );
+}
+
+/* INNER */
+.hero-inner{
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  height:100%;
+
+  padding:
+    34px
+    72px
+    38px;
+
+  display:flex;
+  flex-direction:column;
+
+  min-height:0;
+}
+
+/* =========================
+   TOP MENU
+========================= */
+.hero-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:48px;
+}
+
+.menu a{
+  position:relative;
+
+  color:#FFFFFF;
+  text-decoration:none;
+
+  font-size:20px;
+  font-weight:400;
+}
+
+.menu a::after{
+  content:"";
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:50%;
+  height:2px;
+
+  background:#FFFFFF;
+
+  transform:scaleX(0);
+  transform-origin:left;
+
+  transition:0.3s ease;
+}
+
+.menu a:hover::after{
+  transform:scaleX(1);
+}
+
+.hero-contact{
+  display:flex;
+  align-items:center;
+  gap:28px;
+
+  color:#FFFFFF;
+
+  font-size:20px;
+  font-weight:600;
+}
+
+/* =========================
+   CENTER
+========================= */
+.hero-center{
+  width:100%;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  margin-top:-20px;
+}
+
+/* TITLE */
+.hero-title{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  text-align:center;
+}
+
+.white-text{
+   font-size:clamp(52px, 4.2vw, 73.45px);
+  font-weight:700;
+  line-height:68.7px;
+  color:#FFFFFF;
+}
+
+.bottom-line{
+  display:flex;
+  align-items:flex-end;
+  gap:18px;
+}
+
+.blue-text{
+  font-size:clamp(58px, 4.8vw, 82.07px);
+  font-weight:700;
+  line-height:68.7px;
+  color:var(--blue);
+}
+
+/* DESC */
+.hero-desc{
+  margin-top:38px;
+
+  text-align:center;
+
+  color:#FFFFFF;
+
+  font-size:clamp(20px, 1.5vw, 27.69px);
+  font-weight:500;
+  line-height:37px;
+}
+
+/* BUTTONS */
+.hero-buttons{
+  margin-top:40px;
+
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.btn-primary,
+.btn-secondary{
+  height:49.71px;
+
+  padding-inline:32px;
+
+  border-radius:999px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+
+  font-size:16.54px;
+  transition:0.3s ease;
+}
+
+.btn-primary{
+  background:var(--blue);
+  color:#FFFFFF;
+  font-weight:500;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
+
+.btn-secondary{
+  border:0.84px solid #FFFFFF;
+  color:#FFFFFF;
+  font-weight:700;
+
+  background:transparent;
+}
+
+.btn-secondary:hover{
+  background:rgba(255,255,255,0.08);
+}
+
+/* =========================
+   BOTTOM
+========================= */
+.hero-bottom{
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+
+  gap:70px;
+
+  margin-top:auto;
+}
+
+.bottom-left{
+  width:420px;
+
+  color:#FFFFFF;
+
+  font-size:27.37px;
+  font-weight:700;
+  line-height:35px;
+}
+
+.bottom-right{
+  display:flex;
+  align-items:flex-start;
+
+  gap:50px;
+}
+
+.bottom-text{
+  color:#FFFFFF;
+
+  font-size:17.76px;
+  font-weight:400;
+  line-height:24px;
+}
+
+.text-1{
+  width:407.66px;
+}
+
+.text-2{
+  width:336.61px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Macbook 13 */
+@media (max-width: 1440px){
+
+  .topbar{
+    padding-inline:50px;
+  }
+
+  .hero-inner{
+    padding-inline:50px;
+  }
+
+  .white-text{
+    font-size:64px;
+  }
+
+  .blue-text{
+    font-size:72px;
+  }
+
+  .hero-desc{
+    font-size:24px;
+  }
+
+  .bottom-right{
+    gap:36px;
+  }
+
+  .text-1{
+    width:360px;
+  }
+
+  .text-2{
+    width:300px;
+  }
+}
+
+/* Legion / Laptop umum */
+@media (max-width: 1280px){
+
+  .topbar{
+    padding-inline:36px;
+  }
+
+  .hero-inner{
+    padding-inline:36px;
+  }
+
+  .hero-contact{
+    font-size:16px;
+  }
+
+  .menu a{
+    font-size:18px;
+  }
+
+  .white-text{
+    font-size:56px;
+    line-height:60px;
+  }
+
+  .blue-text{
+    font-size:64px;
+    line-height:60px;
+  }
+
+  .hero-desc{
+    font-size:22px;
+    line-height:32px;
+  }
+
+  .hero-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:42px;
+  }
+
+  .bottom-right{
+    width:100%;
+    justify-content:space-between;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px){
+
+  body{
+    padding:
+      30px
+      16px
+      16px;
+  }
+
+  .topbar{
+    padding-inline:0;
+  }
+
+  .hero-inner{
+    padding:28px;
+  }
+
+  .hero-top{
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .hero-contact{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+
+  .hero-center{
+    align-items:flex-start;
+  }
+
+  .hero-title{
+    align-items:flex-start;
+    text-align:left;
+  }
+
+  .bottom-line{
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .white-text{
+    font-size:46px;
+    line-height:52px;
+  }
+
+  .blue-text{
+    font-size:54px;
+    line-height:52px;
+  }
+
+  .hero-desc{
+    text-align:left;
+    font-size:20px;
+  }
+
+  .hero-buttons{
+    flex-wrap:wrap;
+  }
+
+  .bottom-right{
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .text-1,
+  .text-2{
+    width:100%;
+    max-width:100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  .menu{
+    gap:24px;
+    flex-wrap:wrap;
+  }
+
+  .white-text{
+    font-size:38px;
+    line-height:46px;
+  }
+
+  .blue-text{
+    font-size:44px;
+    line-height:46px;
+  }
+
+  .hero-desc{
+    font-size:18px;
+    line-height:28px;
+  }
+
+  .bottom-left{
+    width:100%;
+    font-size:24px;
+  }
+}
