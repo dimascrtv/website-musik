@@ -634,7 +634,7 @@ function updateSummary(){
 
   total += totalInstruments * duration * 50000;
 
-  // REVISI
+  // REVISI 
   if(state.selections["Revisi minor"]){
 
     const rev = parseInt(
