@@ -96,7 +96,8 @@ body{
 /* LEFT */
 
 .hero-left{
-  width: 640px;
+  width: 760px;
+  min-width: 760px;
 }
 
 .hero-title{
@@ -105,6 +106,12 @@ body{
   line-height: 67px;
   letter-spacing: -2px;
   color: #000;
+
+  max-width: 760px;
+}
+
+.solution-line{
+  white-space: nowrap;
 }
 
 .hero-title span{
@@ -124,6 +131,7 @@ body{
   display: flex;
   align-items: center;
   margin-top: 41px;
+  flex-wrap: nowrap;
 }
 
 /* BUTTON */
@@ -147,6 +155,7 @@ body{
   font-weight: 500;
 
   transition: 0.3s ease;
+  min-width: 190px;
 }
 
 .primary-btn:hover{
@@ -161,6 +170,7 @@ body{
 /* MORE INFO */
 
 .more-info{
+  white-space: nowrap;
   display: flex;
   align-items: center;
 
@@ -241,6 +251,7 @@ body{
   display: flex;
   align-items: center;
   margin-top: 150px;
+  padding-bottom: 140px;
 }
 
 /* IMAGE */
