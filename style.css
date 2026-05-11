@@ -2639,7 +2639,7 @@ html {
 
   .audio-card {
     width: 197px;
-    height: 74.63px;
+    height: 80px;
 
     border-radius: 12px;
 
@@ -2784,7 +2784,7 @@ html {
   .services-title {
     width: 195px;
 
-    margin-bottom: 28px;
+    margin-bottom: 15px;
   margin-left: 0;
 
     font-size: 20px;
