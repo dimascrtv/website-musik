@@ -3265,10 +3265,11 @@ html {
 
   /* SERVICES TITLE */
   .services-title {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 28px;
+    margin-top: 32px;
 
-    margin-bottom: 8px;
+    margin-bottom: -10px;
   }
 
   /* CARD */
@@ -3307,9 +3308,3 @@ html {
 
 }
 
-
-@media (max-width: 360px) {
-  .services-title {
-    font-size: 20px;
-  }
-}
