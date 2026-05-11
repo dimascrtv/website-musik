@@ -3102,7 +3102,6 @@ html {
 
     text-align: left;
   }
-}
 
 
 
@@ -3304,3 +3303,8 @@ html {
 
 }
 
+@media (max-width: 360px) {
+  .services-title {
+    margin-top: 82px;
+  }
+}
