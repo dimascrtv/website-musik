@@ -3141,10 +3141,6 @@ html {
 
 @media screen and (max-width: 370px) {
 
-  .hero-content h1 {
-    font-size: 36px;
-    line-height: 40px;
-  }
 
   .hero-content p,
   .ns-desc,
@@ -3213,8 +3209,8 @@ html {
 
   /* HERO TITLE */
   .hero-content h1 {
-    font-size: 31px;
-    line-height: 35px;
+    font-size: 38px;
+    line-height: 41px;
     letter-spacing: -1px;
   }
 
