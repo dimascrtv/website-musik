@@ -3203,3 +3203,106 @@ html {
   }
 
 }
+
+
+/* =========================================================
+   ANDROID SMALL DEVICES — 360px
+========================================================= */
+
+@media screen and (max-width: 370px) {
+
+  /* HERO TITLE */
+  .hero-content h1 {
+    font-size: 31px;
+    line-height: 35px;
+    letter-spacing: -1px;
+  }
+
+  /* HERO DESC */
+  .hero-content p {
+    font-size: 12px;
+    line-height: 21px;
+
+    margin-top: 24px;
+  }
+
+  /* CTA WRAP */
+  .cta {
+    margin-top: 36px;
+
+    flex-wrap: wrap;
+    row-gap: 18px;
+  }
+
+  /* BUTTON */
+  .btn-wrap {
+    width: 205px;
+    height: 44px;
+  }
+
+  .btn-primary {
+    width: 205px;
+    height: 44px;
+
+    font-size: 12px;
+  }
+
+  .btn-primary .circle {
+    width: 33px;
+    height: 33px;
+  }
+
+  .btn-primary .text {
+    font-size: 12px;
+  }
+
+  /* PORTFOLIO LINK */
+  .portfolio {
+    margin-left: 0;
+
+    font-size: 12px;
+  }
+
+  /* SERVICES TITLE */
+  .services-title {
+    font-size: 18px;
+    line-height: 28px;
+
+    margin-bottom: 8px;
+  }
+
+  /* CARD */
+  .card {
+    width: 210px;
+    min-width: 210px;
+    height: 300px;
+  }
+
+  /* CARD CONTENT */
+  .card-content {
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 18px;
+  }
+
+  .card-content h3 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .card-content a {
+    font-size: 9px;
+  }
+
+  /* ARROW */
+  .card-arrow .circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* HERO HEIGHT */
+  .hero {
+    min-height: 1080px;
+  }
+
+}
