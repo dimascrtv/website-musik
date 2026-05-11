@@ -2838,26 +2838,26 @@ html {
   .card {
   transform: translateZ(0);
   backface-visibility: hidden;
-}
+  }
 
-.card-content {
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 24px;
+  .card-content {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 12px; /* 🔥 jarak title ke selengkapnya */
-}
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 🔥 jarak title ke selengkapnya */
+  }
 
-.card-content h3 {
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 600;
+  .card-content h3 {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
 
-  margin-bottom: 0;
-  max-width: 170px;
-}
+    margin-bottom: 0;
+    max-width: 170px;
+  }
 
   .card-content a {
     font-size: 12px;
@@ -2869,12 +2869,12 @@ html {
     right: 16px;
   }
 
-.card-arrow .circle {
-  width: 50px;
-  height: 50px;
+  .card-arrow .circle {
+    width: 50px;
+    height: 50px;
 
-  border: 1px solid white;
-}
+    border: 1px solid white;
+  }
 
   .card-arrow svg {
     width: 15px;
@@ -3130,14 +3130,6 @@ html {
 }
 
 
-/* =========================================================
-   EXTRA SMALL MOBILE — 360px ANDROID
-========================================================= */
-
-/* =========================================================
-   EXTRA SMALL MOBILE — 360px
-========================================================= */
-
 @media screen and (max-width: 370px) {
 
 
@@ -3197,12 +3189,7 @@ html {
     line-height: 36px;
   }
 
-}
 
-
-/* =========================================================
-   ANDROID SMALL DEVICES — 360px
-========================================================= */
 
 @media screen and (max-width: 370px) {
 
@@ -3301,10 +3288,4 @@ html {
     min-height: 1080px;
   }
 
-}
-
-@media (max-width: 360px) {
-  .services-title {
-    margin-top: 82px;
-  }
 }
