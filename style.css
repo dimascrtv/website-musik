@@ -3129,3 +3129,77 @@ html {
   }
 
 }
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE — 360px ANDROID
+========================================================= */
+
+/* =========================================================
+   EXTRA SMALL MOBILE — 360px
+========================================================= */
+
+@media screen and (max-width: 370px) {
+
+  .hero-content h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .hero-content p,
+  .ns-desc,
+  .ns-right p,
+  .pricing-desc,
+  .pf-desc,
+  .text-section p,
+  .why-item p,
+  .faq-answer {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  .btn-wrap,
+  .cta-btn-wrap {
+    transform: scale(0.93);
+    transform-origin: left center;
+  }
+
+  .pricing-card {
+    padding: 34px 20px;
+  }
+
+  .card {
+    width: 220px;
+    min-width: 220px;
+    height: 310px;
+  }
+
+  .card-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+
+  .card-content h3 {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .audio-card {
+    width: 205px;
+  }
+
+  .logo {
+    width: 88px;
+    height: auto;
+  }
+
+  .services-title,
+  .pricing-title,
+  .faq-title,
+  .why-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+}
