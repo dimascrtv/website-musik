@@ -3306,3 +3306,10 @@ html {
   }
 
 }
+
+
+@media (max-width: 360px) {
+  .services-title {
+    font-size: 20px;
+  }
+}
