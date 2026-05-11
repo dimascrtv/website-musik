@@ -2483,4 +2483,670 @@ html {
   text-align: justify; /* 🔥 ini pengganti justify fit figma */
 }
 
+.mobile-menu-icon {
+  display: none;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE RESPONSIVE — BASE 320
+   STYLE MOBILE-FIRST PREMIUM LAYOUT
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* =========================
+     GLOBAL
+  ========================= */
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .global-container,
+  .services-container,
+  .pf-container,
+  .pricing-container,
+  .why-container,
+  .faq-container,
+  .cta-container,
+  .text-container {
+    width: 100%;
+    max-width: 420px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+  }
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .hero {
+    height: auto;
+    min-height: unset;
+
+    padding-bottom: 330px;
+
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      90deg,
+      #1A1A1A 0%,
+      rgba(6, 78, 59, 0.45) 100%
+    );
+
+    transform: scale(1);
+  }
+
+  /* =========================
+     NAVBAR
+  ========================= */
+
+  .navbar {
+    display: flex;
+    align-items: center;
+  justify-content: center;
+    padding-top: 43px;
+    position: relative;
+  }
+
+  /* MENU DESKTOP HILANG */
+  .menu {
+    display: none;
+  }
+
+  /* ICON MENU */
+  .mobile-menu-icon {
+    width: 35px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .mobile-menu-icon span {
+    display: block;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 20px;
+  }
+
+  /* GARIS PERTAMA PENDEK */
+  .mobile-menu-icon span:nth-child(1) {
+    width: 16px;
+  }
+
+  .mobile-menu-icon span:nth-child(2),
+  .mobile-menu-icon span:nth-child(3) {
+    width: 35px;
+  }
+
+  /* LOGO DI KANAN */
+  .logo {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .logo img {
+    width: 84px;
+    height: auto;
+    display: block;
+  }
+
+  /* HIDE DESKTOP MENU */
+  .menu {
+    display: none !important;
+  }
+
+  /* =========================
+     AUDIO PREVIEW
+  ========================= */
+
+  .audio-preview {
+    position: relative;
+
+    top: unset;
+    right: unset;
+
+    margin-top: 125px;
+
+    gap: 10px;
+
+    z-index: 5;
+  }
+
+  .audio-card {
+    width: 197px;
+    height: 74.63px;
+
+    border-radius: 12px;
+
+    padding: 11px 12px;
+  }
+
+  .audio-title {
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .duration {
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  .audio-controls {
+    gap: 14px;
+  }
+
+  .waveform {
+    width: 90px;
+    height: 20px;
+    gap: 2px;
+  }
+
+  .wave-bar {
+    width: 2px;
+  }
+
+  .play-btn {
+    width: 18px;
+    height: 18px;
+  }
+
+  .icon.play {
+    border-left: 8px solid white;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+
+  .btn-more {
+    display: none;
+  }
+
+  /* =========================
+     HERO CONTENT
+  ========================= */
+
+  .hero-content {
+    margin-top: 36px;
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    width: 289px;
+
+    font-size: 31.85px;
+    line-height: 34.2px;
+    font-weight: 500;
+  }
+
+  .hero-content p {
+    width: 281px;
+
+    margin-top: 26px;
+
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  /* =========================
+     CTA HERO
+  ========================= */
+
+  .cta {
+    margin-top: 31px;
+    align-items: center;
+  }
+
+  .btn-wrap {
+    width: 174px;
+    height: 46px;
+  }
+
+  .btn-wrap::before {
+    display: none;
+  }
+
+  .btn-primary {
+    width: 174px;
+    height: 46px;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    border-radius: 999px;
+  }
+
+  .btn-primary .circle {
+    width: 34px;
+    height: 34px;
+
+    left: 6px;
+  }
+
+  .btn-primary .circle svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .btn-primary .text {
+    margin-left: 26px;
+  }
+
+  .portfolio {
+    margin-left: 18px;
+
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* =========================
+     GUIDE LINE
+  ========================= */
+
+  .guide-line,
+  .cta-line {
+    display: none;
+  }
+
+  /* =========================
+     SERVICES
+  ========================= */
+
+  .services {
+  margin-top: -200px;
+  position: relative;
+  z-index: 5;
+  }
+
+  .services-title {
+    width: 195px;
+
+    margin-bottom: 28px;
+  margin-left: 0;
+
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+.services-container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.cards-outer {
+  overflow-x: auto;
+  overflow-y: visible;
+
+  -webkit-overflow-scrolling: touch;
+
+  padding-left: 16px;
+}
+
+.cards-outer::-webkit-scrollbar {
+  display: none;
+}
+
+.cards {
+  display: flex;
+
+  width: max-content;
+
+  gap: 12px;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 16px;
+}
+
+.card {
+  flex-shrink: 0;
+
+  transition: transform 0.3s ease;
+}
+
+/* EFEK SAAT DISENTUH DI HP */
+.card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.card:active {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.cards {
+  width: max-content;
+
+  margin-left: 0;
+  margin-right: 0;
+
+  gap: 12px;
+
+  padding-right: 16px;
+
+  justify-content: flex-start;
+}
+
+  .card {
+    flex: unset;
+
+    width: 194.65px;
+    height: 271.49px;
+
+    aspect-ratio: unset;
+  }
+
+  .card-arrow {
+    top: 12px;
+    right: 12px;
+  }
+
+  .card-arrow .circle {
+    width: 32px;
+    height: 32px;
+
+    border-width: 1px;
+    background: white;
+  }
+
+  .card-arrow svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .card-arrow svg path {
+    stroke: #30504C;
+  }
+
+  .card-content {
+    padding-left: 18px;
+    padding-bottom: 18px;
+  }
+
+  .card-content h3 {
+    max-width: 140px;
+
+    margin-bottom: 0px;
+
+    font-size: 12px;
+    line-height: 16.7px;
+    font-weight: 500;
+  }
+
+  .card-content a {
+    font-size: 10px;
+    font-weight: 300;
+
+    opacity: 0.60;
+
+    gap: 8px;
+  }
+
+  .card-content a .arrow {
+    opacity: 0.54;
+  }
+
+  /* =========================
+     NEW SERVICES
+  ========================= */
+
+  .new-services {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .ns-item {
+    flex-direction: column;
+    gap: 40px;
+
+    margin-bottom: 120px;
+  }
+
+  .ns-left,
+  .ns-right,
+  .ns-visual {
+    width: 100%;
+  }
+
+  .ns-right {
+    margin-left: 0;
+  }
+
+  .ns-title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .ns-desc,
+  .ns-right p {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  .ns-visual {
+    height: 420px;
+  }
+
+  .ns-main-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ns-bg-img {
+    width: 90%;
+    height: 100%;
+  }
+
+  /* =========================
+     PORTFOLIO
+  ========================= */
+
+  .pf-section {
+    padding: 100px 0;
+  }
+
+  .pf-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .pf-column {
+    width: 100%;
+  }
+
+  .pf-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .pf-song,
+  .pf-artist {
+    font-size: 14px;
+  }
+
+  .pf-desc {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  /* =========================
+     PRICING
+  ========================= */
+
+  .pricing-section {
+    padding: 100px 0;
+  }
+
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-card {
+    width: 100%;
+    min-height: unset;
+  }
+
+  .pricing-btn,
+  .pricing-divider {
+    width: 100%;
+  }
+
+  .pricing-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .pricing-desc {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  /* =========================
+     WHY SECTION
+  ========================= */
+
+  .why-row {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .why-col {
+    width: 100%;
+  }
+
+  .why-item p {
+    width: 100%;
+
+    padding-right: 50px;
+  }
+
+  .why-title {
+    font-size: 34px;
+    line-height: 38px;
+  }
+
+  /* =========================
+     FAQ
+  ========================= */
+
+  .faq-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .faq-title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .faq-question span {
+    font-size: 18px;
+    line-height: 26px;
+
+    padding-right: 20px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  /* =========================
+     CTA SECTION
+  ========================= */
+
+  .cta-section {
+    padding-bottom: 160px;
+  }
+
+  .cta-title {
+    padding-top: 100px;
+
+    font-size: 38px;
+    line-height: 44px;
+  }
+
+  .cta-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .cta-btn-wrap {
+    width: 174px;
+    height: 46px;
+  }
+
+  .cta-btn-wrap::before {
+    display: none;
+  }
+
+  .cta-btn-primary {
+    padding-left: 52px;
+    padding-right: 20px;
+
+    font-size: 12px;
+  }
+
+  .cta-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .cta-circle svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .cta-link {
+    margin-left: 18px;
+
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* =========================
+     TEXT SECTION
+  ========================= */
+
+  .text-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .text-section p {
+    font-size: 14px;
+    line-height: 26px;
+
+    text-align: left;
+  }
+
+}
