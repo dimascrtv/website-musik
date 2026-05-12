@@ -2623,7 +2623,6 @@ html {
 
 .audio-preview {
 
-  border: 1px solid rgb(0, 255, 34);
 
   position: relative;
 
@@ -2699,38 +2698,42 @@ html {
    HERO CONTENT
 ========================= */
 
-  .hero-content {
-    margin-top: 36px;
-    max-width: 100%;
-    width: 100%;
+.hero-content {
+  margin-top: clamp(36px, 11vw, 80px);
+
+  max-width: 100%;
+  width: 100%;
+
+  /* PENTING */
+  container-type: inline-size;
+}
+
+.hero-content h1 {
+  width: 100%;
+
+  font-size: clamp(24px, 11cqw, 48px);
+
+  line-height: 1.07;
+
+  font-weight: 500;
+}
+
+/* Tidak perlu font-size lagi */
+.hero-content h1 span {
+  display: block;
+}
+
+.hero-content p {
+  width: 100%;
+
+  margin-top: clamp(18px, 8cqw, 36px);
+
+  font-size: clamp(12px, 4.3cqw, 20px);
+
+  line-height: 1.67;
+}
 
 
-    /* PENTING */
-    container-type: inline-size;
-  }
-
-  .hero-content h1 {
-    width: 100%;
-
-    /* Font mengikuti ukuran box */
-    font-size: clamp(24px, 11cqw, 48px);
-
-    line-height: 1.07;
-    font-weight: 500;
-  }
-
-  /* Tidak perlu font-size lagi */
-  .hero-content h1 span {
-    display: block;
-  }
-
-  .hero-content p {
-    width: 100%;
-
-    margin-top: 26px;
-    font-size: clamp(12px, 4.3cqw, 20px);
-    line-height: 1.67;
-  }
 
   /* =========================
    CTA HERO
@@ -2738,7 +2741,6 @@ html {
 
 .cta {
   margin-top: clamp(24px, 9vw, 31px);
-
   display: flex;
   align-items: center;
 
@@ -2801,49 +2803,57 @@ html {
     display: none;
   }
 
+
+
   /* =========================
-     SERVICES
-  ========================= */
+   SERVICES
+========================= */
 
-  .services {
-  margin-top: -200px;
+.services {
+  margin-top: clamp(-200px, -62vw, -120px);
+
   position: relative;
+
   z-index: 5;
-  }
+}
 
-  .services-title {
-    width: 195px;
+.services-title {
+  width: clamp(195px, 61vw, 320px);
 
-    margin-bottom: 15px;
+  margin-bottom: clamp(15px, 4.5vw, 24px);
+
   margin-left: 0;
 
-    font-size: 20px;
-    line-height: 22px;
-    font-weight: 600;
-  }
+  font-size: clamp(20px, 6vw, 34px);
+
+  line-height: 1.1;
+
+  font-weight: 600;
+}
 
 .services-container {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: clamp(16px, 5vw, 32px);
+
+  padding-right: clamp(16px, 5vw, 32px);
 
   margin-left: 0;
+
   margin-right: auto;
 }
 
 .cards-outer {
   overflow-x: auto;
+
   overflow-y: visible;
 
   -webkit-overflow-scrolling: touch;
 
-  padding-left: 16px;
+  padding-left: clamp(16px, 5vw, 32px);
 }
 
 .cards-outer::-webkit-scrollbar {
   display: none;
 }
-
-
 
 .card {
   flex-shrink: 0;
@@ -2854,88 +2864,105 @@ html {
 /* EFEK SAAT DISENTUH DI HP */
 .card:hover {
   transform: none !important;
+
   box-shadow: none !important;
 }
 
-  .card:active {
-    transform: none !important;
-    box-shadow: none !important;
-  }
+.card:active {
+  transform: none !important;
 
-  .cards {
-    display: flex;
-    width: max-content;
+  box-shadow: none !important;
+}
 
-    gap: 12px;
+.cards {
+  display: flex;
 
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 16px;
+  width: max-content;
 
-    margin-left: 0;
-    margin-right: 0;
+  gap: clamp(12px, 3.8vw, 24px);
 
-    justify-content: flex-start;
-  }
+  padding-top: clamp(12px, 3.8vw, 20px);
 
-  .card {
-    flex: unset;
+  padding-bottom: clamp(12px, 3.8vw, 20px);
 
-    width: 194.65px;
-    height: 271.49px;
+  padding-right: clamp(16px, 5vw, 32px);
 
-    aspect-ratio: unset;
-  }
+  margin-left: 0;
 
-  .card-arrow {
-    top: 12px;
-    right: 12px;
-  }
+  margin-right: 0;
 
-  .card-arrow .circle {
-    width: 32px;
-    height: 32px;
+  justify-content: flex-start;
+}
 
-    border-width: 1px;
-    background: white;
-  }
+.card {
+  flex: unset;
 
-  .card-arrow svg {
-    width: 13px;
-    height: 13px;
-  }
+  width: clamp(194px, 61vw, 300px);
 
-  .card-arrow svg path {
-    stroke: #30504C;
-  }
+  height: clamp(271px, 85vw, 420px);
 
-  .card-content {
-    padding-left: 18px;
-    padding-bottom: 18px;
-  }
+  aspect-ratio: unset;
+}
 
-  .card-content h3 {
-    max-width: 140px;
+.card-arrow {
+  top: clamp(12px, 3.8vw, 20px);
 
-    margin-bottom: 0px;
+  right: clamp(12px, 3.8vw, 20px);
+}
 
-    font-size: 12px;
-    line-height: 16.7px;
-    font-weight: 500;
-  }
+.card-arrow .circle {
+  width: clamp(32px, 10vw, 48px);
 
-  .card-content a {
-    font-size: 10px;
-    font-weight: 300;
+  height: clamp(32px, 10vw, 48px);
 
-    opacity: 0.60;
+  border-width: 1px;
 
-    gap: 8px;
-  }
+  background: white;
+}
 
-  .card-content a .arrow {
-    opacity: 0.54;
-  }
+.card-arrow svg {
+  width: clamp(13px, 4vw, 18px);
+
+  height: clamp(13px, 4vw, 18px);
+}
+
+.card-arrow svg path {
+  stroke: #30504C;
+}
+
+.card-content {
+  padding-left: clamp(18px, 5.5vw, 28px);
+
+  padding-bottom: clamp(18px, 5.5vw, 28px);
+}
+
+.card-content h3 {
+  max-width: clamp(140px, 44vw, 220px);
+
+  margin-bottom: 0px;
+
+  font-size: clamp(12px, 3.8vw, 18px);
+
+  line-height: 1.4;
+
+  font-weight: 500;
+}
+
+.card-content a {
+  font-size: clamp(10px, 3vw, 15px);
+
+  font-weight: 300;
+
+  opacity: 0.60;
+
+  gap: clamp(8px, 2.5vw, 14px);
+}
+
+.card-content a .arrow {
+  opacity: 0.54;
+}
+
+
 
   /* =========================
      NEW SERVICES
