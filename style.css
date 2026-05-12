@@ -1610,6 +1610,8 @@ html {
 .why-section {
   padding: 100px 0 60px;
   background: #ffffff;
+  
+  color: #324D4B;
 }
 
 .why-container {
@@ -1692,9 +1694,7 @@ html {
    WHY SECTION COLOR UPDATE
 ========================= */
 
-.why-section {
-  color: #324D4B;
-}
+
 
 /* TITLE */
 .why-title {
@@ -3328,6 +3328,8 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
   margin-top: clamp(36px, 9vw, 54px);
 
+  margin-bottom: clamp(22px, 6vw, 36px);
+
   margin-left: 0;
   margin-right: auto;
 }
@@ -3380,6 +3382,205 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
   color: white;
 }
+
+
+
+
+
+/* =========================================================
+   WHY SECTION MOBILE
+========================================================= */
+
+.why-section {
+  padding-top: clamp(80px, 18vw, 120px);
+  padding-bottom: clamp(80px, 18vw, 120px);
+
+  padding-left: clamp(0px, 2vw, 16px);
+  padding-right: clamp(0px, 2vw, 16px);
+
+  overflow: hidden;
+}
+
+.why-container {
+  width: 100%;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   ROW
+========================================================= */
+
+.why-row {
+  display: contents;
+}
+
+.why-col {
+  width: 100%;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.why-title {
+  width: clamp(287px, 89vw, 420px);
+
+  font-size: clamp(20px, 6vw, 34px);
+  line-height: clamp(22px, 6.4vw, 38px);
+
+  font-weight: 600;
+
+  color: #064E3B;
+
+  margin-top: 0;
+  margin-bottom: clamp(36px, 9vw, 56px);
+}
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.why-item {
+  position: relative;
+
+  width: 100%;
+
+  border-bottom:
+    clamp(0.5px, 0.15vw, 1px)
+    solid
+    #064E3B;
+
+  padding-bottom: clamp(17px, 5vw, 28px);
+  margin-bottom: clamp(44px, 11vw, 72px);
+
+  transition: transform 0.35s ease;
+}
+
+.why-item:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.why-item p {
+  width: auto;
+
+  /* 🔥 SPACE KANAN KE LINGKARAN */
+  padding-right: clamp(36px, 11vw, 60px);
+
+  font-size: clamp(12px, 3.7vw, 17px);
+  line-height: clamp(20px, 6vw, 30px);
+
+  font-weight: 400;
+
+  color: #064E3B;
+
+  margin-bottom: clamp(2px, 1vw, 6px);
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.why-item:hover p {
+  transform: translateX(3px);
+  opacity: 0.9;
+}
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.why-number {
+  position: absolute;
+
+  right: 0;
+  top: 100%;
+
+  transform: translateY(-50%);
+
+  width: clamp(35px, 11vw, 52px);
+  height: clamp(35px, 11vw, 52px);
+
+  border:
+    clamp(0.5px, 0.15vw, 1px)
+    solid
+    #064E3B;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: clamp(12px, 3.7vw, 17px);
+  font-weight: 400;
+
+  color: #064E3B;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.why-item:hover .why-number {
+  transform: translateY(-50%) scale(1.06);
+
+  box-shadow:
+    0 6px 16px rgba(6, 78, 59, 0.16),
+    0 2px 6px rgba(6, 78, 59, 0.10);
+}
+
+/* =========================================================
+   🔥 URUTAN FIX 1 → 5
+========================================================= */
+
+/* TITLE */
+.why-row:nth-child(1) .why-col:nth-child(1) {
+  order: 1;
+}
+
+/* NOMOR 1 */
+.why-row:nth-child(2) .why-col:nth-child(1) {
+  order: 2;
+}
+
+/* NOMOR 2 */
+.why-row:nth-child(3) .why-col:nth-child(1) {
+  order: 3;
+}
+
+/* NOMOR 3 */
+.why-row:nth-child(1) .why-col:nth-child(2) {
+  order: 4;
+}
+
+/* NOMOR 4 */
+.why-row:nth-child(2) .why-col:nth-child(2) {
+  order: 5;
+}
+
+/* NOMOR 5 */
+.why-row:nth-child(3) .why-col:nth-child(2) {
+  order: 6;
+}
+
+/* =========================================================
+   RESET DESKTOP ALIGN
+========================================================= */
+
+.top-align,
+.bottom-align {
+  align-items: stretch;
+}
+
 
 
 
