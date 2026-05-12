@@ -2735,15 +2735,15 @@ html {
 
 
 
-  /* =========================
+/* =========================
    CTA HERO
 ========================= */
 
 .cta {
-  margin-top: clamp(24px, 9vw, 31px);
+  margin-top: 40px;
+
   display: flex;
   align-items: center;
-
 }
 
 .btn-wrap {
@@ -2757,9 +2757,9 @@ html {
 }
 
 .btn-primary {
-  width: clamp(174px, 54vw, 240px);
+  width: 100%;
 
-  height: clamp(46px, 14vw, 60px);
+  height: 100%;
 
   font-size: clamp(12px, 3.8vw, 16px);
 
@@ -2773,7 +2773,7 @@ html {
 
   height: clamp(34px, 10vw, 42px);
 
-  left: clamp(6px, 1.8vw, 10px);
+  left: 6px;
 }
 
 .btn-primary .circle svg {
@@ -2783,16 +2783,19 @@ html {
 }
 
 .btn-primary .text {
-  margin-left: clamp(26px, 8vw, 34px);
+  margin-left: 26px;
 }
 
 .portfolio {
-  margin-left: clamp(18px, 5vw, 28px);
+  margin-left: 18px;
 
   font-size: clamp(12px, 3.8vw, 16px);
 
   font-weight: 600;
 }
+
+
+
 
   /* =========================
      GUIDE LINE
