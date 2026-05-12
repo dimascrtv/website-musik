@@ -1191,7 +1191,7 @@ html {
 .pf-btn-main {
   width: 311px;
   height: 65px;
-  background: #304E4B;
+  background: #064E3B;
   border-radius: 50px;
   border: none;
 
@@ -2970,9 +2970,9 @@ html {
 
 
 
-/* =========================
+/* =========================================================
    NEW SERVICES MOBILE
-========================= */
+========================================================= */
 
 .new-services {
   width: 100%;
@@ -2980,8 +2980,9 @@ html {
   padding-top: clamp(80px, 18vw, 120px);
   padding-bottom: clamp(80px, 18vw, 120px);
 
-  padding-left: clamp(20px, 6vw, 32px);
-  padding-right: clamp(20px, 6vw, 32px);
+  /* 🔥 DISAMAKAN DENGAN PORTFOLIO */
+  padding-left: clamp(16px, 5vw, 28px);
+  padding-right: clamp(16px, 5vw, 28px);
 
   overflow: hidden;
 }
@@ -3002,9 +3003,9 @@ html {
   margin-bottom: 0;
 }
 
-/* =========================
+/* =========================================================
    VISUAL
-========================= */
+========================================================= */
 
 .ns-visual {
   position: relative;
@@ -3039,9 +3040,9 @@ html {
   height: clamp(262px, 82vw, 410px);
 }
 
-/* =========================
+/* =========================================================
    LEFT
-========================= */
+========================================================= */
 
 .ns-left {
   display: contents;
@@ -3053,6 +3054,7 @@ html {
   order: 2;
 
   width: clamp(234px, 73.125vw, 320px);
+
   margin-right: auto;
 
   font-size: clamp(20px, 6vw, 34px);
@@ -3061,6 +3063,8 @@ html {
   font-weight: 600;
 
   margin-bottom: clamp(18px, 4vw, 28px);
+
+  color: #064E3B;
 }
 
 /* DESC */
@@ -3074,11 +3078,13 @@ html {
   line-height: clamp(20px, 6vw, 30px);
 
   margin-bottom: clamp(18px, 4vw, 28px);
+
+  color: #064E3B;
 }
 
-/* =========================
+/* =========================================================
    RIGHT TEXT
-========================= */
+========================================================= */
 
 .ns-right {
   display: contents;
@@ -3091,11 +3097,13 @@ html {
   line-height: clamp(20px, 6vw, 30px);
 
   margin-bottom: clamp(27px, 6vw, 40px);
+
+  color: #064E3B;
 }
 
-/* =========================
+/* =========================================================
    BUTTON
-========================= */
+========================================================= */
 
 .ns-btn {
   order: 5;
@@ -3136,7 +3144,241 @@ html {
 
 
 
+.pf-section {
+  padding-top: clamp(80px, 18vw, 120px);
+  padding-bottom: clamp(80px, 18vw, 120px);
 
+  /* 🔥 SAMA DENGAN SECTION ATAS */
+padding-left: clamp(0px, 2.5vw, 12px);
+padding-right: clamp(0px, 2.5vw, 12px);
+
+  overflow: hidden;
+}
+
+.pf-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.pf-title-wrap {
+  width: 100%;
+
+  margin-left: 0;
+  margin-right: 0;
+
+  margin-bottom: clamp(33px, 8vw, 50px);
+}
+
+.pf-title {
+  width: clamp(196px, 61.25vw, 320px);
+
+  font-size: clamp(20px, 6vw, 34px);
+  line-height: 1.2;
+
+  font-weight: 600;
+
+  color: #064E3B;
+
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.pf-grid {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 0;
+}
+
+.pf-column {
+  width: 100%;
+  margin: 0;
+}
+
+/* 🔥 MATIKAN BORDER TOP DESKTOP */
+.pf-column .pf-item:first-child {
+  border-top: none !important;
+}
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.pf-item {
+  width: 100%;
+
+  padding-top: clamp(8px, 2vw, 12px);
+  padding-bottom: clamp(9px, 2.5vw, 14px);
+
+  border-top: none !important;
+
+  border-bottom:
+    clamp(0.77px, 0.2vw, 1px)
+    solid
+    rgba(6, 78, 59, 0.3);
+}
+
+/* 🔥 CUMA ITEM PALING PERTAMA YANG PUNYA BORDER ATAS */
+.pf-grid .pf-column:first-child .pf-item:first-child {
+  border-top:
+    clamp(0.77px, 0.2vw, 1px)
+    solid
+    rgba(6, 78, 59, 0.3) !important;
+}
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.pf-left {
+  gap: clamp(15px, 4vw, 24px);
+}
+
+/* PLAY */
+
+.pf-play {
+  width: clamp(14px, 4.3vw, 18px);
+  height: clamp(14px, 4.3vw, 18px);
+
+  background: #064E3B;
+
+  flex-shrink: 0;
+}
+
+.pf-play.playing {
+  width: clamp(12px, 4vw, 16px);
+  height: clamp(12px, 4vw, 16px);
+}
+
+/* =========================================================
+   SONG + ARTIST
+========================================================= */
+
+.pf-song {
+  font-size: clamp(12px, 3.7vw, 17px);
+  font-weight: 600;
+
+  line-height: clamp(18.5px, 5vw, 24px);
+
+  color: #064E3B;
+}
+
+.pf-artist {
+  font-size: clamp(12px, 3.7vw, 17px);
+  font-weight: 400;
+
+  line-height: clamp(18.5px, 5vw, 24px);
+
+  color: #064E3B;
+}
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.pf-dots {
+  gap: clamp(3px, 1vw, 5px);
+
+  margin-right: clamp(4px, 1vw, 8px);
+
+  flex-shrink: 0;
+}
+
+.pf-dots span {
+  width: clamp(3px, 1vw, 4px);
+  height: clamp(3px, 1vw, 4px);
+
+  background: #064E3B;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.pf-desc {
+  width: 100%;
+
+  margin-top: clamp(39px, 10vw, 60px);
+
+  font-size: clamp(12px, 3.7vw, 17px);
+  line-height: clamp(20px, 6vw, 30px);
+
+  text-align: left;
+
+  color: #064E3B;
+}
+
+/* =========================================================
+   BUTTON WRAP
+========================================================= */
+
+.pf-btn-wrap {
+  width: clamp(224px, 70vw, 320px);
+  height: clamp(46px, 14vw, 65px);
+
+  margin-top: clamp(36px, 9vw, 54px);
+
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* OUTLINE */
+
+.pf-btn-wrap::before {
+  width: clamp(68px, 21vw, 95px);
+  height: clamp(68px, 21vw, 95px);
+
+  left: clamp(23px, 7vw, 32px);
+
+  border: 1px solid #064E3B;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.pf-btn-main {
+  width: 100%;
+  height: 100%;
+
+  background: #064E3B;
+
+  border-radius: 999px;
+}
+
+/* CIRCLE */
+
+.pf-circle {
+  left: clamp(5px, 1vw, 6px);
+
+  width: clamp(36px, 11vw, 53px);
+  height: clamp(36px, 11vw, 53px);
+}
+
+.pf-circle svg {
+  width: clamp(18px, 5vw, 24px);
+  height: clamp(18px, 5vw, 24px);
+}
+
+/* BUTTON TEXT */
+
+.pf-text-btn {
+  font-size: clamp(12px, 3.7vw, 17px);
+  font-weight: 400;
+
+  margin-left: clamp(26px, 8vw, 40px);
+
+  color: white;
+}
 
 
 
