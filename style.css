@@ -3216,8 +3216,9 @@ padding-right: clamp(0px, 2.5vw, 12px);
 .pf-item {
   width: 100%;
 
-  padding-top: clamp(8px, 2vw, 12px);
-  padding-bottom: clamp(9px, 2.5vw, 14px);
+  /* 🔥 SPACING ATAS BAWAH DIBANYAKIN */
+  padding-top: clamp(12px, 3vw, 18px);
+  padding-bottom: clamp(13px, 3.5vw, 20px);
 
   border-top: none !important;
 
