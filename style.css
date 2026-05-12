@@ -2978,7 +2978,7 @@ html {
   width: 100%;
 
   padding-top: clamp(80px, 18vw, 120px);
-  padding-bottom: clamp(80px, 18vw, 120px);
+  padding-bottom: clamp(92px, 20vw, 136px);
 
   /* 🔥 DISAMAKAN DENGAN PORTFOLIO */
   padding-left: clamp(16px, 5vw, 28px);
