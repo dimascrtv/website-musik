@@ -420,6 +420,7 @@ html {
 
 /* CARD */
 .card {
+  cursor: pointer;
   will-change: transform;
   text-decoration: none;
   color: inherit;
