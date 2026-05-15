@@ -183,6 +183,39 @@ img {
   display: block;
 }
 
+.hero-content span {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroTextReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-content span:nth-child(1) {
+  animation-delay: 0.35s;
+}
+
+.hero-content span:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+.hero-content span:nth-child(3) {
+  animation-delay: 0.55s;
+}
+
+.hero-content span:nth-child(4) {
+  animation-delay: 0.65s;
+}
+
+.hero-content span:nth-child(5) {
+  animation-delay: 0.75s;
+}
+
+@keyframes heroTextReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .audio-preview {
   position: absolute;
   top: 340px;
@@ -203,14 +236,13 @@ img {
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 }
 
 .audio-title {
   font-size: 15px;
   font-weight: 600;
-  line-height: 1;
 }
 
 .audio-controls {
@@ -223,15 +255,9 @@ img {
   display: flex;
   width: 26px;
   height: 26px;
-  flex: 0 0 26px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.25s ease;
-}
-
-.play-btn:hover {
-  transform: scale(1.15);
 }
 
 .icon.play {
@@ -240,10 +266,6 @@ img {
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   border-left: 12px solid #ffffff;
-}
-
-.play-btn:hover .icon.play {
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
 }
 
 .icon.stop {
@@ -266,7 +288,7 @@ img {
   width: 3px;
   height: 100%;
   background: rgba(255, 255, 255, 0.3);
-  transition: transform 0.25s ease, opacity 0.25s ease, background 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .wave-bar.active {
@@ -372,6 +394,22 @@ img {
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.25),
     0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.play-btn {
+  transition: transform 0.25s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.15);
+}
+
+.play-btn:hover .icon.play {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+.waveform .wave-bar {
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .audio-card:hover .wave-bar {
@@ -506,6 +544,52 @@ img {
   border-radius: 18px;
 }
 
+.text-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.text-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.benefit-cards article {
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.benefit-cards article:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  box-shadow:
+    0 16px 35px rgba(6, 78, 59, 0.08),
+    0 2px 10px rgba(6, 78, 59, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content span,
+  .text-reveal,
+  .benefit-cards article {
+    animation: none;
+    transition: none;
+  }
+
+  .hero-content span,
+  .text-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 1190px) {
   .four-column {
     grid-template-columns: repeat(2, minmax(0, 242px));
@@ -603,14 +687,14 @@ img {
   .benefit-copy p,
   .benefit-cards article {
     width: 100%;
-    font-size: 16px;
-    line-height: 28px;
+    font-size: clamp(13px, 2.7vw, 16px);
+    line-height: clamp(22px, 4.6vw, 28px);
   }
 
   .content-section h2,
   .benefit-copy h2 {
-    font-size: 28px;
-    line-height: 32px;
+    font-size: clamp(22px, 4.8vw, 28px);
+    line-height: clamp(26px, 5.4vw, 32px);
   }
 
   .benefit-section {
@@ -899,9 +983,87 @@ img {
 
   .hero-content h1 {
     width: 100%;
-    font-size: clamp(24px, 11cqw, 48px);
-    line-height: 1.07;
+    font-size: clamp(22px, 8.8cqw, 36px);
+    line-height: 1.12;
     font-weight: 500;
+  }
+
+  .summary-section {
+    padding-top: clamp(64px, 18vw, 92px);
+  }
+
+  .content-section,
+  .importance-section {
+    padding-top: clamp(82px, 22vw, 118px);
+  }
+
+  .dark-section {
+    margin-top: clamp(82px, 22vw, 118px);
+    padding-bottom: clamp(82px, 22vw, 118px);
+  }
+
+  .four-column,
+  .three-column,
+  .orchestration-grid,
+  .benefit-cards {
+    gap: clamp(22px, 7vw, 34px);
+  }
+
+  .benefit-card-column {
+    display: contents;
+  }
+
+  .benefit-card-column:nth-child(1) article:nth-child(1) {
+    order: 1;
+  }
+
+  .benefit-card-column:nth-child(2) article:nth-child(1) {
+    order: 2;
+  }
+
+  .benefit-card-column:nth-child(1) article:nth-child(2) {
+    order: 3;
+  }
+
+  .benefit-card-column:nth-child(2) article:nth-child(2) {
+    order: 4;
+  }
+
+  .four-column p,
+  .three-column p,
+  .orchestration-grid p,
+  .benefit-copy p,
+  .benefit-cards article {
+    font-size: clamp(12px, 3.7vw, 16px);
+    line-height: clamp(20px, 6vw, 28px);
+  }
+
+  .content-section h2,
+  .benefit-copy h2 {
+    font-size: clamp(20px, 6vw, 30px);
+    line-height: clamp(24px, 7vw, 34px);
+  }
+
+  .content-section h2 {
+    margin-bottom: clamp(24px, 7vw, 35px);
+  }
+
+  .benefit-section {
+    padding-top: clamp(76px, 20vw, 104px);
+    padding-bottom: clamp(76px, 20vw, 104px);
+  }
+
+  .benefit-grid {
+    gap: clamp(34px, 10vw, 52px);
+  }
+
+  .benefit-copy p {
+    margin-top: clamp(22px, 6vw, 30px);
+  }
+
+  .benefit-cards article {
+    padding: clamp(22px, 7vw, 34px);
+    border-radius: clamp(12px, 4vw, 18px);
   }
 }
 

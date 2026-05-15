@@ -20,7 +20,14 @@
         flex-direction: column;
         padding: 43px max(24px, calc((100vw - 1144px) / 2)) 28px;
         color: #ffffff;
-        background: #064e3b;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(6, 78, 59, 0.78),
+            rgba(4, 55, 43, 0.62)
+          );
+        backdrop-filter: blur(22px) saturate(140%);
+        -webkit-backdrop-filter: blur(22px) saturate(140%);
         font-family: "Poppins", Arial, sans-serif;
         opacity: 0;
         visibility: hidden;
@@ -95,7 +102,7 @@
       .site-mobile-menu-links {
         width: 100%;
         margin: auto 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.24);
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
       }
 
       .site-mobile-menu-links a {
@@ -105,7 +112,7 @@
         align-items: center;
         justify-content: flex-start;
         color: #ffffff;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
         font-size: clamp(30px, 8.8vw, 54px);
         font-weight: 500;
         line-height: 1.08;
@@ -119,20 +126,6 @@
       .site-mobile-menu-links a::after {
         content: none !important;
         display: none !important;
-      }
-
-      .site-mobile-menu-footer {
-        display: grid;
-        gap: 14px;
-        justify-items: flex-start;
-      }
-
-      .site-mobile-menu-footer a {
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 1;
-        text-transform: uppercase;
       }
 
       body > .mobile-menu-icon {
@@ -231,10 +224,6 @@
       <nav class="site-mobile-menu-links" aria-label="Navigasi mobile">
         ${menuLinks.map(link => `<a href="${link.href}">${link.label}</a>`).join("")}
       </nav>
-      <div class="site-mobile-menu-footer">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-      </div>
     `;
 
     document.body.appendChild(overlay);
