@@ -1,0 +1,909 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  color: #064e3b;
+  background: #ffffff;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.page-container {
+  width: min(1144px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  padding-bottom: 107px;
+  color: #ffffff;
+  overflow: hidden;
+  z-index: 0;
+  background:
+    url("../IMAGE/background header jasa musik aransemen.jpg")
+    no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: inherit;
+  filter: blur(18px);
+  transform: scale(1.06);
+  opacity: 0;
+  animation: heroImageReveal 1.4s ease forwards;
+  will-change: transform, filter, opacity;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to right,
+    rgba(26, 26, 26, 1) 0%,
+    rgba(6, 78, 59, 0.8) 100%
+  );
+  opacity: 0;
+  animation: heroGradientReveal 1.8s ease forwards;
+  animation-delay: 0.35s;
+}
+
+@keyframes heroGradientReveal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes heroImageReveal {
+  0% {
+    filter: blur(22px);
+    transform: scale(1.08);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hero > .page-container {
+  position: relative;
+  z-index: 3;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 76px;
+}
+
+.menu a {
+  position: relative;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 50%;
+  height: 1px;
+  background: #ffffff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.mobile-menu-icon {
+  display: none;
+}
+
+.mobile-menu-overlay {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  width: 129px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 129px;
+  height: auto;
+}
+
+.hero-content {
+  margin-top: 223px;
+  max-width: 780px;
+}
+
+.hero-content h1 {
+  font-size: 73px;
+  font-weight: 500;
+  line-height: 75px;
+  letter-spacing: 0;
+}
+
+.hero-content span {
+  display: block;
+}
+
+.audio-preview {
+  position: absolute;
+  top: 340px;
+  right: 0;
+  display: flex;
+  width: 293px;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.audio-card {
+  display: flex;
+  width: 293px;
+  height: 111px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(7px);
+}
+
+.audio-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.play-btn {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.15);
+}
+
+.icon.play {
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid #ffffff;
+}
+
+.play-btn:hover .icon.play {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+.icon.stop {
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+}
+
+.waveform {
+  display: flex;
+  width: 142px;
+  height: 32px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.wave-bar {
+  width: 3px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.2s ease;
+}
+
+.wave-bar.active {
+  background: #ffffff;
+}
+
+.duration {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.btn-more {
+  display: inline-flex;
+  width: 166px;
+  height: 43px;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  color: #2e4d49;
+  background: #ffffff;
+  border-radius: 67px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.35s ease,
+    border 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.25s ease;
+}
+
+.btn-more span {
+  position: absolute;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease;
+  will-change: transform, opacity;
+}
+
+.btn-text-front {
+  color: #2e4d49;
+  font-weight: 500;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.btn-text-back {
+  color: #ffffff;
+  font-weight: 700;
+  transform: translateY(8px);
+  opacity: 0;
+}
+
+.btn-more:hover {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.35),
+    0 0 22px rgba(255, 255, 255, 0.25),
+    0 0 45px rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-more:hover .btn-text-front {
+  transform: translateY(-6px);
+  opacity: 0;
+}
+
+.btn-more:hover .btn-text-back {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.btn-more:not(:hover) .btn-text-front {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.btn-more:not(:hover) .btn-text-back {
+  transform: translateY(8px);
+  opacity: 0;
+}
+
+.btn-more:active {
+  transform: scale(0.96);
+}
+
+.audio-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease,
+    background 0.35s ease;
+}
+
+.audio-card:hover {
+  transform: translateY(-6px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.audio-card:hover .wave-bar {
+  transform: scaleY(1.2);
+  opacity: 0.9;
+}
+
+.audio-card:hover .duration {
+  opacity: 0.8;
+}
+
+.parallax-section {
+  background-position: center;
+  background-size: cover;
+  will-change: background-position;
+}
+
+.summary-section {
+  padding: 107px 0 0;
+}
+
+.four-column {
+  display: grid;
+  grid-template-columns: repeat(4, 242px);
+  gap: 57px;
+}
+
+.four-column p,
+.three-column p,
+.orchestration-grid p,
+.benefit-copy p,
+.benefit-cards article {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+.content-section {
+  padding-top: 187px;
+}
+
+.content-section h2,
+.benefit-copy h2 {
+  color: #064e3b;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+.content-section h2 {
+  margin-bottom: 35px;
+}
+
+.three-column {
+  display: grid;
+  grid-template-columns: repeat(3, 349px);
+  gap: 46px;
+}
+
+.dark-section {
+  margin-top: 187px;
+  padding: 0 0 148px;
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(9, 27, 23, 0.95), rgba(6, 78, 59, 0.9)),
+    url("../IMAGE/background header jasa musik aransemen.jpg") center center / cover no-repeat;
+}
+
+.dark-content {
+  padding-top: 96px;
+}
+
+.dark-section h2,
+.dark-section p {
+  color: #ffffff;
+}
+
+.orchestration-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 673px) minmax(0, 432px);
+  gap: 39px;
+  align-items: start;
+}
+
+.importance-section {
+  padding-top: 187px;
+}
+
+.importance-section h2 {
+  width: 470px;
+}
+
+.benefit-section {
+  padding: 98px 0 126px;
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: 406px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.benefit-copy h2 {
+  width: 366px;
+}
+
+.benefit-copy p {
+  width: 406px;
+  margin-top: 30px;
+}
+
+.benefit-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+  align-items: start;
+}
+
+.benefit-card-column {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.benefit-cards article {
+  padding: 34px;
+  color: #064e3b;
+  background: #f7f8f7;
+  border-radius: 18px;
+}
+
+@media (max-width: 1190px) {
+  .four-column {
+    grid-template-columns: repeat(2, minmax(0, 242px));
+    justify-content: center;
+  }
+
+  .three-column {
+    grid-template-columns: repeat(2, minmax(0, 349px));
+    justify-content: center;
+  }
+
+  .orchestration-grid,
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-copy h2,
+  .benefit-copy p,
+  .importance-section h2 {
+    width: min(100%, 520px);
+  }
+}
+
+@media (max-width: 900px) {
+  .page-container {
+    width: calc(100% - 32px);
+  }
+
+  .hero {
+    padding-bottom: 72px;
+  }
+
+  .navbar {
+    gap: 24px;
+    padding-top: 28px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 20px 28px;
+  }
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  .logo,
+  .logo img {
+    width: 96px;
+  }
+
+  .hero-content {
+    margin-top: 106px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+    line-height: 47px;
+  }
+
+  .audio-preview {
+    position: static;
+    width: min(100%, 293px);
+    margin-top: 44px;
+  }
+
+  .summary-section {
+    padding-top: 72px;
+  }
+
+  .content-section,
+  .importance-section {
+    padding-top: 92px;
+  }
+
+  .dark-section {
+    margin-top: 92px;
+    padding-bottom: 92px;
+  }
+
+  .four-column,
+  .three-column,
+  .benefit-cards {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .benefit-card-column {
+    gap: 28px;
+  }
+
+  .four-column p,
+  .three-column p,
+  .orchestration-grid p,
+  .benefit-copy p,
+  .benefit-cards article {
+    width: 100%;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .content-section h2,
+  .benefit-copy h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .benefit-section {
+    padding: 82px 0;
+  }
+
+  .benefit-grid {
+    gap: 42px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-bottom: 72px;
+    background-position: center center !important;
+    background-size: cover;
+  }
+
+  .hero::after {
+    filter: none;
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+
+  .hero::before {
+    background: linear-gradient(
+      to right,
+      rgba(26, 26, 26, 1) 0%,
+      rgba(6, 78, 59, 0.8) 100%
+    );
+    opacity: 1;
+    animation: none;
+  }
+
+  .navbar {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding-top: 43px;
+  }
+
+  .mobile-menu-icon {
+    display: flex;
+    width: 35px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 1200;
+  }
+
+  .mobile-menu-icon span {
+    display: block;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 20px;
+  }
+
+  .mobile-menu-icon span:nth-child(1) {
+    width: 16px;
+  }
+
+  .mobile-menu-icon span:nth-child(2),
+  .mobile-menu-icon span:nth-child(3) {
+    width: 35px;
+  }
+
+  .menu {
+    display: none !important;
+  }
+
+  .logo {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    justify-content: flex-end;
+  }
+
+  .logo img {
+    width: 84px;
+    height: auto;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 43px 32px 28px;
+    color: #ffffff;
+    background: #064e3b;
+    font-family: "Poppins", Arial, sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-16px);
+    transition:
+      opacity 0.35s ease,
+      visibility 0.35s ease,
+      transform 0.35s ease;
+  }
+
+  .mobile-menu-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-menu-close {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0;
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .mobile-menu-close i {
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 20px;
+  }
+
+  .mobile-menu-close i::before,
+  .mobile-menu-close i::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 20px;
+  }
+
+  .mobile-menu-close i::before {
+    transform: rotate(24deg);
+  }
+
+  .mobile-menu-close i::after {
+    transform: rotate(-24deg);
+  }
+
+  .mobile-menu-logo {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mobile-menu-logo img {
+    width: 84px;
+    height: auto;
+  }
+
+  .mobile-menu-links {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .mobile-menu-links a {
+    color: #ffffff;
+    font-size: clamp(34px, 11vw, 62px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .mobile-menu-footer {
+    display: grid;
+    gap: 14px;
+    justify-items: center;
+  }
+
+  .mobile-menu-footer a {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
+
+  body.mobile-menu-open .mobile-menu-icon {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .audio-preview {
+    position: relative;
+    top: unset;
+    right: unset;
+    width: auto;
+    margin-top: clamp(125px, 39vw, 180px);
+    gap: clamp(10px, 3vw, 16px);
+    z-index: 5;
+  }
+
+  .audio-card {
+    width: clamp(197px, 62vw, 280px);
+    height: clamp(80px, 25vw, 110px);
+    padding:
+      clamp(11px, 3.5vw, 16px)
+      clamp(12px, 3.8vw, 18px);
+    border-radius: clamp(12px, 3vw, 18px);
+  }
+
+  .audio-title {
+    font-size: clamp(10px, 3vw, 14px);
+    font-weight: 600;
+  }
+
+  .duration {
+    font-size: clamp(10px, 3vw, 14px);
+    font-weight: 400;
+  }
+
+  .audio-controls {
+    gap: clamp(14px, 4vw, 20px);
+  }
+
+  .waveform {
+    width: clamp(90px, 28vw, 130px);
+    height: clamp(20px, 6vw, 28px);
+    gap: clamp(2px, 0.6vw, 4px);
+  }
+
+  .wave-bar {
+    width: clamp(2px, 0.6vw, 4px);
+  }
+
+  .play-btn {
+    width: clamp(18px, 5.5vw, 28px);
+    height: clamp(18px, 5.5vw, 28px);
+  }
+
+  .icon.play {
+    border-left: clamp(8px, 2.5vw, 12px) solid #ffffff;
+    border-top: clamp(5px, 1.5vw, 8px) solid transparent;
+    border-bottom: clamp(5px, 1.5vw, 8px) solid transparent;
+  }
+
+  .btn-more {
+    display: none;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin-top: clamp(36px, 11vw, 80px);
+    container-type: inline-size;
+  }
+
+  .hero-content h1 {
+    width: 100%;
+    font-size: clamp(24px, 11cqw, 48px);
+    line-height: 1.07;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 560px) {
+}
