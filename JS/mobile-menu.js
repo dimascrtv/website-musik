@@ -177,7 +177,7 @@
       }
 
       body.site-mobile-menu-open {
-        overflow: hidden;
+        overflow: visible;
       }
 
       body.site-mobile-menu-open .mobile-menu-icon,
