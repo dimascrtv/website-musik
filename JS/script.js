@@ -333,7 +333,7 @@ window.addEventListener('scroll', () => {
     progress = Math.max(0, Math.min(1, progress));
 
     // 🔥 ini kunci parallax (beda speed)
-    const speed = 500; // makin besar = makin kerasa
+    const speed = window.matchMedia('(max-width: 768px)').matches ? 360 : 1100;
     const y = (progress - 0.5) * speed;
 
     section.style.backgroundPosition = `center calc(50% + ${y}px)`;

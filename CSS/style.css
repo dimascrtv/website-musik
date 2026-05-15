@@ -3818,6 +3818,9 @@ padding-right: clamp(0px, 2.5vw, 12px);
       ),
       url('../IMAGE/background-cta.jpg') center center / cover no-repeat;
 
+    background-color: #064E3B;
+    background-size: auto 145%, auto 145%;
+
     overflow: hidden;
 
     min-height: clamp(507px, 158vw, 760px);
