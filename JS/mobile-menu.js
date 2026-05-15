@@ -1,10 +1,21 @@
 (function () {
   const menuLinks = [
-    { label: "Aransemen", href: "aransemen-orkestrasi.html" },
-    { label: "Partitur", href: "#" },
-    { label: "Mixing Mastering", href: "#" },
-    { label: "Recording", href: "../studio/recording.html" }
+    { label: "Layanan Kami", target: "layanan-kami" },
+    { label: "Portofolio", target: "portfolio" },
+    { label: "Konsultasi", target: "konsultasi" }
   ];
+
+  function isSubPage() {
+    return window.location.pathname.includes("/HTML/");
+  }
+
+  function homeHref(target) {
+    return `${isSubPage() ? "../" : ""}index.html#${target}`;
+  }
+
+  function assetPath(path) {
+    return `${isSubPage() ? "../" : ""}${path}`;
+  }
 
   function injectStyles() {
     if (document.getElementById("site-mobile-menu-style")) return;
@@ -217,12 +228,12 @@
           <span>Close</span>
           <i class="site-mobile-menu-x" aria-hidden="true"></i>
         </button>
-        <a class="site-mobile-menu-logo" href="index.html" aria-label="Musiknya Dimas">
-          <img src="../IMAGE/logo dimas and friends.png" alt="Logo Musiknya Dimas">
+        <a class="site-mobile-menu-logo" href="${homeHref("layanan-kami")}" aria-label="Musiknya Dimas">
+          <img src="${assetPath("IMAGE/logo dimas and friends.png")}" alt="Logo Musiknya Dimas">
         </a>
       </div>
       <nav class="site-mobile-menu-links" aria-label="Navigasi mobile">
-        ${menuLinks.map(link => `<a href="${link.href}">${link.label}</a>`).join("")}
+        ${menuLinks.map(link => `<a href="${homeHref(link.target)}">${link.label}</a>`).join("")}
       </nav>
     `;
 
