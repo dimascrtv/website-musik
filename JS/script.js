@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const revealItems = document.querySelectorAll(
-    ".hero-content p, .services-title, .card-content h3, .card-content a, .ns-title, .ns-desc, .ns-right p, .pf-title, .pf-item, .pf-desc, .why-title, .why-item, .faq-title, .faq-item, .cta-title, .text-section p, .summary-section p, .content-section h2, .three-column p, .orchestration-grid p, .importance-section p, .benefit-copy h2, .benefit-copy p, .benefit-cards article"
+    "section p, main p, .faq-answer"
   );
 
   if (revealItems.length) {

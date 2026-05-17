@@ -209,6 +209,48 @@ img {
   animation-delay: 0.75s;
 }
 
+.partitur-page .hero {
+  background:
+    url("../IMAGE/background header jasa musik aransemen.jpg")
+    no-repeat center center;
+  background-size: cover;
+}
+
+.partitur-page .hero::before {
+  background: linear-gradient(
+    to right,
+    rgba(13, 22, 20, 0.92) 0%,
+    rgba(6, 78, 59, 0.72) 100%
+  );
+}
+
+.partitur-page .hero-content {
+  max-width: 750px;
+}
+
+.partitur-page .audio-preview {
+  top: 317px;
+}
+
+.partitur-page .summary-section {
+  padding-top: 90px;
+}
+
+.partitur-page #apa-itu {
+  padding-bottom: 108px;
+}
+
+#apa-itu {
+  padding-bottom: 108px;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 673px) minmax(0, 432px);
+  gap: 39px;
+  align-items: start;
+}
+
 @keyframes heroTextReveal {
   to {
     opacity: 1;
@@ -441,7 +483,10 @@ img {
 .three-column p,
 .orchestration-grid p,
 .benefit-copy p,
-.benefit-cards article {
+.benefit-cards article,
+.intro-grid p,
+.section-lead,
+.service-list p {
   font-size: 17px;
   font-weight: 400;
   line-height: 30px;
@@ -472,7 +517,7 @@ img {
 }
 
 .dark-section {
-  margin-top: 187px;
+  margin-top: 0;
   padding: 0 0 148px;
   color: #ffffff;
   background:
@@ -480,13 +525,89 @@ img {
     url("../IMAGE/background header jasa musik aransemen.jpg") center center / cover no-repeat;
 }
 
+.partitur-page .dark-section {
+  margin-top: 0;
+  padding-bottom: 108px;
+}
+
 .dark-content {
   padding-top: 96px;
+}
+
+.partitur-page .dark-content {
+  padding-top: 108px;
 }
 
 .dark-section h2,
 .dark-section p {
   color: #ffffff;
+}
+
+.dark-section p {
+  font-weight: 300;
+}
+
+.section-lead {
+  max-width: 1080px;
+  margin-bottom: 57px;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 57px 82px;
+}
+
+.service-list article {
+  color: #ffffff;
+}
+
+.service-list h3,
+.benefit-cards h3 {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin-bottom: 22px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0;
+}
+
+.service-list h3 {
+  font-size: 19px;
+}
+
+.service-list p,
+.benefit-cards p {
+  margin: 0;
+}
+
+.item-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  transform: translateY(1px);
+}
+
+.item-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.item-icon path {
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.benefit-cards article > .item-icon {
+  margin-bottom: 18px;
 }
 
 .orchestration-grid {
@@ -500,6 +621,10 @@ img {
   padding-top: 187px;
 }
 
+.partitur-page .importance-section {
+  padding-top: 108px;
+}
+
 .importance-section h2 {
   width: 470px;
 }
@@ -508,11 +633,19 @@ img {
   padding: 98px 0 126px;
 }
 
+.partitur-page .benefit-section {
+  padding-top: 131px;
+}
+
 .benefit-grid {
   display: grid;
   grid-template-columns: 406px 1fr;
   gap: 72px;
   align-items: start;
+}
+
+.partitur-page .benefit-grid {
+  gap: 54.64px;
 }
 
 .benefit-copy h2 {
@@ -542,6 +675,22 @@ img {
   color: #064e3b;
   background: #f7f8f7;
   border-radius: 18px;
+}
+
+.feature-cards {
+  grid-template-columns: repeat(2, 333.18px);
+  justify-content: end;
+  justify-self: end;
+  gap: 17px;
+}
+
+.feature-cards .benefit-card-column {
+  gap: 17px;
+}
+
+.feature-cards article {
+  min-height: 0;
+  padding: 31px;
 }
 
 .text-reveal {
@@ -606,6 +755,16 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .intro-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+
+  .service-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px;
+  }
+
   .benefit-copy h2,
   .benefit-copy p,
   .importance-section h2 {
@@ -666,12 +825,14 @@ img {
   }
 
   .dark-section {
-    margin-top: 92px;
+    margin-top: 0;
     padding-bottom: 92px;
   }
 
   .four-column,
   .three-column,
+  .intro-grid,
+  .service-list,
   .benefit-cards {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -681,11 +842,38 @@ img {
     gap: 28px;
   }
 
+  .partitur-page .feature-cards .benefit-card-column {
+    display: contents;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(1) article:nth-child(1) {
+    order: 1;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(2) article:nth-child(1) {
+    order: 2;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(1) article:nth-child(2) {
+    order: 3;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(2) article:nth-child(2) {
+    order: 4;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(1) article:nth-child(3) {
+    order: 5;
+  }
+
   .four-column p,
   .three-column p,
   .orchestration-grid p,
   .benefit-copy p,
-  .benefit-cards article {
+  .benefit-cards article,
+  .intro-grid p,
+  .section-lead,
+  .service-list p {
     width: 100%;
     font-size: clamp(13px, 2.7vw, 16px);
     line-height: clamp(22px, 4.6vw, 28px);
@@ -724,11 +912,19 @@ img {
   .hero::before {
     background: linear-gradient(
       to right,
-      rgba(26, 26, 26, 1) 0%,
-      rgba(6, 78, 59, 0.8) 100%
+    rgba(26, 26, 26, 1) 0%,
+    rgba(6, 78, 59, 0.8) 100%
     );
     opacity: 1;
     animation: none;
+  }
+
+  .partitur-page .hero::before {
+    background: linear-gradient(
+      to right,
+      rgba(13, 22, 20, 0.92) 0%,
+      rgba(6, 78, 59, 0.72) 100%
+    );
   }
 
   .navbar {
@@ -998,13 +1194,15 @@ img {
   }
 
   .dark-section {
-    margin-top: clamp(82px, 22vw, 118px);
+    margin-top: 0;
     padding-bottom: clamp(82px, 22vw, 118px);
   }
 
   .four-column,
   .three-column,
   .orchestration-grid,
+  .intro-grid,
+  .service-list,
   .benefit-cards {
     gap: clamp(22px, 7vw, 34px);
   }
@@ -1033,7 +1231,10 @@ img {
   .three-column p,
   .orchestration-grid p,
   .benefit-copy p,
-  .benefit-cards article {
+  .benefit-cards article,
+  .intro-grid p,
+  .section-lead,
+  .service-list p {
     font-size: clamp(12px, 3.7vw, 16px);
     line-height: clamp(20px, 6vw, 28px);
   }
@@ -1064,6 +1265,129 @@ img {
   .benefit-cards article {
     padding: clamp(22px, 7vw, 34px);
     border-radius: clamp(12px, 4vw, 18px);
+  }
+
+  .service-list h3,
+  .benefit-cards h3 {
+    margin-bottom: clamp(12px, 4vw, 22px);
+    gap: clamp(12px, 4vw, 17px);
+    font-size: clamp(14px, 4.2vw, 18px);
+    line-height: clamp(20px, 5.5vw, 25px);
+  }
+
+  .item-icon {
+    width: clamp(20px, 6vw, 24px);
+    height: clamp(20px, 6vw, 24px);
+    flex-basis: clamp(20px, 6vw, 24px);
+  }
+
+  .item-icon svg {
+    width: clamp(20px, 6vw, 24px);
+    height: clamp(20px, 6vw, 24px);
+  }
+
+  .feature-cards article {
+    min-height: 0;
+  }
+
+  .partitur-page .hero {
+    padding-bottom: clamp(68px, 18vw, 96px);
+    background-position: 58% center !important;
+  }
+
+  .partitur-page .audio-preview {
+    position: relative;
+    top: unset;
+    right: unset;
+    width: auto;
+    margin-top: clamp(112px, 35vw, 170px);
+  }
+
+  .partitur-page .hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin-top: clamp(34px, 10vw, 72px);
+  }
+
+  .partitur-page .hero-content h1 {
+    font-size: clamp(24px, 9.8cqw, 42px);
+    line-height: 1.1;
+  }
+
+  .partitur-page .summary-section {
+    padding-top: clamp(64px, 18vw, 92px);
+  }
+
+  .partitur-page #apa-itu {
+    padding-bottom: clamp(76px, 22vw, 108px);
+  }
+
+  .partitur-page .dark-section {
+    margin-top: 0;
+    padding-bottom: clamp(76px, 22vw, 108px);
+  }
+
+  .partitur-page .dark-content {
+    padding-top: clamp(76px, 22vw, 108px);
+  }
+
+  .partitur-page .section-lead {
+    margin-bottom: clamp(38px, 12vw, 57px);
+  }
+
+  .partitur-page .service-list {
+    gap: clamp(38px, 12vw, 57px);
+  }
+
+  .partitur-page .importance-section {
+    padding-top: clamp(76px, 22vw, 108px);
+  }
+
+  .partitur-page .benefit-section {
+    padding-top: clamp(92px, 25vw, 131px);
+    padding-bottom: clamp(82px, 22vw, 126px);
+  }
+
+  .partitur-page .benefit-grid {
+    gap: clamp(34px, 10vw, 52px);
+  }
+
+  .partitur-page .feature-cards {
+    justify-self: stretch;
+    gap: clamp(17px, 5vw, 28px);
+  }
+
+  .partitur-page .feature-cards .benefit-card-column {
+    display: contents;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(1) article:nth-child(1) {
+    order: 1;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(2) article:nth-child(1) {
+    order: 2;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(1) article:nth-child(2) {
+    order: 3;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(2) article:nth-child(2) {
+    order: 4;
+  }
+
+  .partitur-page .feature-cards .benefit-card-column:nth-child(1) article:nth-child(3) {
+    order: 5;
+  }
+
+  .partitur-page .service-list h3 {
+    font-size: clamp(15px, 4.6vw, 19px);
+    line-height: clamp(21px, 5.8vw, 26px);
+  }
+
+  .partitur-page .benefit-cards h3 {
+    font-size: clamp(14px, 4.2vw, 18px);
   }
 }
 

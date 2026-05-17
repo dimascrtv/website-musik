@@ -1,20 +1,41 @@
 (function () {
   const menuLinks = [
+    { label: "Home", href: "index.html" },
     { label: "Layanan Kami", target: "layanan-kami" },
     { label: "Portofolio", target: "portfolio" },
     { label: "Konsultasi", target: "konsultasi" }
   ];
 
   function isSubPage() {
-    return window.location.pathname.includes("/HTML/");
+    return window.location.pathname.includes("/HTML/") || window.location.pathname.includes("/studio/");
+  }
+
+  function hasHomeSection(target) {
+    return Boolean(document.getElementById(target));
   }
 
   function homeHref(target) {
+    if (hasHomeSection(target)) return `#${target}`;
     return `${isSubPage() ? "../" : ""}index.html#${target}`;
+  }
+
+  function menuHref(link) {
+    if (link.href) return `${isSubPage() ? "../" : ""}${link.href}`;
+    return homeHref(link.target);
   }
 
   function assetPath(path) {
     return `${isSubPage() ? "../" : ""}${path}`;
+  }
+
+  function renderMenuLinks(container) {
+    container.innerHTML = menuLinks
+      .map(link => `<a href="${menuHref(link)}">${link.label}</a>`)
+      .join("");
+  }
+
+  function syncDesktopMenus() {
+    document.querySelectorAll(".menu").forEach(renderMenuLinks);
   }
 
   function injectStyles() {
@@ -233,11 +254,11 @@
         </a>
       </div>
       <nav class="site-mobile-menu-links" aria-label="Navigasi mobile">
-        ${menuLinks.map(link => `<a href="${homeHref(link.target)}">${link.label}</a>`).join("")}
       </nav>
     `;
 
     document.body.appendChild(overlay);
+    renderMenuLinks(overlay.querySelector(".site-mobile-menu-links"));
     return overlay;
   }
 
@@ -260,6 +281,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     injectStyles();
+    syncDesktopMenus();
 
     const overlay = createOverlay();
     const menuButton = ensureMenuButton();
