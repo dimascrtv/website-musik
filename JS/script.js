@@ -54,7 +54,8 @@ for (let i = 0; i < TOTAL_BARS; i++) {
   waveform.appendChild(bar);
 }
 
-    let isPlaying = false;
+waveform.classList.add("has-bars");
+
     let raf;
 
     function formatTime(time) {
@@ -91,58 +92,58 @@ for (let i = 0; i < TOTAL_BARS; i++) {
     }
   }
 
-    btn.addEventListener("click", async () => {
+    async function toggleAudio() {
+      document.querySelectorAll(".audio-card").forEach(c => {
+        const a = c.querySelector("audio");
+        const d = c.querySelector(".duration");
+        const i = c.querySelector(".icon");
+        const bars = c.querySelectorAll(".wave-bar");
 
-      // stop audio lain
-document.querySelectorAll(".audio-card").forEach(c => {
-  const a = c.querySelector("audio");
-  const d = c.querySelector(".duration");
-  const i = c.querySelector(".icon");
-  const bars = c.querySelectorAll(".wave-bar");
+        if (a !== audio) {
+          a.pause();
+          a.currentTime = 0;
 
-  if (a !== audio) {
-    a.pause();
-    a.currentTime = 0;
+          if (d) d.textContent = "00:00";
+          if (i) i.className = "icon play";
 
-    d.textContent = "00:00";
-    i.className = "icon play";
-
-    bars.forEach(bar => bar.classList.add("active"));
-  }
-});
+          bars.forEach(bar => bar.classList.add("active"));
+        }
+      });
 
       document.querySelectorAll(".icon").forEach(i => {
         i.classList.remove("stop");
         i.classList.add("play");
       });
 
-      if (!isPlaying) {
+      if (audio.paused) {
         try {
           await audio.play();
-          isPlaying = true;
-
-          icon.className = "icon play";
           icon.className = "icon stop";
-
           updateUI();
-
         } catch (err) {
           console.log("Audio gagal play:", err);
         }
-
       } else {
         audio.pause();
-        isPlaying = false;
-
         icon.classList.remove("stop");
         icon.classList.add("play");
-
         cancelAnimationFrame(raf);
       }
+    }
+
+    btn.addEventListener("click", event => {
+      event.stopPropagation();
+      toggleAudio();
+    });
+
+    card.addEventListener("click", event => {
+      if (event.target.closest("audio")) return;
+      toggleAudio();
     });
 
     // klik waveform
     waveform.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (!audio.duration) return;
 
       const rect = waveform.getBoundingClientRect();
@@ -152,12 +153,12 @@ document.querySelectorAll(".audio-card").forEach(c => {
       audio.currentTime = percent * audio.duration;
 
       updateUI();
+
+      if (audio.paused) toggleAudio();
     });
 
     // reset
     audio.addEventListener("ended", () => {
-      isPlaying = false;
-
       icon.classList.remove("stop");
       icon.classList.add("play");
 
@@ -169,6 +170,12 @@ document.querySelectorAll(".audio-card").forEach(c => {
 	audio.addEventListener("loadedmetadata", () => {
 	durationText.textContent = formatTime(audio.duration);
 	});
+
+    audio.addEventListener("pause", () => {
+      icon.classList.remove("stop");
+      icon.classList.add("play");
+      cancelAnimationFrame(raf);
+    });
 
   });
 

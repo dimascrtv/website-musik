@@ -11,21 +11,21 @@ Gunakan checklist ini setelah `https://musiknyadimas.com` sudah bisa dibuka lagi
 
 ## 2. Google Search Console
 
-- [ ] Buka Google Search Console
-- [ ] Pastikan property `musiknyadimas.com` masih terverifikasi
-- [ ] Inspect URL `https://musiknyadimas.com/`
-- [ ] Klik request indexing untuk halaman utama
-- [ ] Inspect URL `https://musiknyadimas.com/aransemen-orkestrasi.html`
-- [ ] Klik request indexing untuk halaman aransemen
-- [ ] Inspect URL `https://musiknyadimas.com/penulisan-partitur-notasi.html`
-- [ ] Klik request indexing untuk halaman partitur
+- [x] Buka Google Search Console
+- [x] Pastikan property `musiknyadimas.com` masih terverifikasi
+- [x] Inspect URL `https://musiknyadimas.com/`
+- [x] Klik request indexing untuk halaman utama
+- [x] Inspect URL `https://musiknyadimas.com/aransemen-orkestrasi.html`
+- [x] Klik request indexing untuk halaman aransemen
+- [x] Inspect URL `https://musiknyadimas.com/penulisan-partitur-notasi.html`
+- [x] Klik request indexing untuk halaman partitur
 
 ## 3. File SEO Teknis
 
 - [x] Buat `robots.txt`
 - [x] Buat `sitemap.xml`
 - [x] Tambahkan URL sitemap di `robots.txt`
-- [ ] Submit `sitemap.xml` di Google Search Console
+- [x] Submit `sitemap.xml` di Google Search Console
 
 ## 4. Perapihan Link Internal
 
