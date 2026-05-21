@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $Site = "https://musiknyadimas.com"
 $Date = "2026-05-21"
-$CssVersion = "17"
+$CssVersion = "18"
 
 $Images = @{
   arrange = "../../IMAGE/BG jasa aransemen musik & orkestrasi.png"
@@ -121,11 +121,43 @@ function RelatedFor($Page) {
   @($Pages | Where-Object { $_.parent -eq $Page.parent -and $_.slug -ne $Page.slug } | Select-Object -First 4)
 }
 
+function HeroTitleSpans($Title) {
+  $normalized = [regex]::Replace([string]$Title, '\s+', ' ').Trim()
+  $breaks = @(
+    ' Profesional ',
+    ' untuk ',
+    ' dan ',
+    ' Full Score ',
+    ' Rapi Siap ',
+    ' ke ',
+    ' Cover Lagu',
+    ' On Location',
+    ' Podcast dan',
+    ' Paduan Suara'
+  )
+
+  foreach ($break in $breaks) {
+    if ($normalized.Contains($break)) {
+      $left = $normalized.Substring(0, $normalized.IndexOf($break) + $break.TrimEnd().Length)
+      $right = $normalized.Substring($left.Length).Trim()
+      if ($right.Length -gt 0) {
+        return @($left.Trim(), $right)
+      }
+    }
+  }
+
+  $words = $normalized.Split(' ')
+  if ($words.Count -le 3) { return @($normalized) }
+
+  $mid = [Math]::Ceiling($words.Count / 2)
+  return @(($words[0..($mid - 1)] -join ' '), ($words[$mid..($words.Count - 1)] -join ' '))
+}
+
 function PageHtml($Page) {
   $parent = $Parents[$Page.parent]
   $canonical = "$Site/$($Page.parent)/$($Page.slug)"
   $spanLines = New-Object System.Collections.Generic.List[string]
-  foreach ($line in $Page["hero"]) {
+  foreach ($line in (HeroTitleSpans $Page.title)) {
     $spanLines.Add("          <span>$(Html $line)")
   }
   $spans = ($spanLines | ForEach-Object { "$_</span>" }) -join "`n"
@@ -200,33 +232,48 @@ function PageHtml($Page) {
         </a>
       </nav>
 
-      <div class="audio-preview" aria-label="Preview audio">
-        <article class="audio-card">
-          <div class="audio-title">Galenna - Ibuku</div>
-          <div class="audio-controls">
-            <div class="play-btn" aria-label="Putar preview audio">
-              <div class="icon play"></div>
-            </div>
-            <div class="waveform"></div>
-            <div class="duration">04:40</div>
+      <div class="seo-hero-grid">
+        <div class="hero-content">
+          <div class="breadcrumb-links">
+            <a href="/">Home</a>
+            <a href="/$($Page.parent)">$(Html $parent.title)</a>
+            <a href="/$($Page.parent)/$($Page.slug)">$(Html $Page.title)</a>
           </div>
-          <audio src="../../MUSIK/Jasa aransemen lagu - Kang Deden - Ibuku.mp3" preload="metadata"></audio>
-        </article>
-
-        <a class="btn-more" href="#apa-itu">
-          <span class="btn-text-front">Selengkapnya</span>
-          <span class="btn-text-back">Selengkapnya</span>
-        </a>
-      </div>
-
-      <div class="hero-content">
-        <div class="breadcrumb-links">
-          <a href="/">Home</a>
-          <a href="/$($Page.parent)">$(Html $parent.title)</a>
-        </div>
-        <h1>
+          <h1>
 $spans
-        </h1>
+          </h1>
+        </div>
+
+        <div class="audio-preview" aria-label="Preview audio">
+          <article class="audio-card">
+            <div class="audio-title">Galenna - Ibuku</div>
+            <div class="audio-controls">
+              <div class="play-btn" aria-label="Putar preview audio">
+                <div class="icon play"></div>
+              </div>
+              <div class="waveform"></div>
+              <div class="duration">04:40</div>
+            </div>
+            <audio src="../../MUSIK/Jasa aransemen lagu - Kang Deden - Ibuku.mp3" preload="metadata"></audio>
+          </article>
+
+          <article class="audio-card">
+            <div class="audio-title">Aldis Burger - Jingle</div>
+            <div class="audio-controls">
+              <div class="play-btn" aria-label="Putar preview audio">
+                <div class="icon play"></div>
+              </div>
+              <div class="waveform"></div>
+              <div class="duration">01:05</div>
+            </div>
+            <audio src="../../MUSIK/Jasa aransemen lagu - Aldis Burger - Jingle.mp3" preload="metadata"></audio>
+          </article>
+
+          <a class="btn-more" href="#portfolio">
+            <span class="btn-text-front">Selengkapnya</span>
+            <span class="btn-text-back">Selengkapnya</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>

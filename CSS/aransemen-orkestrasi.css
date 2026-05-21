@@ -232,6 +232,10 @@ img {
   top: 317px;
 }
 
+.hero-breadcrumb {
+  padding-top: 49px;
+}
+
 .partitur-page .summary-section {
   padding-top: 90px;
 }
@@ -1623,8 +1627,8 @@ img {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(4, 29, 23, 0.9), rgba(6, 78, 59, 0.64)),
-    linear-gradient(180deg, rgba(4, 29, 23, 0.28), rgba(4, 29, 23, 0.82));
+    linear-gradient(0deg, rgba(2, 18, 14, 0.94) 0%, rgba(4, 37, 29, 0.76) 48%, rgba(6, 78, 59, 0.38) 100%),
+    linear-gradient(90deg, rgba(4, 29, 23, 0.54), rgba(6, 78, 59, 0.22));
 }
 
 .branch-card:hover {
@@ -1677,15 +1681,44 @@ img {
   font-weight: 600;
 }
 
+.seo-branch-page .hero {
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+.seo-branch-page .seo-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 293px;
+  gap: clamp(54px, 8vw, 118px);
+  align-items: center;
+  margin-top: clamp(82px, 8vw, 104px);
+  padding-bottom: 90px;
+}
+
 .seo-branch-page .hero-content {
-  max-width: 820px;
+  max-width: 760px;
+  margin-top: 0;
+}
+
+.seo-branch-page .audio-preview {
+  position: static;
+  width: 293px;
+  justify-self: end;
+}
+
+.seo-branch-page .hero-content h1 {
+  font-size: clamp(52px, 5.8vw, 72px);
+  line-height: 1.08;
+}
+
+.seo-branch-page .hero-content span {
+  max-width: 12.8em;
 }
 
 .breadcrumb-links {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 34px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 14px;
   font-weight: 500;
@@ -1695,6 +1728,10 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+.hero-content .breadcrumb-links {
+  margin-bottom: 34px;
 }
 
 .page-visual-split {
@@ -1794,6 +1831,21 @@ img {
   .branch-hub-head {
     grid-template-columns: 1fr;
   }
+
+  .seo-branch-page .seo-hero-grid {
+    grid-template-columns: minmax(0, 1fr) clamp(250px, 30vw, 293px);
+    gap: clamp(30px, 5vw, 64px);
+    margin-top: clamp(72px, 8vw, 96px);
+    padding-bottom: 90px;
+  }
+
+  .seo-branch-page .hero-content {
+    max-width: none;
+  }
+
+  .seo-branch-page .audio-preview {
+    width: 100%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1805,6 +1857,17 @@ img {
   .branch-hub-head {
     gap: 24px;
     margin-bottom: 34px;
+  }
+
+  .seo-branch-page .seo-hero-grid {
+    display: block;
+    margin-top: clamp(64px, 16vw, 92px);
+    padding-bottom: clamp(64px, 18vw, 92px);
+  }
+
+  .seo-branch-page .audio-preview {
+    width: auto;
+    margin-top: clamp(38px, 10vw, 58px);
   }
 
   .branch-hub-head p,
