@@ -7,7 +7,8 @@
   ];
 
   function isSubPage() {
-    return window.location.pathname.includes("/HTML/") || window.location.pathname.includes("/studio/");
+    const path = window.location.pathname.replace(/\/+$/, "");
+    return path !== "" && path !== "/index.html";
   }
 
   function hasHomeSection(target) {
