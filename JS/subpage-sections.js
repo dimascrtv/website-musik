@@ -4,6 +4,12 @@
   const main = document.querySelector("main");
   if (!main) return;
 
+  const pathDepth = window.location.pathname
+    .split("/")
+    .filter(Boolean)
+    .length;
+  const assetRoot = pathDepth > 1 ? "../../" : "../";
+
   main.insertAdjacentHTML("beforeend", `
     <section class="pf-section" id="portfolio">
       <div class="pf-container">
@@ -22,7 +28,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Kang Deden - Kau Jangan Pergi.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Kang Deden - Kau Jangan Pergi.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -36,7 +42,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Kang Deden - Tak Ku Sangka.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Kang Deden - Tak Ku Sangka.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -50,7 +56,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Alte - Letih.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Alte - Letih.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -64,7 +70,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Tepuk Sakinah - Mars.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Tepuk Sakinah - Mars.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -80,7 +86,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Ditlantas Polda Jatim - Jingle.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Ditlantas Polda Jatim - Jingle.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -94,7 +100,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Saka - Jingle.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Saka - Jingle.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -108,7 +114,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Nisa - Lebaran.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Nisa - Lebaran.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -122,7 +128,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Anni - Sholawat.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Anni - Sholawat.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -138,7 +144,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Sela - Live Arrange.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Sela - Live Arrange.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -152,7 +158,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Anginangan - Hanya Dirimu.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Anginangan - Hanya Dirimu.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -166,7 +172,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Heri - Adakah.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Heri - Adakah.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
@@ -180,7 +186,7 @@
                 </div>
               </div>
               <div class="pf-dots">
-                <audio src="../MUSIK/Jasa aransemen lagu - Angkasapura - Scoring.mp3" preload="none"></audio>
+                <audio src="${assetRoot}MUSIK/Jasa aransemen lagu - Angkasapura - Scoring.mp3" preload="none"></audio>
                 <span></span><span></span><span></span>
               </div>
             </div>
