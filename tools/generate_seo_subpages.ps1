@@ -15,6 +15,17 @@ $Images = @{
   cta = "../../IMAGE/background-cta.jpg"
 }
 
+$CardImages = @(
+  "../../IMAGE/card studio rekaman.jpg",
+  "../../IMAGE/card aransemen musik dan orkestrasi.jpg",
+  "../../IMAGE/card mixing dan mastering.jpg",
+  "../../IMAGE/card penulisan partitur dan notasi.jpg",
+  "../../IMAGE/BG jasa rekording.png",
+  "../../IMAGE/BG jasa mixing mastering.png",
+  "../../IMAGE/BG jasa aransemen musik & orkestrasi.png",
+  "../../IMAGE/BG penulisan partitur & notasi musik.png"
+)
+
 $Parents = @{
   "aransemen-orkestrasi" = @{
     title = "Aransemen Musik & Orkestrasi"
@@ -74,8 +85,8 @@ function Html($Text) {
   return [System.Net.WebUtility]::HtmlEncode([string]$Text)
 }
 
-function BranchCard($Page, $Prefix) {
-  $img = $Images[$Page.image]
+function BranchCard($Page, $Prefix, $Index) {
+  $img = $CardImages[$Index % $CardImages.Count]
   if ($Prefix -eq "../") { $img = $img.Replace("../../", "../") }
   @"
           <a class="branch-card" href="/$($Page.parent)/$($Page.slug)" style="--branch-image: url('$img')">
@@ -126,8 +137,10 @@ function PageHtml($Page) {
   }
   $relatedLinks = $relatedLinkLines -join "`n"
   $relatedCardLines = New-Object System.Collections.Generic.List[string]
+  $relatedIndex = 0
   foreach ($item in $related) {
-    $relatedCardLines.Add((BranchCard $item "../../"))
+    $relatedCardLines.Add((BranchCard $item "../../" $relatedIndex))
+    $relatedIndex++
   }
   $relatedCards = $relatedCardLines -join "`n"
   $cardsA = @($Page.cards | Select-Object -First 2)
@@ -293,7 +306,13 @@ $relatedCards
 
 function ParentHub($Slug) {
   $parent = $Parents[$Slug]
-  $cards = ($Pages | Where-Object { $_.parent -eq $Slug } | ForEach-Object { BranchCard $_ "../" }) -join "`n"
+  $cardLines = New-Object System.Collections.Generic.List[string]
+  $cardIndex = 0
+  foreach ($page in ($Pages | Where-Object { $_.parent -eq $Slug })) {
+    $cardLines.Add((BranchCard $page "../" $cardIndex))
+    $cardIndex++
+  }
+  $cards = $cardLines -join "`n"
 @"
     <section class="branch-hub-section" id="pilihan-layanan">
       <div class="page-container">
