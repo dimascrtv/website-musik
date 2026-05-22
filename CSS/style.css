@@ -4491,3 +4491,52 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
 
 }
+
+.hero-content p,
+.text-section p,
+.services-desc,
+.pf-desc,
+.why-item p,
+.faq-answer,
+.portfolio-text p,
+.card-content p,
+.branch-hub-head p,
+.branch-card p,
+.related-copy {
+  font-size: 17px;
+  line-height: 30px;
+}
+
+@media (min-width: 768px) and (max-width: 1190px) {
+  .hero-content p,
+  .text-section p,
+  .services-desc,
+  .pf-desc,
+  .why-item p,
+  .faq-answer,
+  .portfolio-text p,
+  .card-content p,
+  .branch-hub-head p,
+  .branch-card p,
+  .related-copy {
+    font-size: 17px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-content p,
+  .text-section p,
+  .services-desc,
+  .pf-desc,
+  .why-item p,
+  .faq-answer,
+  .portfolio-text p,
+  .card-content p,
+  .branch-hub-head p,
+  .branch-card p,
+  .related-copy {
+    font-size: 15px;
+    line-height: 26px;
+  }
+}
