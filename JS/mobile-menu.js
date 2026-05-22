@@ -1,10 +1,19 @@
 (function () {
-  const menuLinks = [
-    { label: "Home", href: "index.html" },
-    { label: "Layanan Kami", target: "layanan-kami" },
-    { label: "Portofolio", target: "portfolio" },
-    { label: "Konsultasi", target: "konsultasi" }
-  ];
+  const isEnglishPage = window.location.pathname.replace(/\/+/g, "/").startsWith("/en/");
+  const homeBase = isEnglishPage ? "/en/" : "/";
+  const menuLinks = isEnglishPage
+    ? [
+        { label: "Home", href: homeBase },
+        { label: "Services", target: "layanan-kami" },
+        { label: "Portfolio", target: "portfolio" },
+        { label: "Consultation", target: "konsultasi" }
+      ]
+    : [
+        { label: "Home", href: homeBase },
+        { label: "Layanan Kami", target: "layanan-kami" },
+        { label: "Portofolio", target: "portfolio" },
+        { label: "Konsultasi", target: "konsultasi" }
+      ];
 
   function isSubPage() {
     const path = window.location.pathname.replace(/\/+$/, "");
@@ -17,16 +26,16 @@
 
   function homeHref(target) {
     if (hasHomeSection(target)) return `#${target}`;
-    return `${isSubPage() ? "../" : ""}index.html#${target}`;
+    return `${homeBase}#${target}`;
   }
 
   function menuHref(link) {
-    if (link.href) return `${isSubPage() ? "../" : ""}${link.href}`;
+    if (link.href) return link.href;
     return homeHref(link.target);
   }
 
   function assetPath(path) {
-    return `${isSubPage() ? "../" : ""}${path}`;
+    return `/${path}`;
   }
 
   function renderMenuLinks(container) {
