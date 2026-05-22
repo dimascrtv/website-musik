@@ -464,7 +464,7 @@
   justify-content: flex-start;
   gap: 42px;
   margin-top: 0;
-}
+} 
 
 .cta-btn-wrap {
   position: relative;
@@ -610,12 +610,17 @@
   }
 
   .cta-actions {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .cta-btn-wrap {
-    margin-left: 0;
+    margin-left: auto;
     margin-right: auto;
+  }
+
+  /* Force CTA title second line on tablet */
+  .cta-title .cta-line2 {
+    display: block;
   }
 
   .cta-btn-wrap::before {
@@ -977,4 +982,57 @@
   .cta-link {
     display: none;
   }
+}
+
+/* Ensure dashed guide lines span full viewport on desktop/tablet */
+@media (min-width: 768px) {
+  .cta-line {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 1px !important;
+    z-index: 50 !important;
+    pointer-events: none !important;
+    display: block !important;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.36) 0px,
+      rgba(255,255,255,0.36) 12px,
+      transparent 12px,
+      transparent 24px
+    ) !important;
+  }
+
+  .cta-line.left {
+    left: calc(50% - 572px) !important;
+    right: auto !important;
+  }
+
+  .cta-line.right {
+    left: calc(50% + 572px) !important;
+    right: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-line { display: none !important; }
+}
+
+/* Enforce centered CTA title and actions on tablet+desktop to match iPad layout */
+@media (min-width: 768px) {
+  .cta-title {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .cta-title span { display: block; }
+
+  .cta-actions {
+    justify-content: center !important;
+    gap: clamp(15px, 4vw, 32px);
+  }
+
+  .cta-btn-wrap { margin: 0 auto; }
 }

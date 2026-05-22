@@ -2334,8 +2334,8 @@ html {
 .cta-line {
   position: absolute;
   top: 0;
-  bottom: 0; /* 🔥 ini bikin full tinggi */
-  height: 500%; /* 🔥 jangan pakai height:100% */
+  bottom: 0;
+  height: auto;
   width: 1px;
 
   pointer-events: none;
@@ -2343,8 +2343,8 @@ html {
 
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255,255,255,0.4) 0px,
-    rgba(255,255,255,0.4) 12px,
+    rgba(255,255,255,0.36) 0px,
+    rgba(255,255,255,0.36) 12px,
     transparent 12px,
     transparent 24px
   );
@@ -2353,6 +2353,7 @@ html {
 /* 🔥 POSISI SESUAI CONTAINER 1144px */
 .cta-line.left {
   left: calc(50% - 572px);
+  right: auto;
   animation: ctaDashUp 2s linear infinite;
 }
 
@@ -2389,6 +2390,7 @@ html {
   font-size: 73px;
   line-height: 85px;
   color: white;
+  text-align: center;
 }
 
 /* ACTIONS */
@@ -2397,6 +2399,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* =========================
@@ -2868,6 +2871,19 @@ html {
     font-size: clamp(52px, 6vw, 70px);
     line-height: 1.12;
   }
+
+  /* center CTA title & actions on tablet+desktop to match iPad */
+  .cta-title {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .cta-title span { display: block; }
+
+  .cta-actions { justify-content: center !important; }
+  .cta-btn-wrap { margin: 0 auto; }
 }
 
 
@@ -3017,6 +3033,10 @@ html {
   gap: clamp(10px, 3vw, 16px);
 
   z-index: 5;
+}
+
+@media (max-width: 767px) {
+  .cta-line { display: none !important; }
 }
 
 .audio-card {
@@ -4281,7 +4301,7 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
     color: #ffffff;
 
-    text-align: left;
+    text-align: center;
 
     /* 🔥 spacing bawah = 38 */
     margin-bottom: clamp(52px, 14vw, 72px);
