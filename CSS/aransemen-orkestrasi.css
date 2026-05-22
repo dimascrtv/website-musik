@@ -1954,7 +1954,7 @@ img {
 }
 
 @media (max-width: 767px) {
-  .cta-line { display: none !important; }
+  .cta-section .cta-line { display: none !important; }
 }
 
 .pf-section {
@@ -2323,12 +2323,13 @@ img {
 .cta-section {
   position: relative;
   min-height: 640px;
-  padding: 121px 0 220px;
+  padding: 121px 0 411px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   overflow: hidden;
-  background: url('../IMAGE/background-cta.jpg') center/cover no-repeat;
+  background: url('../IMAGE/background-cta.jpg') center / cover no-repeat;
+  background-attachment: fixed;
 }
 
 .cta-section::before {
@@ -2345,33 +2346,33 @@ img {
   text-align: center;
 }
 
-.cta-line {
+.cta-section .cta-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: -121px;
+  bottom: -411px;
   width: 1px;
   z-index: 3;
   pointer-events: none;
-  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.36) 0 12px, transparent 12px 24px);
+  background: repeating-linear-gradient(to bottom, rgba(220, 232, 228, 0.58) 0 17px, transparent 17px 34px);
 }
 
-.cta-line.left {
+.cta-section .cta-line.left {
   left: calc(50% - 572px);
-  animation: ctaDashUp 2s linear infinite;
+  animation: ctaDashUp 6s linear infinite;
 }
 
-.cta-line.right {
+.cta-section .cta-line.right {
   left: calc(50% + 572px);
-  animation: ctaDashDown 2s linear infinite;
+  animation: ctaDashDown 6s linear infinite;
 }
 
 @keyframes ctaDashDown {
   from { background-position: 0 0; }
-  to { background-position: 0 24px; }
+  to { background-position: 0 34px; }
 }
 
 @keyframes ctaDashUp {
-  from { background-position: 0 24px; }
+  from { background-position: 0 34px; }
   to { background-position: 0 0; }
 }
 
@@ -2387,6 +2388,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: clamp(18px, 2.2vw, 28px);
 }
 
 @media (min-width: 768px) {
@@ -2399,8 +2401,12 @@ img {
 
   .cta-title span { display: block; }
 
-  .cta-actions { justify-content: center !important; }
-  .cta-btn-wrap { margin: 0 auto; }
+  .cta-actions {
+    justify-content: center !important;
+    gap: clamp(18px, 2.2vw, 28px);
+  }
+
+  .cta-btn-wrap { margin: 0; }
 }
 
 .cta-btn-wrap {
@@ -2489,7 +2495,7 @@ img {
 
 .cta-link {
   position: relative;
-  margin-left: 52px;
+  margin-left: 0;
   color: #ffffff;
   font-size: 17px;
   font-weight: 700;
@@ -2713,7 +2719,7 @@ img {
     padding: 86px 0 150px;
   }
 
-  .cta-line {
+  .cta-section .cta-line {
     display: none;
   }
 

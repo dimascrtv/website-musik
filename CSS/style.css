@@ -2305,15 +2305,17 @@ html {
 
 .cta-section {
   position: relative;
-  background: url('../IMAGE/background-cta.jpg') center/cover no-repeat;
+  background: url('../IMAGE/background-cta.jpg') center / cover no-repeat;
+  background-attachment: fixed;
 
-  padding-bottom: 441px;
+  min-height: 493px;
+  padding: 72px 0 411px;
   overflow: hidden;
 
   /* 🔥 TAMBAH INI */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .cta-section::before {
@@ -2331,10 +2333,10 @@ html {
 }
 
 /* BASE */
-.cta-line {
+.cta-section .cta-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: -72px;
+  bottom: -411px;
   height: auto;
   width: 1px;
 
@@ -2343,33 +2345,33 @@ html {
 
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255,255,255,0.36) 0px,
-    rgba(255,255,255,0.36) 12px,
-    transparent 12px,
-    transparent 24px
+    rgba(220, 232, 228, 0.58) 0px,
+    rgba(220, 232, 228, 0.58) 17px,
+    transparent 17px,
+    transparent 34px
   );
 }
 
 /* 🔥 POSISI SESUAI CONTAINER 1144px */
-.cta-line.left {
-  left: calc(50% - 572px);
+.cta-section .cta-line.left {
+  left: max(24px, calc(50% - 572px));
   right: auto;
-  animation: ctaDashUp 2s linear infinite;
+  animation: ctaDashUp 6s linear infinite;
 }
 
-.cta-line.right {
-  left: calc(50% + 572px);
-  animation: ctaDashDown 2s linear infinite;
+.cta-section .cta-line.right {
+  left: min(calc(100% - 24px), calc(50% + 572px));
+  animation: ctaDashDown 6s linear infinite;
 }
 
 /* ANIMASI */
 @keyframes ctaDashDown {
   from { background-position: 0 0; }
-  to   { background-position: 0 24px; }
+  to   { background-position: 0 34px; }
 }
 
 @keyframes ctaDashUp {
-  from { background-position: 0 24px; }
+  from { background-position: 0 34px; }
   to   { background-position: 0 0; }
 }
 
@@ -2384,22 +2386,26 @@ html {
 
 /* TITLE */
 .cta-title {
-    padding-top: 121px;
+  padding-top: 0;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 73px;
-  line-height: 85px;
+  font-size: clamp(44px, 5.2vw, 58px);
+  line-height: 1.08;
   color: white;
   text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ACTIONS */
 .cta-actions {
-  margin-top: 60px;
+  margin-top: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  gap: clamp(18px, 2.2vw, 28px);
 }
 
 /* =========================
@@ -2524,7 +2530,7 @@ html {
 ========================= */
 
 .cta-link {
-  margin-left: 52px;
+  margin-left: 0;
   font-size: 17px;
   font-weight: 700;
   color: white;
@@ -2858,23 +2864,29 @@ html {
     height: 101%;
   }
 
-  .cta-line.left {
+  .cta-section .cta-line.left {
     left: var(--tablet-gutter);
   }
 
-  .cta-line.right {
+  .cta-section .cta-line.right {
     left: auto;
     right: var(--tablet-gutter);
   }
 
+  .cta-section {
+    min-height: clamp(430px, 48vw, 493px);
+    padding-top: clamp(64px, 8vw, 76px);
+    padding-bottom: clamp(68px, 8vw, 88px);
+  }
+
   .cta-title {
-    font-size: clamp(52px, 6vw, 70px);
-    line-height: 1.12;
+    font-size: clamp(38px, 4.4vw, 46px);
+    line-height: 1.08;
   }
 
   /* center CTA title & actions on tablet+desktop to match iPad */
   .cta-title {
-    max-width: 760px;
+    max-width: 620px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -2882,8 +2894,48 @@ html {
 
   .cta-title span { display: block; }
 
-  .cta-actions { justify-content: center !important; }
-  .cta-btn-wrap { margin: 0 auto; }
+  .cta-actions {
+    gap: clamp(16px, 3vw, 24px);
+    justify-content: center !important;
+  }
+
+  .cta-btn-wrap {
+    width: clamp(184px, 23vw, 244px);
+    height: clamp(39px, 4.8vw, 52px);
+    margin: 0;
+  }
+
+  .cta-btn-wrap::before {
+    left: clamp(19px, 2.6vw, 26px);
+    width: clamp(58px, 7.6vw, 76px);
+    height: clamp(58px, 7.6vw, 76px);
+  }
+
+  .cta-btn-primary {
+    padding-left: clamp(56px, 7vw, 74px);
+    padding-right: clamp(22px, 3vw, 34px);
+    font-size: clamp(11px, 1.35vw, 14px);
+  }
+
+  .cta-circle {
+    left: clamp(5px, 0.8vw, 8px);
+    width: clamp(30px, 4vw, 42px);
+    height: clamp(30px, 4vw, 42px);
+  }
+
+  .cta-circle svg {
+    width: clamp(15px, 2.1vw, 18px);
+    height: clamp(15px, 2.1vw, 18px);
+  }
+
+  .cta-btn-text {
+    transform: translateX(0);
+  }
+
+  .cta-link {
+    margin-left: 0;
+    font-size: clamp(12px, 1.45vw, 15px);
+  }
 }
 
 
@@ -3036,7 +3088,7 @@ html {
 }
 
 @media (max-width: 767px) {
-  .cta-line { display: none !important; }
+  .cta-section .cta-line { display: none !important; }
 }
 
 .audio-card {
@@ -3213,7 +3265,7 @@ html {
   ========================= */
 
   .guide-line,
-  .cta-line {
+  .cta-section .cta-line {
     display: none;
   }
 
@@ -4214,7 +4266,7 @@ padding-right: clamp(0px, 2.5vw, 12px);
      DASH LINE
   ========================================================= */
 
-  .cta-line {
+  .cta-section .cta-line {
     position: absolute;
 
     top: 0;
@@ -4234,12 +4286,12 @@ padding-right: clamp(0px, 2.5vw, 12px);
     );
   }
 
-  .cta-line.left {
+  .cta-section .cta-line.left {
     left: clamp(16px, 5vw, 28px);
     animation: ctaDashUp 2s linear infinite;
   }
 
-  .cta-line.right {
+  .cta-section .cta-line.right {
     right: clamp(16px, 5vw, 28px);
     animation: ctaDashDown 2s linear infinite;
   }
@@ -4307,8 +4359,11 @@ padding-right: clamp(0px, 2.5vw, 12px);
     margin-bottom: clamp(52px, 14vw, 72px);
 
     /* 🔥 penting supaya layout tidak pecah */
-    word-break: keep-all;
-    overflow-wrap: normal;
+    max-width: min(100%, 360px);
+    margin-left: auto;
+    margin-right: auto;
+    word-break: normal;
+    overflow-wrap: break-word;
     white-space: normal;
   }
 

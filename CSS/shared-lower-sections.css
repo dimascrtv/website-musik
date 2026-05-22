@@ -390,24 +390,33 @@
 }
 
 .cta-section {
+  --cta-parallax-y: 0px;
   position: relative;
   min-height: 700px;
-  padding: 150px 0 170px;
+  padding: 150px 0 411px;
   display: flex;
   align-items: flex-start;
-  background:
-    linear-gradient(to bottom, rgba(26, 26, 26, 1) 0%, rgba(6, 78, 59, 0.46) 100%),
-    url("../IMAGE/background-cta.jpg") center / cover no-repeat;
-  background-color: #064e3b;
+  background: #064e3b;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .cta-section::before {
   content: "";
   position: absolute;
+  inset: -34% 0;
+  z-index: 0;
+  background: url("../IMAGE/background-cta.jpg") center / cover no-repeat;
+  transform: translate3d(0, var(--cta-parallax-y), 0) scale(1.04);
+  will-change: transform;
+}
+
+.cta-section::after {
+  content: "";
+  position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.92) 0%, rgba(6, 78, 59, 0.42) 100%);
+  background: linear-gradient(to bottom, rgba(26, 26, 26, 1) 0%, rgba(6, 78, 59, 0.46) 100%);
 }
 
 .cta-container {
@@ -418,33 +427,39 @@
   margin: 0 auto;
 }
 
-.cta-line {
+.cta-section .cta-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: -150px;
+  bottom: -411px;
   z-index: 3;
   width: 1px;
   pointer-events: none;
-  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.36) 0 10px, transparent 10px 20px);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(220, 232, 228, 0.58) 0px,
+    rgba(220, 232, 228, 0.58) 17px,
+    transparent 17px,
+    transparent 34px
+  );
 }
 
-.cta-line.left {
+.cta-section .cta-line.left {
   left: 0;
-  animation: ctaDashUp 2s linear infinite;
+  animation: ctaDashUp 6s linear infinite;
 }
 
-.cta-line.right {
+.cta-section .cta-line.right {
   right: 0;
-  animation: ctaDashDown 2s linear infinite;
+  animation: ctaDashDown 6s linear infinite;
 }
 
 @keyframes ctaDashDown {
   from { background-position: 0 0; }
-  to { background-position: 0 20px; }
+  to { background-position: 0 34px; }
 }
 
 @keyframes ctaDashUp {
-  from { background-position: 0 20px; }
+  from { background-position: 0 34px; }
   to { background-position: 0 0; }
 }
 
@@ -462,7 +477,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 42px;
+  gap: clamp(18px, 2.2vw, 28px);
   margin-top: 0;
 } 
 
@@ -532,6 +547,7 @@
 }
 
 .cta-link {
+  margin-left: 0;
   color: #ffffff;
   font-size: 17px;
   font-weight: 700;
@@ -611,11 +627,12 @@
 
   .cta-actions {
     justify-content: center;
+    gap: clamp(16px, 3vw, 24px);
   }
 
   .cta-btn-wrap {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   /* Force CTA title second line on tablet */
@@ -628,7 +645,7 @@
   }
 
   .cta-link {
-    display: none;
+    display: inline-flex;
   }
 }
 
@@ -911,16 +928,18 @@
     align-items: stretch;
     flex-direction: column;
     justify-content: flex-start;
-    background:
-      linear-gradient(to bottom, rgba(26, 26, 26, 1) 0%, rgba(6, 78, 59, 0.46) 100%),
-      url("../IMAGE/background-cta.jpg") center center / auto 145% no-repeat;
   }
 
-  .cta-line.left {
+  .cta-section::before {
+    inset: -22% 0;
+    background-size: auto 145%;
+  }
+
+  .cta-section .cta-line.left {
     left: clamp(16px, 5vw, 28px);
   }
 
-  .cta-line.right {
+  .cta-section .cta-line.right {
     right: clamp(16px, 5vw, 28px);
   }
 
@@ -986,36 +1005,36 @@
 
 /* Ensure dashed guide lines span full viewport on desktop/tablet */
 @media (min-width: 768px) {
-  .cta-line {
-    position: fixed !important;
-    top: 0 !important;
-    bottom: 0 !important;
+  .cta-section .cta-line {
+    position: absolute !important;
+    top: -150px !important;
+    bottom: -411px !important;
     width: 1px !important;
-    z-index: 50 !important;
+    z-index: 3 !important;
     pointer-events: none !important;
     display: block !important;
     background: repeating-linear-gradient(
       to bottom,
-      rgba(255,255,255,0.36) 0px,
-      rgba(255,255,255,0.36) 12px,
-      transparent 12px,
-      transparent 24px
+      rgba(220, 232, 228, 0.58) 0px,
+      rgba(220, 232, 228, 0.58) 17px,
+      transparent 17px,
+      transparent 34px
     ) !important;
   }
 
-  .cta-line.left {
+  .cta-section .cta-line.left {
     left: calc(50% - 572px) !important;
     right: auto !important;
   }
 
-  .cta-line.right {
+  .cta-section .cta-line.right {
     left: calc(50% + 572px) !important;
     right: auto !important;
   }
 }
 
 @media (max-width: 767px) {
-  .cta-line { display: none !important; }
+  .cta-section .cta-line { display: none !important; }
 }
 
 /* Enforce centered CTA title and actions on tablet+desktop to match iPad layout */
@@ -1031,8 +1050,10 @@
 
   .cta-actions {
     justify-content: center !important;
-    gap: clamp(15px, 4vw, 32px);
+    gap: clamp(18px, 2.2vw, 28px);
   }
 
-  .cta-btn-wrap { margin: 0 auto; }
+  .cta-btn-wrap { margin: 0; }
+
+  .cta-link { display: inline-flex; }
 }

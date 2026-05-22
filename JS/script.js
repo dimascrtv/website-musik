@@ -326,10 +326,22 @@ window.addEventListener('scroll', () => {
 
 
 // ==== PARALLAX SMOOTH (PREMIUM FEEL) ====
-window.addEventListener('scroll', () => {
+function updateParallaxSections() {
   const sections = document.querySelectorAll('.parallax-section');
 
   sections.forEach(section => {
+    if (section.classList.contains('cta-section')) {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+      progress = Math.max(0, Math.min(1, progress));
+
+      const speed = window.matchMedia('(max-width: 768px)').matches ? 170 : 360;
+      const y = (progress - 0.5) * speed;
+      section.style.setProperty('--cta-parallax-y', `${y}px`);
+      return;
+    }
+
     const rect = section.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
@@ -345,7 +357,11 @@ window.addEventListener('scroll', () => {
 
     section.style.backgroundPosition = `center calc(50% + ${y}px)`;
   });
-});
+}
+
+window.addEventListener('scroll', updateParallaxSections);
+window.addEventListener('load', updateParallaxSections);
+requestAnimationFrame(updateParallaxSections);
 
 
   document.querySelectorAll('.card-arrow').forEach(item => {
