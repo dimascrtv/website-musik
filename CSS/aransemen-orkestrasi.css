@@ -125,7 +125,7 @@ img {
   color: #ffffff;
   font-size: 17px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.65;
 }
 
 .menu a::after {
@@ -987,6 +987,7 @@ img {
 
   .menu a {
     font-size: clamp(13px, 1.45vw, 16px);
+    line-height: 1.7;
   }
 
   .hero-content {
@@ -1253,7 +1254,7 @@ img {
     color: #ffffff;
     font-size: clamp(34px, 11vw, 62px);
     font-weight: 500;
-    line-height: 1.12;
+    line-height: 1.22;
     letter-spacing: 0;
     text-transform: uppercase;
   }
@@ -1268,7 +1269,7 @@ img {
     color: #ffffff;
     font-size: 12px;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.7;
     text-transform: uppercase;
   }
 
@@ -1721,13 +1722,15 @@ img {
   gap: 12px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.75;
 }
 
 .breadcrumb-links a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  line-height: inherit;
 }
 
 .hero-content .breadcrumb-links {
@@ -1750,6 +1753,14 @@ img {
 
 .section-image.tall {
   min-height: 560px;
+}
+
+.seo-branch-page #apa-itu .section-image {
+  display: none;
+}
+
+.seo-branch-page #apa-itu .page-visual-split {
+  grid-template-columns: minmax(0, 760px);
 }
 
 .copy-stack {
@@ -1843,6 +1854,12 @@ img {
     max-width: none;
   }
 
+  .seo-branch-page .hero-content .breadcrumb-links {
+    column-gap: 12px;
+    row-gap: 4px;
+    line-height: 1.55;
+  }
+
   .seo-branch-page .audio-preview {
     width: 100%;
   }
@@ -1860,14 +1877,42 @@ img {
   }
 
   .seo-branch-page .seo-hero-grid {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-top: clamp(64px, 16vw, 92px);
     padding-bottom: clamp(64px, 18vw, 92px);
   }
 
+  .seo-branch-page .hero-content {
+    order: 2;
+    margin-top: clamp(34px, 10vw, 72px);
+  }
+
+  .seo-branch-page .hero-content .breadcrumb-links {
+    margin-bottom: clamp(28px, 8vw, 34px);
+    row-gap: 2px;
+    line-height: 1.75;
+  }
+
+  .seo-branch-page .hero-content h1 {
+    font-size: clamp(30px, 8.6vw, 38px);
+    line-height: 1.12;
+  }
+
+  .seo-branch-page .hero-content span {
+    max-width: none;
+  }
+
   .seo-branch-page .audio-preview {
-    width: auto;
-    margin-top: clamp(38px, 10vw, 58px);
+    order: 1;
+    width: clamp(197px, 62vw, 280px);
+    align-self: flex-start;
+    align-items: flex-start;
+    margin-top: 0;
+  }
+
+  .seo-branch-page .audio-card {
+    width: 100%;
   }
 
   .branch-hub-head p,

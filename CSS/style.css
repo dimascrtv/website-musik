@@ -132,6 +132,7 @@ html {
   color: white;
   font-size: 17px;
   font-weight: 500;
+  line-height: 1.65;
 }
 
 /* HOVER MENU */
@@ -2644,6 +2645,7 @@ html {
 
   .menu a {
     font-size: clamp(13px, 1.45vw, 16px);
+    line-height: 1.7;
   }
 
   .hero {

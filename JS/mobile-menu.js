@@ -93,7 +93,7 @@
         font-family: inherit;
         font-size: 13px;
         font-weight: 400;
-        line-height: 1;
+        line-height: 1.7;
         letter-spacing: 0;
         text-transform: uppercase;
         cursor: pointer;
@@ -148,7 +148,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.14);
         font-size: clamp(30px, 8.8vw, 54px);
         font-weight: 500;
-        line-height: 1.08;
+        line-height: 1.24;
         letter-spacing: 0;
         text-transform: uppercase;
         text-decoration: none !important;
@@ -237,6 +237,7 @@
         .site-mobile-menu-links a {
           min-height: clamp(62px, 8vw, 82px);
           font-size: clamp(34px, 5vw, 54px);
+          line-height: 1.26;
         }
       }
 
