@@ -76,6 +76,7 @@
         whatsappText: "Halo Dimas, saya mau konsultasi"
       };
   const whatsappUrl = `https://wa.me/6285737690807?text=${encodeURIComponent(copy.whatsappText)}`;
+  const songTitle = title => `<div class="pf-song"><span>${title}</span></div>`;
 
   main.insertAdjacentHTML("beforeend", `
     <section class="pf-section" id="portfolio">
@@ -90,7 +91,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Galenna - Kau Jangan Pergi</div>
+                  ${songTitle("Galenna - Kau Jangan Pergi")}
                   <div class="pf-artist">Pop Ballad</div>
                 </div>
               </div>
@@ -104,7 +105,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Rasika Seta - Tak Ku Sangka</div>
+                  ${songTitle("Rasika Seta - Tak Ku Sangka")}
                   <div class="pf-artist">Pop Ballad</div>
                 </div>
               </div>
@@ -118,7 +119,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Alte - Letih</div>
+                  ${songTitle("Alte - Letih")}
                   <div class="pf-artist">Pop Rock</div>
                 </div>
               </div>
@@ -132,7 +133,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">KUA Menteng</div>
+                  ${songTitle("KUA Menteng")}
                   <div class="pf-artist">Mars</div>
                 </div>
               </div>
@@ -148,7 +149,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Ditlantas Polda Jatim</div>
+                  ${songTitle("Ditlantas Polda Jatim")}
                   <div class="pf-artist">Jingle</div>
                 </div>
               </div>
@@ -162,7 +163,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Sekolah Alam Kreativa</div>
+                  ${songTitle("Sekolah Alam Kreativa")}
                   <div class="pf-artist">Jingle</div>
                 </div>
               </div>
@@ -176,7 +177,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Nisa - Lebaran Sebentar Lagi</div>
+                  ${songTitle("Nisa - Lebaran Sebentar Lagi")}
                   <div class="pf-artist">Pop Ballad</div>
                 </div>
               </div>
@@ -190,7 +191,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Anni - Sholawat</div>
+                  ${songTitle("Anni - Sholawat")}
                   <div class="pf-artist">Pop Ballad</div>
                 </div>
               </div>
@@ -206,7 +207,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Sela - Tetap Setia</div>
+                  ${songTitle("Sela - Tetap Setia")}
                   <div class="pf-artist">Strange Arrangement</div>
                 </div>
               </div>
@@ -220,7 +221,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Anginangan - Hanya Dirimu</div>
+                  ${songTitle("Anginangan - Hanya Dirimu")}
                   <div class="pf-artist">Pop Blues</div>
                 </div>
               </div>
@@ -234,7 +235,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Widy Astuti - Adakah</div>
+                  ${songTitle("Widy Astuti - Adakah")}
                   <div class="pf-artist">Bossanova</div>
                 </div>
               </div>
@@ -248,7 +249,7 @@
               <div class="pf-left">
                 <div class="pf-play"></div>
                 <div>
-                  <div class="pf-song">Angkasa Pura Indonesia</div>
+                  ${songTitle("Angkasa Pura Indonesia")}
                   <div class="pf-artist">Music Profile</div>
                 </div>
               </div>
@@ -374,4 +375,5 @@
       </div>
     </section>
   `);
+
 })();

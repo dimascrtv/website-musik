@@ -59,6 +59,13 @@
   align-items: center;
   gap: 23px;
   min-width: 0;
+  flex: 1 1 auto;
+}
+
+.pf-left > div:last-child {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .pf-play {
@@ -93,12 +100,20 @@
   white-space: nowrap;
 }
 
+.pf-song span {
+  display: inline-block;
+  min-width: 0;
+}
+
 .pf-artist {
   margin-top: 0;
+  overflow: hidden;
   color: #304e4b;
   font-size: 17px;
   font-weight: 400;
   line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pf-dots {
@@ -603,6 +618,7 @@
   }
 
   .pf-grid {
+    align-items: start;
     gap: clamp(22px, 3vw, 40px);
   }
 
@@ -612,9 +628,42 @@
     min-width: 0;
   }
 
+  .pf-item {
+    min-height: clamp(56px, 6vw, 66px);
+    gap: clamp(10px, 1.6vw, 16px);
+    padding-top: clamp(9px, 1.2vw, 12px);
+    padding-bottom: clamp(9px, 1.2vw, 12px);
+  }
+
+  .pf-left {
+    gap: clamp(10px, 1.7vw, 16px);
+  }
+
   .pf-song,
   .pf-artist {
     font-size: clamp(14px, 1.55vw, 16px);
+  }
+
+  .pf-artist {
+    line-height: 1.35;
+  }
+
+  .pf-dots {
+    margin-left: clamp(5px, 0.8vw, 9px);
+  }
+
+  .pf-song.is-marquee {
+    text-overflow: clip;
+  }
+
+  .pf-song.is-marquee span {
+    min-width: max-content;
+    animation: pfSongMarquee var(--pf-marquee-duration, 9s) linear infinite;
+    will-change: transform;
+  }
+
+  .pf-song.is-marquee:hover span {
+    animation-play-state: paused;
   }
 
   .why-row {
@@ -646,6 +695,24 @@
 
   .cta-link {
     display: inline-flex;
+  }
+}
+
+@keyframes pfSongMarquee {
+  0%,
+  12% {
+    transform: translateX(0);
+  }
+
+  88%,
+  100% {
+    transform: translateX(calc(-1 * var(--pf-marquee-distance, 40px)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-song.is-marquee span {
+    animation: none;
   }
 }
 

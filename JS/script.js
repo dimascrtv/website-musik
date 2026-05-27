@@ -363,6 +363,40 @@ window.addEventListener('scroll', updateParallaxSections);
 window.addEventListener('load', updateParallaxSections);
 requestAnimationFrame(updateParallaxSections);
 
+function updatePortfolioMarquee() {
+  const isTablet = window.matchMedia('(min-width: 768px) and (max-width: 1190px)').matches;
+
+  document.querySelectorAll('.pf-song').forEach(song => {
+    if (!song.querySelector('span')) {
+      const text = song.textContent;
+      song.textContent = '';
+      const span = document.createElement('span');
+      span.textContent = text;
+      song.appendChild(span);
+    }
+
+    const text = song.querySelector('span');
+    song.classList.remove('is-marquee');
+    song.style.removeProperty('--pf-marquee-distance');
+    song.style.removeProperty('--pf-marquee-duration');
+
+    if (!isTablet || !text) return;
+
+    const overflow = text.scrollWidth - song.clientWidth;
+    if (overflow <= 4) return;
+
+    const distance = overflow + 26;
+    const duration = Math.max(7, Math.min(14, distance / 13));
+    song.style.setProperty('--pf-marquee-distance', `${distance}px`);
+    song.style.setProperty('--pf-marquee-duration', `${duration}s`);
+    song.classList.add('is-marquee');
+  });
+}
+
+window.addEventListener('load', updatePortfolioMarquee);
+window.addEventListener('resize', updatePortfolioMarquee);
+requestAnimationFrame(updatePortfolioMarquee);
+
 
   document.querySelectorAll('.card-arrow').forEach(item => {
     item.addEventListener('click', () => {

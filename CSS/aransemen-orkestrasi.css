@@ -2043,6 +2043,13 @@ img {
   display: flex;
   align-items: center;
   gap: 17px;
+  flex: 1 1 auto;
+}
+
+.pf-left > div:last-child {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .pf-play {
@@ -2077,11 +2084,19 @@ img {
   white-space: nowrap;
 }
 
+.pf-song span {
+  display: inline-block;
+  min-width: 0;
+}
+
 .pf-artist {
   margin-top: 5px;
+  overflow: hidden;
   color: rgba(48, 78, 75, 0.72);
   font-size: 13px;
   line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pf-dots {
@@ -2576,6 +2591,63 @@ img {
 
   .why-number {
     right: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1190px) {
+  .pf-grid {
+    align-items: start;
+  }
+
+  .pf-item {
+    min-height: clamp(56px, 6vw, 66px);
+    gap: clamp(10px, 1.6vw, 16px);
+    padding-top: clamp(9px, 1.2vw, 12px);
+    padding-bottom: clamp(9px, 1.2vw, 12px);
+  }
+
+  .pf-left {
+    gap: clamp(10px, 1.7vw, 16px);
+  }
+
+  .pf-artist {
+    line-height: 1.35;
+  }
+
+  .pf-dots {
+    margin-left: clamp(5px, 0.8vw, 9px);
+  }
+
+  .pf-song.is-marquee {
+    text-overflow: clip;
+  }
+
+  .pf-song.is-marquee span {
+    min-width: max-content;
+    animation: pfSongMarquee var(--pf-marquee-duration, 9s) linear infinite;
+    will-change: transform;
+  }
+
+  .pf-song.is-marquee:hover span {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes pfSongMarquee {
+  0%,
+  12% {
+    transform: translateX(0);
+  }
+
+  88%,
+  100% {
+    transform: translateX(calc(-1 * var(--pf-marquee-distance, 40px)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-song.is-marquee span {
+    animation: none;
   }
 }
 
