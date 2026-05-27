@@ -1689,15 +1689,15 @@ img {
 
 .seo-branch-page .seo-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 293px;
-  gap: clamp(54px, 8vw, 118px);
+  grid-template-columns: minmax(0, 1.18fr) minmax(260px, 293px);
+  gap: clamp(42px, 5.5vw, 82px);
   align-items: center;
   margin-top: clamp(82px, 8vw, 104px);
   padding-bottom: 90px;
 }
 
 .seo-branch-page .hero-content {
-  max-width: 760px;
+  max-width: min(820px, 100%);
   margin-top: 0;
 }
 
@@ -1708,12 +1708,14 @@ img {
 }
 
 .seo-branch-page .hero-content h1 {
-  font-size: clamp(52px, 6.8vw, 96px);
-  line-height: 1.06;
+  font-size: clamp(52px, 6vw, 84px);
+  line-height: 1.08;
+  text-wrap: balance;
 }
 
 .seo-branch-page .hero-content span {
-  max-width: 14em;
+  max-width: min(100%, 13.8em);
+  text-wrap: balance;
 }
 
 .breadcrumb-links {
@@ -1760,7 +1762,30 @@ img {
 }
 
 .seo-branch-page #apa-itu .page-visual-split {
-  grid-template-columns: minmax(0, 760px);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.seo-branch-page #apa-itu .page-visual-split > div:not(.section-image) {
+  width: 100%;
+}
+
+.seo-branch-page #apa-itu .copy-stack {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 46px;
+}
+
+@media (max-width: 900px) {
+  .seo-branch-page #apa-itu .copy-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .seo-branch-page #apa-itu .copy-stack {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 .copy-stack {
@@ -1852,6 +1877,10 @@ img {
 
   .seo-branch-page .hero-content {
     max-width: none;
+  }
+
+  .seo-branch-page .hero-content h1 {
+    font-size: clamp(46px, 5.7vw, 68px);
   }
 
   .seo-branch-page .hero-content .breadcrumb-links {

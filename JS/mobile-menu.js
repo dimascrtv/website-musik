@@ -1,19 +1,11 @@
 (function () {
-  const isEnglishPage = window.location.pathname.replace(/\/+/g, "/").startsWith("/en/");
-  const homeBase = isEnglishPage ? "/en/" : "/";
-  const menuLinks = isEnglishPage
-    ? [
-        { label: "Home", href: homeBase },
-        { label: "Services", target: "layanan-kami" },
-        { label: "Portfolio", target: "portfolio" },
-        { label: "Consultation", target: "konsultasi" }
-      ]
-    : [
-        { label: "Home", href: homeBase },
-        { label: "Layanan Kami", target: "layanan-kami" },
-        { label: "Portofolio", target: "portfolio" },
-        { label: "Konsultasi", target: "konsultasi" }
-      ];
+  const homeBase = "/";
+  const menuLinks = [
+    { label: "Home", href: homeBase },
+    { label: "Layanan Kami", target: "layanan-kami" },
+    { label: "Portofolio", target: "portfolio" },
+    { label: "Konsultasi", target: "konsultasi" }
+  ];
 
   function isSubPage() {
     const path = window.location.pathname.replace(/\/+$/, "");

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://musiknyadimas.com/</loc>
@@ -7,22 +7,10 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/penulisan-partitur-notasi</loc>
@@ -31,22 +19,10 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/sheet-music-notation</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/mixing-mastering</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/mixing-mastering</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/recording-studio-on-location</loc>
@@ -55,22 +31,10 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/recording-studio-on-location</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/jasa-aransemen-lagu</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/song-arrangement-service</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/jasa-orkestrasi-musik</loc>
@@ -79,22 +43,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/orchestration-service</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/aransemen-string-section</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/string-section-arrangement</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/aransemen-lagu-pop</loc>
@@ -103,22 +55,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/pop-song-arrangement</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/aransemen-lagu-rohani</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/worship-song-arrangement</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/aransemen-jingle-iklan</loc>
@@ -127,22 +67,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/jingle-arrangement</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/aransemen-mars-hymne</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/march-hymn-arrangement</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/aransemen-orkestrasi/film-scoring-cinematic</loc>
@@ -151,22 +79,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/music-arrangement-orchestration/film-scoring-cinematic-music</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/penulisan-partitur-notasi/jasa-penulisan-not-balok</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/sheet-music-notation/music-notation-service</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/penulisan-partitur-notasi/transkripsi-audio-ke-notasi</loc>
@@ -175,22 +91,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/sheet-music-notation/audio-to-sheet-music-transcription</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/penulisan-partitur-notasi/jasa-partitur-orkestra</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/sheet-music-notation/orchestral-score-service</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/penulisan-partitur-notasi/jasa-partitur-paduan-suara</loc>
@@ -199,22 +103,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/sheet-music-notation/choir-score-service</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/penulisan-partitur-notasi/midi-ke-partitur</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/sheet-music-notation/midi-to-sheet-music</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/penulisan-partitur-notasi/partitur-lagu-pop</loc>
@@ -223,22 +115,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/sheet-music-notation/pop-song-score</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/mixing-mastering/jasa-mixing-vokal</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/mixing-mastering/vocal-mixing-service</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/mixing-mastering/jasa-mastering-lagu</loc>
@@ -247,22 +127,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/mixing-mastering/song-mastering-service</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/mixing-mastering/mixing-mastering-cover</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/mixing-mastering/cover-song-mixing-mastering</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/mixing-mastering/mixing-mastering-spotify</loc>
@@ -271,22 +139,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/mixing-mastering/spotify-mixing-mastering</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/mixing-mastering/editing-tuning-vokal</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/mixing-mastering/vocal-editing-tuning</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/mixing-mastering/mixing-jingle-iklan</loc>
@@ -295,22 +151,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/mixing-mastering/jingle-ad-mixing</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/recording-studio-on-location/recording-vokal-studio</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/recording-studio-on-location/studio-vocal-recording</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/recording-studio-on-location/recording-instrumen</loc>
@@ -319,22 +163,10 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/recording-studio-on-location/instrument-recording</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/recording-studio-on-location/recording-choir</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/recording-studio-on-location/choir-recording</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
   <url>
     <loc>https://musiknyadimas.com/recording-studio-on-location/recording-on-location</loc>
@@ -343,33 +175,15 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/recording-studio-on-location/on-location-recording</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/recording-studio-on-location/recording-podcast-voice-over</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://musiknyadimas.com/en/recording-studio-on-location/podcast-voice-over-recording</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-  <url>
     <loc>https://musiknyadimas.com/recording-studio-on-location/live-session-recording</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://musiknyadimas.com/en/recording-studio-on-location/live-session-recording</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
   </url>
 </urlset>
