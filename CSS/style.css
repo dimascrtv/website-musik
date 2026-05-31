@@ -3077,6 +3077,38 @@ html {
   background: #ffffff;
 }
 
+.score-modal-render {
+  display: none;
+  height: calc(100% - 62px);
+  overflow: auto;
+  padding: 16px;
+  background: #eef3f1;
+}
+
+.score-modal-render.is-loading,
+.score-modal-render.has-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #304e4b;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.score-modal-page {
+  display: block;
+  width: 100%;
+  max-width: 780px;
+  height: auto;
+  margin: 0 auto 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(48, 78, 75, 0.12);
+}
+
+.score-modal-page:last-child {
+  margin-bottom: 0;
+}
+
 
 /* =========================
    TEXT SECTION (FOOTER SEO / CONTENT)
@@ -5445,6 +5477,21 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
   .score-modal-frame {
     height: calc(100% - 56px);
+  }
+
+  .score-modal-panel.is-canvas-preview .score-modal-frame {
+    display: none;
+  }
+
+  .score-modal-panel.is-canvas-preview .score-modal-render {
+    display: block;
+    height: calc(100% - 56px);
+    padding: 10px;
+  }
+
+  .score-modal-panel.is-canvas-preview .score-modal-render.is-loading,
+  .score-modal-panel.is-canvas-preview .score-modal-render.has-error {
+    display: flex;
   }
 }
 

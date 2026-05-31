@@ -414,7 +414,17 @@ function initScoreGallery() {
   if (!modal) return;
 
   const frame = modal.querySelector('.score-modal-frame');
+  const panel = modal.querySelector('.score-modal-panel');
   const title = modal.querySelector('#scoreModalTitle');
+  const isMobileScoreView = () => window.matchMedia('(max-width: 767px)').matches;
+  let pdfJsLoadPromise;
+  const getPdfUrl = (src) => {
+    try {
+      return new URL(src, window.location.href).href;
+    } catch (error) {
+      return encodeURI(src);
+    }
+  };
   const getStep = (outer) => {
     const firstCard = outer.querySelector('.score-card');
     if (!firstCard) return outer.clientWidth * 0.8;
@@ -424,53 +434,157 @@ function initScoreGallery() {
     return firstCard.getBoundingClientRect().width + gap;
   };
 
+  const loadPdfJs = () => {
+    const workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    if (window.pdfjsLib) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc;
+      return Promise.resolve(window.pdfjsLib);
+    }
+    if (pdfJsLoadPromise) return pdfJsLoadPromise;
+
+    const scriptSources = [
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
+      'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js'
+    ];
+
+    const loadScript = (index = 0) => new Promise((resolve, reject) => {
+      const src = scriptSources[index];
+      if (!src) {
+        reject(new Error('PDF.js tidak bisa dimuat.'));
+        return;
+      }
+
+      const existingScript = document.querySelector('script[data-pdfjs-loader]');
+      if (existingScript) {
+        existingScript.addEventListener('load', () => resolve(window.pdfjsLib), { once: true });
+        existingScript.addEventListener('error', () => loadScript(index + 1).then(resolve).catch(reject), { once: true });
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.dataset.pdfjsLoader = 'true';
+      script.onload = () => resolve(window.pdfjsLib);
+      script.onerror = () => {
+        script.remove();
+        loadScript(index + 1).then(resolve).catch(reject);
+      };
+      document.head.appendChild(script);
+    });
+
+    pdfJsLoadPromise = loadScript().then(pdfjsLib => {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc;
+      return pdfjsLib;
+    });
+
+    return pdfJsLoadPromise;
+  };
+
+  const getModalRender = () => {
+    let render = modal.querySelector('.score-modal-render');
+
+    if (!render && frame) {
+      render = document.createElement('div');
+      render.className = 'score-modal-render';
+      frame.insertAdjacentElement('afterend', render);
+    }
+
+    return render;
+  };
+
+  const clearModalRender = () => {
+    const render = getModalRender();
+    if (!render) return;
+
+    render.innerHTML = '';
+    render.classList.remove('is-loading', 'has-error');
+  };
+
+  const renderModalPdf = async (src) => {
+    const render = getModalRender();
+    if (!render || !src) return;
+
+    render.innerHTML = 'Loading preview...';
+    render.classList.add('is-loading');
+    render.classList.remove('has-error');
+
+    try {
+      const pdfjsLib = await loadPdfJs();
+      const pdf = await pdfjsLib.getDocument({ url: getPdfUrl(src) }).promise;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const availableWidth = Math.max(240, render.clientWidth - 20);
+
+      render.innerHTML = '';
+      render.classList.remove('is-loading');
+
+      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+        const page = await pdf.getPage(pageNumber);
+        const baseViewport = page.getViewport({ scale: 1 });
+        const cssWidth = Math.min(availableWidth, 780);
+        const scale = (cssWidth / baseViewport.width) * dpr;
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d', { alpha: false });
+
+        canvas.className = 'score-modal-page';
+        canvas.width = Math.ceil(viewport.width);
+        canvas.height = Math.ceil(viewport.height);
+        canvas.style.width = `${Math.round(viewport.width / dpr)}px`;
+
+        context.fillStyle = '#ffffff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        render.appendChild(canvas);
+        await page.render({ canvasContext: context, viewport }).promise;
+      }
+    } catch (error) {
+      console.log('PDF modal gagal dirender:', error);
+      render.innerHTML = 'Preview gagal dimuat. Buka file PDF dari tombol Open browser.';
+      render.classList.remove('is-loading');
+      render.classList.add('has-error');
+    }
+  };
+
   const openModal = (src, pdfTitle) => {
     if (!src || !frame) return;
 
-    frame.src = src;
+    const shouldRenderCanvas = isMobileScoreView();
+
     if (title) title.textContent = pdfTitle || 'Preview Partitur';
+    panel?.classList.toggle('is-canvas-preview', shouldRenderCanvas);
+
+    if (shouldRenderCanvas) {
+      frame.src = '';
+      clearModalRender();
+    } else {
+      clearModalRender();
+      frame.src = src;
+    }
+
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    if (shouldRenderCanvas) {
+      requestAnimationFrame(() => renderModalPdf(src));
+    }
   };
 
   const closeModal = () => {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     if (frame) frame.src = '';
+    panel?.classList.remove('is-canvas-preview');
+    clearModalRender();
     document.body.style.overflow = '';
   };
 
   const renderMobilePdfPreviews = () => {
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    if (!isMobile) return;
+    if (!isMobileScoreView()) return;
 
     const cards = Array.from(document.querySelectorAll('.score-card[data-pdf-src]'));
     if (!cards.length) return;
-
-    const loadPdfJs = () => {
-      if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
-
-      return new Promise((resolve, reject) => {
-        const existingScript = document.querySelector('script[data-pdfjs-loader]');
-        if (existingScript) {
-          existingScript.addEventListener('load', () => resolve(window.pdfjsLib), { once: true });
-          existingScript.addEventListener('error', reject, { once: true });
-          return;
-        }
-
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
-        script.async = true;
-        script.dataset.pdfjsLoader = 'true';
-        script.onload = () => resolve(window.pdfjsLib);
-        script.onerror = reject;
-        document.head.appendChild(script);
-      }).then(pdfjsLib => {
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-        return pdfjsLib;
-      });
-    };
 
     const renderCard = async (card) => {
       if (card.dataset.pdfRendered || card.dataset.pdfRendering) return;
@@ -482,7 +596,7 @@ function initScoreGallery() {
 
       try {
         const pdfjsLib = await loadPdfJs();
-        const pdf = await pdfjsLib.getDocument(card.dataset.pdfSrc).promise;
+        const pdf = await pdfjsLib.getDocument({ url: getPdfUrl(card.dataset.pdfSrc) }).promise;
         const page = await pdf.getPage(1);
         const previewRect = preview.getBoundingClientRect();
         const baseViewport = page.getViewport({ scale: 1 });
