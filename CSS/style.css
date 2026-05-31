@@ -5203,7 +5203,8 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
 @media (max-width: 767px) {
   .score-section {
-    --score-mobile-gutter: clamp(20px, 5.8vw, 32px);
+    --score-mobile-gutter: clamp(16px, 5vw, 32px);
+    --score-mobile-action-height: clamp(44px, 12vw, 54px);
   }
 
   .score-section {
@@ -5265,13 +5266,13 @@ padding-right: clamp(0px, 2.5vw, 12px);
     min-width: min(190px, 100%);
     max-width: 258px;
     flex: 1 1 190px;
-    height: clamp(54px, 14vw, 62px);
+    height: var(--score-mobile-action-height);
     padding: 0 clamp(12px, 3.4vw, 15px);
     border-radius: 999px;
   }
 
   .score-buy-btn {
-    height: clamp(44px, 12vw, 54px);
+    height: var(--score-mobile-action-height);
     min-width: clamp(82px, 22vw, 98px);
     padding-left: clamp(18px, 4.8vw, 24px);
     padding-right: clamp(18px, 4.8vw, 24px);
@@ -5301,11 +5302,12 @@ padding-right: clamp(0px, 2.5vw, 12px);
   }
 
   .score-outer {
-    width: 100%;
-    margin-left: 0;
+    width: calc(100% - var(--score-mobile-gutter));
+    margin-left: var(--score-mobile-gutter);
     margin-top: -16px;
     padding-top: 16px;
     padding-left: 0;
+    padding-right: 0;
   }
 
   .score-track {
@@ -5321,11 +5323,11 @@ padding-right: clamp(0px, 2.5vw, 12px);
   }
 
   .score-track .score-card:first-of-type {
-    margin-left: var(--score-mobile-gutter) !important;
+    margin-left: 0 !important;
   }
 
   .score-track > .score-card:first-child {
-    margin-left: var(--score-mobile-gutter) !important;
+    margin-left: 0 !important;
   }
 
   .score-nav-row {
@@ -5354,6 +5356,16 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
   .score-preview {
     height: clamp(255px, 80vw, 338px);
+  }
+
+  .score-preview object {
+    display: block;
+    z-index: 2;
+  }
+
+  .score-fallback {
+    z-index: 1;
+    background: #ffffff;
   }
 
   .score-card:hover .score-preview {
@@ -5399,14 +5411,16 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
 @media (max-width: 767px) {
   .score-section .score-outer {
-    width: 100% !important;
-    margin-left: 0 !important;
+    width: calc(100% - var(--score-mobile-gutter)) !important;
+    margin-left: var(--score-mobile-gutter) !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .score-section .score-track {
     padding-left: 0 !important;
-    padding-right: calc(var(--score-mobile-gutter) * 2) !important;
+    padding-right: var(--score-mobile-gutter) !important;
+    margin-left: 0 !important;
     transform: none !important;
   }
 
@@ -5416,8 +5430,8 @@ padding-right: clamp(0px, 2.5vw, 12px);
   }
 
   .score-section .score-track-spacer {
-    display: block;
-    flex: 0 0 max(0px, calc(var(--score-mobile-gutter) - var(--score-mobile-track-gap)));
-    width: max(0px, calc(var(--score-mobile-gutter) - var(--score-mobile-track-gap)));
+    display: none;
+    flex: 0 0 0;
+    width: 0;
   }
 }
