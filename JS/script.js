@@ -441,6 +441,104 @@ function initScoreGallery() {
     document.body.style.overflow = '';
   };
 
+  const renderMobilePdfPreviews = () => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (!isMobile) return;
+
+    const cards = Array.from(document.querySelectorAll('.score-card[data-pdf-src]'));
+    if (!cards.length) return;
+
+    const loadPdfJs = () => {
+      if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+
+      return new Promise((resolve, reject) => {
+        const existingScript = document.querySelector('script[data-pdfjs-loader]');
+        if (existingScript) {
+          existingScript.addEventListener('load', () => resolve(window.pdfjsLib), { once: true });
+          existingScript.addEventListener('error', reject, { once: true });
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        script.async = true;
+        script.dataset.pdfjsLoader = 'true';
+        script.onload = () => resolve(window.pdfjsLib);
+        script.onerror = reject;
+        document.head.appendChild(script);
+      }).then(pdfjsLib => {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        return pdfjsLib;
+      });
+    };
+
+    const renderCard = async (card) => {
+      if (card.dataset.pdfRendered || card.dataset.pdfRendering) return;
+
+      const preview = card.querySelector('.score-preview');
+      if (!preview) return;
+
+      card.dataset.pdfRendering = 'true';
+
+      try {
+        const pdfjsLib = await loadPdfJs();
+        const pdf = await pdfjsLib.getDocument(card.dataset.pdfSrc).promise;
+        const page = await pdf.getPage(1);
+        const previewRect = preview.getBoundingClientRect();
+        const baseViewport = page.getViewport({ scale: 1 });
+        const scale = Math.max(
+          previewRect.width / baseViewport.width,
+          previewRect.height / baseViewport.height
+        ) * Math.min(window.devicePixelRatio || 1, 2);
+        const viewport = page.getViewport({ scale });
+
+        let canvas = preview.querySelector('.score-preview-canvas');
+        if (!canvas) {
+          canvas = document.createElement('canvas');
+          canvas.className = 'score-preview-canvas';
+          preview.appendChild(canvas);
+        }
+
+        canvas.width = Math.ceil(viewport.width);
+        canvas.height = Math.ceil(viewport.height);
+
+        const context = canvas.getContext('2d', { alpha: false });
+        context.fillStyle = '#ffffff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        await page.render({ canvasContext: context, viewport }).promise;
+
+        preview.classList.add('is-rendered');
+        card.dataset.pdfRendered = 'true';
+      } catch (error) {
+        console.log('Preview PDF gagal dirender:', error);
+      } finally {
+        delete card.dataset.pdfRendering;
+      }
+    };
+
+    const observeCard = (card) => {
+      if (!('IntersectionObserver' in window)) {
+        renderCard(card);
+        return;
+      }
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          renderCard(card);
+          observer.unobserve(card);
+        });
+      }, {
+        rootMargin: '240px 0px'
+      });
+
+      observer.observe(card);
+    };
+
+    cards.forEach(observeCard);
+  };
+
   const unlockedScoreGroups = new Set();
   const canOpenScore = (card) => {
     const password = card.dataset.scorePassword;
@@ -510,6 +608,8 @@ function initScoreGallery() {
       closeModal();
     }
   });
+
+  renderMobilePdfPreviews();
 }
 
 initScoreGallery();
