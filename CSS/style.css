@@ -2638,7 +2638,7 @@ html {
 .score-audio-card {
   width: 258px;
   height: 62px;
-  border: 1px solid rgba(6, 78, 59, 0.44);
+  border: 1.5px solid rgba(6, 78, 59, 0.65);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.62);
   color: #064e3b;
@@ -2654,21 +2654,48 @@ html {
   height: 62px;
   min-width: 116px;
   padding: 0 30px;
-  border: 0;
+  border: 1.5px solid #cf7325;
   border-radius: 999px;
-  background: #cf7325;
-  color: #ffffff;
+  background: transparent;
+  color: #064e3b;
   font-family: inherit;
   font-size: 17px;
   font-weight: 400;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background 0.25s ease, box-shadow 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .score-buy-btn:hover {
+  background: rgba(207, 115, 37, 0.08);
+  box-shadow: 0 0 18px rgba(207, 115, 37, 0.16);
+}
+
+.score-buy-btn.is-locked {
+  border-color: #cf7325;
+  background: #cf7325;
+  color: #ffffff;
+}
+
+.score-buy-btn.is-locked:hover {
   background: #e07b2d;
+  border-color: #e07b2d;
   box-shadow: 0 0 18px rgba(207, 115, 37, 0.24);
+}
+
+.score-buy-btn.is-free {
+  border-color: rgba(6, 78, 59, 0.65);
+  background: transparent;
+  color: #064e3b;
+}
+
+.score-buy-btn.is-free:hover {
+  border-color: #064e3b;
+  background: rgba(6, 78, 59, 0.06);
+  color: #064e3b;
 }
 
 .score-audio-card .audio-controls {
@@ -2684,7 +2711,7 @@ html {
 }
 
 .score-audio-card:hover {
-  border-color: rgba(6, 78, 59, 0.44);
+  border-color: rgba(6, 78, 59, 0.65);
   box-shadow: none;
 }
 
@@ -2828,6 +2855,13 @@ html {
   flex: 0 0 0;
 }
 
+.score-track-spacer {
+  display: none;
+  flex: 0 0 0;
+  width: 0;
+  height: 1px;
+}
+
 .score-card {
   width: 254px;
   flex: 0 0 254px;
@@ -2888,6 +2922,27 @@ html {
 
 .score-card:hover .score-preview {
   box-shadow: 0 24px 46px rgba(48, 78, 75, 0.18);
+}
+
+.score-card[data-score-password] .score-preview object {
+  filter: blur(4px);
+  transform: scale(1.035);
+}
+
+.score-card[data-score-password] .score-preview::after {
+  content: "Locked";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 248, 247, 0.36);
+  color: #064e3b;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  pointer-events: none;
 }
 
 .score-meta {
@@ -5179,7 +5234,7 @@ padding-right: clamp(0px, 2.5vw, 12px);
     padding-left: var(--score-mobile-gutter);
     padding-right: var(--score-mobile-gutter);
     margin-bottom: clamp(18px, 5vw, 25px);
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 14px;
   }
@@ -5192,7 +5247,7 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
   .score-actions {
     width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 8px;
   }
@@ -5250,11 +5305,13 @@ padding-right: clamp(0px, 2.5vw, 12px);
     margin-left: 0;
     margin-top: -16px;
     padding-top: 16px;
-    padding-left: var(--score-mobile-gutter);
+    padding-left: 0;
   }
 
   .score-track {
-    gap: clamp(14px, 4vw, 20px);
+    --score-mobile-track-gap: clamp(14px, 4vw, 20px);
+    gap: var(--score-mobile-track-gap);
+    padding-left: 0;
     padding-right: var(--score-mobile-gutter);
     padding-bottom: 8px;
   }
@@ -5264,7 +5321,11 @@ padding-right: clamp(0px, 2.5vw, 12px);
   }
 
   .score-track .score-card:first-of-type {
-    margin-left: var(--score-mobile-gutter);
+    margin-left: var(--score-mobile-gutter) !important;
+  }
+
+  .score-track > .score-card:first-child {
+    margin-left: var(--score-mobile-gutter) !important;
   }
 
   .score-nav-row {
@@ -5333,5 +5394,30 @@ padding-right: clamp(0px, 2.5vw, 12px);
 
   .score-modal-frame {
     height: calc(100% - 56px);
+  }
+}
+
+@media (max-width: 767px) {
+  .score-section .score-outer {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .score-section .score-track {
+    padding-left: 0 !important;
+    padding-right: calc(var(--score-mobile-gutter) * 2) !important;
+    transform: none !important;
+  }
+
+  .score-section .score-track .score-card:first-of-type,
+  .score-section .score-track > .score-card:first-child {
+    margin-left: 0 !important;
+  }
+
+  .score-section .score-track-spacer {
+    display: block;
+    flex: 0 0 max(0px, calc(var(--score-mobile-gutter) - var(--score-mobile-track-gap)));
+    width: max(0px, calc(var(--score-mobile-gutter) - var(--score-mobile-track-gap)));
   }
 }

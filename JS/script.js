@@ -441,13 +441,49 @@ function initScoreGallery() {
     document.body.style.overflow = '';
   };
 
+  const unlockedScoreGroups = new Set();
+  const canOpenScore = (card) => {
+    const password = card.dataset.scorePassword;
+    if (!password) return true;
+
+    const lockKey = card.dataset.scoreLock || card.dataset.pdfSrc || card.dataset.pdfTitle;
+    if (unlockedScoreGroups.has(lockKey)) return true;
+
+    const input = window.prompt('Masukkan password untuk membuka partitur ini:');
+    if (input === null) return false;
+
+    if (input.trim() === password) {
+      unlockedScoreGroups.add(lockKey);
+      return true;
+    }
+
+    window.alert('Password belum sesuai.');
+    return false;
+  };
+
   document.querySelectorAll('.score-song').forEach(section => {
     const outer = section.querySelector('[data-score-track]');
     const prev = section.querySelector('[data-score-prev]');
     const next = section.querySelector('[data-score-next]');
     const cards = section.querySelectorAll('.score-card');
+    const buyButton = section.querySelector('.score-buy-btn');
+    const hasLockedScore = section.querySelector('[data-score-password]');
+
+    if (buyButton) {
+      buyButton.textContent = hasLockedScore ? 'Buy' : 'Free';
+      buyButton.classList.toggle('is-locked', Boolean(hasLockedScore));
+      buyButton.classList.toggle('is-free', !hasLockedScore);
+    }
 
     if (!outer) return;
+
+    const track = outer.querySelector('.score-track');
+    if (track && !track.querySelector('.score-track-spacer')) {
+      const spacer = document.createElement('span');
+      spacer.className = 'score-track-spacer';
+      spacer.setAttribute('aria-hidden', 'true');
+      track.prepend(spacer);
+    }
 
     prev?.addEventListener('click', () => {
       outer.scrollBy({ left: -getStep(outer), behavior: 'smooth' });
@@ -459,6 +495,7 @@ function initScoreGallery() {
 
     cards.forEach(card => {
       card.addEventListener('click', () => {
+        if (!canOpenScore(card)) return;
         openModal(card.dataset.pdfSrc, card.dataset.pdfTitle);
       });
     });
