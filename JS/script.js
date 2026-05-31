@@ -409,8 +409,77 @@ requestAnimationFrame(updatePortfolioMarquee);
   });
 
 
+function initScoreGallery() {
+  const modal = document.querySelector('[data-score-modal]');
+  if (!modal) return;
+
+  const frame = modal.querySelector('.score-modal-frame');
+  const title = modal.querySelector('#scoreModalTitle');
+  const getStep = (outer) => {
+    const firstCard = outer.querySelector('.score-card');
+    if (!firstCard) return outer.clientWidth * 0.8;
+
+    const track = outer.querySelector('.score-track');
+    const gap = track ? parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) : 24;
+    return firstCard.getBoundingClientRect().width + gap;
+  };
+
+  const openModal = (src, pdfTitle) => {
+    if (!src || !frame) return;
+
+    frame.src = src;
+    if (title) title.textContent = pdfTitle || 'Preview Partitur';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    if (frame) frame.src = '';
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.score-song').forEach(section => {
+    const outer = section.querySelector('[data-score-track]');
+    const prev = section.querySelector('[data-score-prev]');
+    const next = section.querySelector('[data-score-next]');
+    const cards = section.querySelectorAll('.score-card');
+
+    if (!outer) return;
+
+    prev?.addEventListener('click', () => {
+      outer.scrollBy({ left: -getStep(outer), behavior: 'smooth' });
+    });
+
+    next?.addEventListener('click', () => {
+      outer.scrollBy({ left: getStep(outer), behavior: 'smooth' });
+    });
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        openModal(card.dataset.pdfSrc, card.dataset.pdfTitle);
+      });
+    });
+  });
+
+  modal.querySelectorAll('[data-score-close]').forEach(button => {
+    button.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+}
+
+initScoreGallery();
+
 
   
+
 
 
   
