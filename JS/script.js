@@ -72,7 +72,7 @@ waveform.classList.add("has-bars");
     const current = audio.currentTime;
     const duration = audio.duration;
 
-    durationText.textContent = formatTime(current);
+    if (durationText) durationText.textContent = formatTime(current);
 
     const percent = current / duration;
     const bars = waveform.querySelectorAll(".wave-bar");
@@ -162,13 +162,13 @@ waveform.classList.add("has-bars");
       icon.classList.remove("stop");
       icon.classList.add("play");
 
-      durationText.textContent = "00:00";
+      if (durationText) durationText.textContent = "00:00";
 
       cancelAnimationFrame(raf);
     });
 	
 	audio.addEventListener("loadedmetadata", () => {
-	durationText.textContent = formatTime(audio.duration);
+	if (durationText) durationText.textContent = formatTime(audio.duration);
 	});
 
     audio.addEventListener("pause", () => {

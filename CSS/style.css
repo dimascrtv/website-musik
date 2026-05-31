@@ -2636,7 +2636,7 @@ html {
 }
 
 .score-audio-card {
-  width: 293px;
+  width: 258px;
   height: 62px;
   border: 1px solid rgba(6, 78, 59, 0.44);
   border-radius: 999px;
@@ -5095,7 +5095,7 @@ padding-right: clamp(0px, 2.5vw, 12px);
   }
 
   .score-audio-card {
-    width: clamp(250px, 30vw, 293px);
+    width: clamp(228px, 27vw, 258px);
     height: clamp(56px, 6.5vw, 62px);
     padding: 0 clamp(13px, 1.5vw, 15px);
   }
@@ -5208,7 +5208,7 @@ padding-right: clamp(0px, 2.5vw, 12px);
   .score-audio-card {
     width: auto;
     min-width: min(190px, 100%);
-    max-width: 293px;
+    max-width: 258px;
     flex: 1 1 190px;
     height: clamp(54px, 14vw, 62px);
     padding: 0 clamp(12px, 3.4vw, 15px);
