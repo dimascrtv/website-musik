@@ -416,8 +416,11 @@ function initScoreGallery() {
   const frame = modal.querySelector('.score-modal-frame');
   const panel = modal.querySelector('.score-modal-panel');
   const title = modal.querySelector('#scoreModalTitle');
+  const downloadButton = modal.querySelector('[data-score-download]');
   const isMobileScoreView = () => window.matchMedia('(max-width: 767px)').matches;
   let pdfJsLoadPromise;
+  let activePdfSrc = '';
+  let activePdfTitle = '';
   const getPdfUrl = (src) => {
     try {
       return new URL(src, window.location.href).href;
@@ -551,7 +554,14 @@ function initScoreGallery() {
 
     const shouldRenderCanvas = isMobileScoreView();
 
+    activePdfSrc = src;
+    activePdfTitle = pdfTitle || 'partitur';
+
     if (title) title.textContent = pdfTitle || 'Preview Partitur';
+    if (downloadButton) {
+      downloadButton.disabled = false;
+      downloadButton.setAttribute('aria-label', `Download ${activePdfTitle}`);
+    }
     panel?.classList.toggle('is-canvas-preview', shouldRenderCanvas);
 
     if (shouldRenderCanvas) {
@@ -576,9 +586,26 @@ function initScoreGallery() {
     modal.setAttribute('aria-hidden', 'true');
     if (frame) frame.src = '';
     panel?.classList.remove('is-canvas-preview');
+    activePdfSrc = '';
+    activePdfTitle = '';
+    if (downloadButton) downloadButton.disabled = true;
     clearModalRender();
     document.body.style.overflow = '';
   };
+
+  if (downloadButton) {
+    downloadButton.disabled = true;
+    downloadButton.addEventListener('click', () => {
+      if (!activePdfSrc) return;
+
+      const link = document.createElement('a');
+      link.href = activePdfSrc;
+      link.download = activePdfTitle;
+      document.body.append(link);
+      link.click();
+      link.remove();
+    });
+  }
 
   const renderMobilePdfPreviews = () => {
     if (!isMobileScoreView()) return;
@@ -685,6 +712,21 @@ function initScoreGallery() {
       buyButton.textContent = hasLockedScore ? 'Buy' : 'Free';
       buyButton.classList.toggle('is-locked', Boolean(hasLockedScore));
       buyButton.classList.toggle('is-free', !hasLockedScore);
+
+    }
+
+    if (!section.querySelector('.score-download-note')) {
+      const note = document.createElement('div');
+      note.className = 'score-download-note';
+      note.innerHTML = `
+        <a class="score-download-link" href="https://drive.google.com/drive/folders/GANTI_DENGAN_LINK_DRIVE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 4v10m0 0 4-4m-4 4-4-4M5 18h14" />
+          </svg>
+          <span>Stems Sequencer &amp; All Score</span>
+        </a>
+      `;
+      section.querySelector('.score-actions')?.after(note);
     }
 
     if (!outer) return;
@@ -706,6 +748,9 @@ function initScoreGallery() {
     });
 
     cards.forEach(card => {
+      const composer = card.querySelector('.score-composer');
+      if (composer) composer.textContent = 'Preview & Download';
+
       card.addEventListener('click', () => {
         if (!canOpenScore(card)) return;
         openModal(card.dataset.pdfSrc, card.dataset.pdfTitle);
