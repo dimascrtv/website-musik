@@ -693,6 +693,7 @@ function initScoreGallery() {
 
     if (input.trim() === password) {
       unlockedScoreGroups.add(lockKey);
+      card.classList.add('is-unlocked');
       return true;
     }
 
@@ -716,10 +717,11 @@ function initScoreGallery() {
     }
 
     if (!section.querySelector('.score-download-note')) {
+      const driveUrl = section.dataset.driveUrl || 'https://drive.google.com/drive/folders/GANTI_DENGAN_LINK_DRIVE';
       const note = document.createElement('div');
       note.className = 'score-download-note';
       note.innerHTML = `
-        <a class="score-download-link" href="https://drive.google.com/drive/folders/GANTI_DENGAN_LINK_DRIVE" target="_blank" rel="noopener">
+        <a class="score-download-link" href="${driveUrl}" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M12 4v10m0 0 4-4m-4 4-4-4M5 18h14" />
           </svg>

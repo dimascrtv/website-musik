@@ -1111,7 +1111,7 @@ html {
 
 
 .pf-section {
-  background: #F5F8F7;
+  background: #ffffff;
   padding: 140px 0 140px;
   display: flex;
   justify-content: center;
@@ -3022,9 +3022,19 @@ html {
   transform: scale(1.035);
 }
 
+.score-card[data-score-password].is-unlocked .score-preview object {
+  filter: none;
+  transform: none;
+}
+
 .score-card[data-score-password] .score-preview-canvas {
   filter: blur(4px);
   transform: scale(1.035);
+}
+
+.score-card[data-score-password].is-unlocked .score-preview-canvas {
+  filter: none;
+  transform: none;
 }
 
 .score-card[data-score-password] .score-preview::after {
@@ -3045,6 +3055,10 @@ html {
   box-shadow: 0 16px 34px rgba(6, 78, 59, 0.32);
   transform: translate(-50%, -50%);
   pointer-events: none;
+}
+
+.score-card[data-score-password].is-unlocked .score-preview::after {
+  display: none;
 }
 
 .score-meta {
@@ -4284,6 +4298,7 @@ html {
 
 
 .pf-section {
+  background: #ffffff;
   padding-top: clamp(80px, 18vw, 120px);
   padding-bottom: clamp(80px, 18vw, 120px);
 
@@ -5697,4 +5712,9 @@ padding-right: clamp(0px, 2.5vw, 12px);
     flex: 0 0 0;
     width: 0;
   }
+}
+
+.pf-section {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
 }
