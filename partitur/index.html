@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partitur Musik PDF | Musiknya Dimas</title>
+  <meta name="description" content="Kumpulan partitur musik PDF dari Musiknya Dimas untuk latihan, belajar, referensi, dan penampilan.">
+  <link rel="canonical" href="https://musiknyadimas.com/partitur/">
+  <link rel="alternate" hreflang="id-ID" href="https://musiknyadimas.com/partitur/">
+  <link rel="alternate" hreflang="x-default" href="https://musiknyadimas.com/partitur/">
+  <meta property="og:title" content="Partitur Musik PDF | Musiknya Dimas">
+  <meta property="og:description" content="Kumpulan partitur musik PDF dari Musiknya Dimas untuk latihan, belajar, referensi, dan penampilan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://musiknyadimas.com/partitur/">
+  <meta property="og:image" content="https://musiknyadimas.com/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/style.css?v=66">
+  <link rel="stylesheet" href="../CSS/aransemen-orkestrasi.css?v=35">
+  <link rel="stylesheet" href="../CSS/shared-lower-sections.css?v=9">
+  <link rel="stylesheet" href="../CSS/partitur.css?v=6">
+</head>
+<body class="partitur-page seo-branch-page score-library-page">
+  <header class="hero parallax-section">
+    <div class="page-container">
+      <nav class="navbar" aria-label="Navigasi utama">
+        <button class="mobile-menu-icon" type="button" aria-label="Buka menu" aria-controls="mobileMenu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="menu">
+          <a href="/">Home</a>
+          <a href="/#layanan-kami">Layanan Kami</a>
+          <a href="/partitur/">Partitur</a>
+          <a href="/#portfolio">Portofolio</a>
+          <a href="/#konsultasi">Konsultasi</a>
+        </div>
+
+        <a class="logo" href="/" aria-label="Musiknya Dimas">
+          <img src="../IMAGE/logo dimas and friends.png" alt="Logo Musiknya Dimas">
+        </a>
+      </nav>
+
+      <div class="seo-hero-grid">
+        <div class="hero-content">
+          <div class="breadcrumb-links">
+            <a href="/">Home</a>
+            <a href="/partitur/">Partitur</a>
+          </div>
+          <h1>
+            <span>Jelajahi berbagai</span>
+            <span>partitur musik untuk</span>
+            <span>belajar, berlatih, dan</span>
+            <span>tampil.</span>
+          </h1>
+        </div>
+
+        <div class="audio-preview" aria-label="Preview audio">
+          <article class="audio-card">
+            <div class="audio-title">Adele - Make You Feel My Love</div>
+            <div class="audio-controls">
+              <div class="play-btn" aria-label="Putar preview audio">
+                <div class="icon play"></div>
+              </div>
+              <div class="waveform"></div>
+              <div class="duration">03:24</div>
+            </div>
+            <audio src="../MUSIK/Score Adele - Make You Feel My Love - Stereo Out.mp3" preload="metadata"></audio>
+          </article>
+
+          <article class="audio-card">
+            <div class="audio-title">JVKE - golden hour</div>
+            <div class="audio-controls">
+              <div class="play-btn" aria-label="Putar preview audio">
+                <div class="icon play"></div>
+              </div>
+              <div class="waveform"></div>
+              <div class="duration">03:35</div>
+            </div>
+            <audio src="../MUSIK/Score JVKE - golden hour - Stereo Out.mp3" preload="metadata"></audio>
+          </article>
+
+          <a class="btn-more" href="#partitur">
+            <span class="btn-text-front">Selengkapnya</span>
+            <span class="btn-text-back">Selengkapnya</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="score-section">
+      <div class="score-library-intro" id="partitur">
+        <p>Temukan berbagai karya musik untuk berbagai kebutuhan, mulai dari pembelajaran, pertunjukan, hingga referensi musikal yang dapat diunduh dan dimainkan.</p>
+        <label class="score-search">
+          <span class="sr-only">Cari Partitur</span>
+          <input type="search" placeholder="Cari Partitur" autocomplete="off" data-score-search>
+        </label>
+      </div>
+
+      <div class="score-library-shell">
+        <div class="score-library-grid" data-score-library-grid></div>
+      </div>
+
+      <p class="score-library-status is-visible" data-score-status>Memuat daftar partitur...</p>
+      <p class="score-library-empty" data-score-empty>Tidak ada partitur yang cocok. Coba nama artis, judul lagu, atau instrumen yang lebih dekat.</p>
+    </section>
+  </main>
+
+  <div class="score-modal" data-score-modal aria-hidden="true">
+    <div class="score-modal-backdrop" data-score-close></div>
+    <div class="score-modal-panel" role="dialog" aria-modal="true" aria-labelledby="scoreModalTitle">
+      <div class="score-modal-head">
+        <h3 id="scoreModalTitle">Preview Partitur</h3>
+        <div class="score-modal-tools">
+          <button class="score-modal-download" type="button" data-score-download aria-label="Download PDF">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 4V15" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+              <path d="M8 11L12 15L16 11" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 19H19" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button class="score-modal-close" type="button" data-score-close aria-label="Tutup preview">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 6L18 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <iframe class="score-modal-frame" title="Preview PDF partitur"></iframe>
+    </div>
+  </div>
+
+  <script src="../JS/mobile-menu.js?v=14"></script>
+  <script src="../JS/partitur-library.js?v=3"></script>
+  <script src="../JS/script.js?v=25"></script>
+</body>
+</html>

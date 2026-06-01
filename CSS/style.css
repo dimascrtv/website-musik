@@ -2600,6 +2600,61 @@ html {
   margin-top: 108px;
 }
 
+.score-section[data-main-score-limit="6"] .score-song:nth-of-type(n+7) {
+  display: none;
+}
+
+.score-all-partitur-wrap {
+  width: min(1144px, calc(100% - 48px));
+  margin: 72px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.score-all-partitur-btn {
+  position: relative;
+  width: 311px;
+  height: 65px;
+  padding: 0 34px;
+  border: 1.5px solid #064e3b;
+  border-radius: 999px;
+  background: transparent;
+  color: #064e3b;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.28s ease, color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
+}
+
+.score-all-partitur-btn:hover,
+.score-all-partitur-btn:focus-visible {
+  background: #064e3b;
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(48, 78, 75, 0.18);
+  outline: 0;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .score-all-partitur-wrap {
+    width: 100%;
+    padding-left: var(--score-mobile-gutter, 16px);
+    padding-right: var(--score-mobile-gutter, 16px);
+    margin-top: clamp(58px, 14vw, 76px);
+  }
+
+  .score-all-partitur-btn {
+    width: min(100%, 244px);
+    height: 52px;
+    padding: 0 22px;
+    font-size: 14px;
+  }
+}
+
 .score-header {
   width: min(1144px, calc(100% - 48px));
   margin: 0 auto 28px;

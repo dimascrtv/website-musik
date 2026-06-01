@@ -760,6 +760,16 @@ function initScoreGallery() {
     });
   });
 
+  document.querySelectorAll('.score-library-grid .score-card[data-pdf-src]').forEach(card => {
+    if (card.dataset.scoreBound) return;
+    card.dataset.scoreBound = 'true';
+
+    card.addEventListener('click', () => {
+      if (!canOpenScore(card)) return;
+      openModal(card.dataset.pdfSrc, card.dataset.pdfTitle);
+    });
+  });
+
   modal.querySelectorAll('[data-score-close]').forEach(button => {
     button.addEventListener('click', closeModal);
   });
@@ -773,7 +783,8 @@ function initScoreGallery() {
   renderMobilePdfPreviews();
 }
 
-initScoreGallery();
+const scoreLibraryRender = window.renderScoreLibrary ? window.renderScoreLibrary() : Promise.resolve();
+Promise.resolve(scoreLibraryRender).finally(initScoreGallery);
 
 
   

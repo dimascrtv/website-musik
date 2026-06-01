@@ -36,7 +36,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="CSS/style.css?v=65">
+  <link rel="stylesheet" href="CSS/style.css?v=67">
   <link rel="stylesheet" href="CSS/shared-lower-sections.css?v=9">
 </head>
 
@@ -61,6 +61,7 @@
       <div class="menu">
         <a href="/">Home</a>
         <a href="#layanan-kami">Layanan Kami</a>
+        <a href="/partitur/">Partitur</a>
         <a href="#portfolio">Portofolio</a>
         <a href="#konsultasi">Konsultasi</a>
       </div>
@@ -655,7 +656,7 @@
 
 
 
-<section class="score-section" id="score-gallery">
+<section class="score-section" id="score-gallery" data-main-score-limit="6">
   <div class="score-section-heading">
     <h2 class="score-main-title">Playlist Score</h2>
   </div>
@@ -1194,6 +1195,39 @@
     </div>
   </section>
 
+  <div class="score-all-partitur-wrap">
+    <a class="score-all-partitur-btn" href="/partitur/">
+      <span>Lihat Semua Partitur</span>
+    </a>
+  </div>
+
+  <section class="score-song" aria-labelledby="mbg-mas-bahlil-ganteng-title" data-new-score>
+    <div class="score-header">
+      <div class="score-copy">
+        <p class="score-kicker">MBG</p>
+        <h3 class="score-title" id="mbg-mas-bahlil-ganteng-title">Mas Bahlil Ganteng</h3>
+      </div>
+      <div class="score-actions">
+        <button class="score-buy-btn" type="button">Free</button>
+      </div>
+    </div>
+
+    <div class="score-outer" data-score-track>
+      <div class="score-track">
+        <button class="score-card" type="button" data-pdf-src="DOKUMEN/Piano Score Bahlil.pdf" data-pdf-title="Mas Bahlil Ganteng - Piano">
+          <span class="score-preview">
+            <object data="DOKUMEN/Piano Score Bahlil.pdf#page=1&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0&amp;view=FitH" type="application/pdf" aria-label="Preview PDF Mas Bahlil Ganteng Piano"></object>
+            <span class="score-fallback">PDF</span>
+          </span>
+          <span class="score-meta">
+            <span class="score-card-title">Piano</span>
+            <span class="score-composer">MBG</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <section class="score-song" aria-labelledby="beyonce-love-on-top-title" data-drive-url="https://drive.google.com/drive/folders/11bWyM4Z1YY0IxN2M_6VfmKCi8lmW7-6Z?usp=sharing">
     <div class="score-header">
       <div class="score-copy">
@@ -1567,8 +1601,8 @@
 
   </div>
 </section>
-<script src="JS/mobile-menu.js?v=10"></script>
-<script src="JS/script.js?v=24"></script>
+<script src="JS/mobile-menu.js?v=14"></script>
+<script src="JS/script.js?v=25"></script>
 
 </body>
 </html>

@@ -3,10 +3,10 @@
   const menuLinks = [
     { label: "Home", href: homeBase },
     { label: "Layanan Kami", target: "layanan-kami" },
+    { label: "Partitur", href: "/partitur/" },
     { label: "Portofolio", target: "portfolio" },
     { label: "Konsultasi", target: "konsultasi" }
   ];
-
   function isSubPage() {
     const path = window.location.pathname.replace(/\/+$/, "");
     return path !== "" && path !== "/index.html";
@@ -207,6 +207,11 @@
           left: 24px;
           z-index: 9000;
           display: flex;
+        }
+
+        .navbar .menu,
+        .hero .menu {
+          display: none !important;
         }
       }
 
