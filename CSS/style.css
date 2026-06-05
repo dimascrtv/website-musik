@@ -1037,7 +1037,7 @@ html {
 }
 
 .ns-1 .ns-main-img {
-  background: url('../IMAGE/GD jasa aransemen musik & orkestrasi.png') no-repeat center;
+  background: url('../IMAGE/GD jasa aransement.png') no-repeat center;
   background-size: contain; /* 🔥 GANTI INI */
 }
 
@@ -1050,7 +1050,7 @@ html {
 }
 
 .ns-2 .ns-main-img {
-  background: url('../IMAGE/GD vokal rekording.png') no-repeat center;
+  background: url('../IMAGE/GD penulisan partitur.png') no-repeat center;
   background-size: contain;
 }
 
@@ -2600,7 +2600,7 @@ html {
   margin-top: 108px;
 }
 
-.score-section[data-main-score-limit="6"] .score-song:nth-of-type(n+7) {
+.score-section[data-main-score-limit="3"] .score-song:nth-of-type(n+4) {
   display: none;
 }
 
