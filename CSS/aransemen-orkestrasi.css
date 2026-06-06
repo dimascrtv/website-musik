@@ -1613,7 +1613,8 @@ img {
   justify-content: space-between;
   overflow: hidden;
   color: #ffffff;
-  background: #064e3b;
+  background: transparent;
+  border: 0.5px solid #064e3b;
   border-radius: 18px;
   position: relative;
   isolation: isolate;
@@ -1626,7 +1627,7 @@ img {
   inset: 0;
   z-index: -2;
   background: var(--branch-image) center / cover no-repeat;
-  opacity: 0.82;
+  opacity: 0;
   transform: scale(1.02);
   transition: transform 0.45s ease, opacity 0.35s ease;
 }
@@ -1636,18 +1637,17 @@ img {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(0deg, rgba(2, 18, 14, 0.94) 0%, rgba(4, 37, 29, 0.76) 48%, rgba(6, 78, 59, 0.38) 100%),
-    linear-gradient(90deg, rgba(4, 29, 23, 0.54), rgba(6, 78, 59, 0.22));
+  background: transparent;
 }
 
 .branch-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(6, 78, 59, 0.16);
+  background: rgba(6, 78, 59, 0.04);
+  box-shadow: 0 18px 35px rgba(6, 78, 59, 0.08);
 }
 
 .branch-card:hover::before {
-  opacity: 0.9;
+  opacity: 0;
   transform: scale(1.08);
 }
 
@@ -1661,7 +1661,7 @@ img {
 
 .branch-card h3 {
   max-width: 270px;
-  color: #ffffff;
+  color: #064e3b;
   font-size: 22px;
   font-weight: 600;
   line-height: 1.16;
@@ -1669,7 +1669,7 @@ img {
 
 .branch-card p {
   margin-top: 18px;
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(6, 78, 59, 0.78);
   font-size: 14px;
   line-height: 24px;
 }
@@ -1679,7 +1679,7 @@ img {
   align-items: center;
   gap: 10px;
   margin-top: 28px;
-  color: #ffffff;
+  color: #064e3b;
   font-size: 14px;
   font-weight: 700;
 }
